@@ -1,4 +1,4 @@
-# FresherNote
+# Crossword
 
 [Heroku link][heroku] **NB:** This should be a link to your production site
 
@@ -6,11 +6,26 @@
 
 ## Minimum Viable Product
 
-FresherNote is a web application inspired by Evernote built using Ruby on Rails
-and React.js. FresherNote allows users to:
+Crossword is a web application that allows users to play interactive crossword puzzles.  Built with Ruby on Rails and React.js, Crossword allows users to:
+
+* Create an account
+* Log in / Log Out
+* Track game performance statistics and compare against other players
+* Select puzzles based on skill level or theme
+* Play crossword puzzles with interactive features:
+  * Check if square, word, or puzzle is correct
+  * Reveal square, word, or puzzle
+  * Clear entire puzzle
+  * In-puzzle highlighting of selected clue
+  * 'Pencil' option for educated guesses
+  * Auto-repositioning of current square for quick solving
+  * Timer showing time-elapsed
+
+<!-- FresherNote is a web application inspired by Evernote built using Ruby on Rails
+and React.js. FresherNote allows users to: -->
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
-
+<!--
 - [ ] Create an account
 - [ ] Log in / Log out
 - [ ] Create, read, edit, and delete notes
@@ -18,7 +33,7 @@ and React.js. FresherNote allows users to:
 - [ ] Tag notes with multiple tags and search notes by tag
 - [ ] Search through notes for blocks of text
 - [ ] Apply complex styling to notes while editing
-- [ ] Set reminders on notes
+- [ ] Set reminders on notes -->
 
 ## Design Docs
 * [View Wireframes][view]
