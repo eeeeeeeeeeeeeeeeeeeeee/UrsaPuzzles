@@ -17,8 +17,8 @@ author      | string    | not null
 difficulty  | string    | not null, indexed, in ["easy", "medium", "hard"]
 empty_grid  | array     | not null (2-d, each square is black, blank, or has number for clue)
 full_grid   | array     | not null (2-d, each square is nil or a letter)
-across_clues| array/hash| not null (each number points to clue)
-down_clues  | array/hash| not null (each number points to clue)
+across_clues| hash      | not null (each number points to clue)
+down_clues  | hash      | not null (each number points to clue)
 
 ## gameplay
 column name | data type | details

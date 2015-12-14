@@ -3,18 +3,17 @@
 ## Rails
 ### Models
 * User
-* Note
+* Puzzle
 
 ### Controllers
 * UsersController (create, new)
 * SessionsController (create, new, destroy)
-* Api::NotesController (create, destroy, index, show, update)
+* PuzzlesController (show, index)
 
 ### Views
 * users/new.html.erb
 * session/new.html.erb
-* notes/index.json.jbuilder
-* notes/show.json.jbuilder
+* puzzle/show.html.erb
 
 ## Flux
 ### Views (React Components)
