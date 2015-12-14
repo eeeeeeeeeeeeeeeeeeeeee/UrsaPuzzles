@@ -1,44 +1,31 @@
-# Phase 3: Notebooks and Tags (2 days)
+# Phase 3: Interactivity (2 Days)
 
 ## Rails
 ### Models
-* Notebook
-* Tag
-* Tagging
 
 ### Controllers
-* Api::NotebooksController (create, destroy, index, show, update)
 
 ### Views
-* notebooks/index.json.jbuilder
-* notebooks/show.json.jbuilder
-* tags/show.json.jbuilder
+* puzzle/show.json.jbuilder
 
 ## Flux
 ### Views (React Components)
-* NotebooksIndex
-  - NotebookIndexItem
-* NotebookForm
-* SearchIndex
+* PuzzleGrid
+* DownClues
+* AcrossClues
 
 ### Stores
-* Notebook
+* Puzzle
+* User
 
 ### Actions
-* ApiActions.receiveAllNotebooks -> triggered by ApiUtil
-* ApiActions.receiveSingleNotebook
-* ApiActions.deleteNotebook
-* NotebookActions.fetchAllNotebooks -> triggers ApiUtil
-* NotebookActions.fetchSingleNotebook
-* NotebookActions.createNotebook
-* NotebookActions.editNotebook
-* NotebookActions.destroyNotebook
+* KeyActions.letterTyped
+* ApiActions.revealSingleSquare
+* ApiActions.revealWord
 
 ### ApiUtil
-* ApiUtil.fetchAllNotebooks
-* ApiUtil.fetchSingleNotebook
-* ApiUtil.createNotebook
-* ApiUtil.editNotebook
-* ApiUtil.destroyNotebook
+* ApiUtil.fetchSingleSquare
+* ApiUtil.fetchWord
+* ApiUtil.fetchAllSquares
 
 ## Gems/Libraries

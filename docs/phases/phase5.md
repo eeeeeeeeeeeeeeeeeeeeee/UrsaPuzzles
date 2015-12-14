@@ -1,40 +1,43 @@
-# Phase 5: Reminders and Garbage Collection
+# Phase 5: Statistics and Homepage (1 day)
 
 ## Rails
 ### Models
-* Reminder
+* User
+* Puzzle
 
 ### Controllers
-* Api::RemindersController (create, destroy, index, show, update)
+* UsersController
 
 ### Views
-* reminders/index.json.jbuilder
+* puzzle/index.json.jbuilder
 
 ## Flux
 ### Views (React Components)
-* RemindersIndex
-  - ReminderIndexItem
-* ReminderShow
-* ReminderForm
+* UserStats
+* UserCurrentGame
+* PuzzleEasy
+  * PuzzleEasyItem
+* PuzzleMedium
+  * PuzzleMediumItem
+* PuzzleHard
+  * PuzzleHardItem
 
 ### Stores
-* Reminder
+* User
+* Puzzle
 
 ### Actions
-* ApiActions.receiveAllReminders -> triggered by ApiUtil
-* ApiActions.receiveSingleReminder
-* ApiActions.deleteReminder
-* ReminderActions.fetchAllReminders -> triggers ApiUtil
-* ReminderActions.fetchSingleReminder
-* ReminderActions.createReminder
-* ReminderActions.updateReminder
-* ReminderActions.destroyReminder
+* ApiActions.receivePlayerStats
+* ApiActions.receiveEasyPuzzles
+* ApiActions.receiveMediumPuzzles
+* ApiActions.receiveHardPuzzles
+* ApiActions.receiveCurrentGame
 
 ### ApiUtil
-* ApiUtil.fetchAllReminders
-* ApiUtil.fetchSingleReminder
-* ApiUtil.createReminder
-* ApiUtil.updateReminder
-* ApiUtil.destroyReminder
+* ApiUtil.fetchPlayerStats
+* ApiUtil.fetchEasyPuzzles
+* ApiUtil.fetchMediumPuzzles
+* ApiUtil.fetchHardPuzzles
+* ApiUtil.fetchCurrentGame
 
 ## Gems/Libraries

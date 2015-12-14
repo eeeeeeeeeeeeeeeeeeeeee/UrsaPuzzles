@@ -1,4 +1,4 @@
-# Phase 2: Flux Architecture and Note CRUD (2 days)
+# Phase 2: Flux Architecture and Static Puzzle Rendering (2 days)
 
 ## Rails
 ### Models
@@ -6,33 +6,28 @@
 ### Controllers
 
 ### Views
+* puzzle/show.json.jbuilder
 
 ## Flux
 ### Views (React Components)
-* NotesIndex
-  - NotesIndexItem
-* NoteForm
+* PuzzleGrid
+* DownClues
+* AcrossClues
 
 ### Stores
-* Note
+* Puzzle
+* User
 
 ### Actions
-* ApiActions.receiveAllNotes -> triggered by ApiUtil
-* ApiActions.receiveSingleNote
-* ApiActions.deleteNote
-* NoteActions.fetchAllNotes -> triggers ApiUtil
-* NoteActions.fetchSingleNote 
-* NoteActions.createNote
-* NoteActions.editNote 
-* NoteActions.destroyNote
+* ApiActions.receiveAllSquares
+* ApiActions.receiveSingleSquare
+* ApiActions.receiveWord
 
 ### ApiUtil
-* ApiUtil.fetchAllNotes
-* ApiUtil.fetchSingleNote
-* ApiUtil.createNote
-* ApiUtil.editNote
-* ApiUtil.destroyNote
+* ApiUtil.fetchSingleSquare
+* ApiUtil.fetchWord
+* ApiUtil.fetchAllSquares
+
 
 ## Gems/Libraries
-* Flux Dispatcher (npm)
-* Twitter Bootstrap
+* Flux Dispatcher

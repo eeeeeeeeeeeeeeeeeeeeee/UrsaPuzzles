@@ -49,7 +49,7 @@ Phase 3 will focus on making the game interactive.  There are many conditions to
 
 [Details][phase-three]
 
-### Phase 4: Check and reveal (1 day)
+### Phase 4: Check and Reveal (1 day)
 
 Phase 4 is dedicated to adding features to assist the user in solving the puzzles.  A user can choose to reveal or check a single box, word, or the entire puzzle.  This will prevent the win from being counted towards the player's statistics.  I will also add notifications about winning and statistics.  
 

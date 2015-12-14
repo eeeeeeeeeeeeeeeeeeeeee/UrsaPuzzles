@@ -1,4 +1,4 @@
-# Phase 1: User Authentication, Note Model and JSON API
+# Phase 1: User Authentication, Rails Backend, and Basic DB Seeding
 
 ## Rails
 ### Models
@@ -8,12 +8,14 @@
 ### Controllers
 * UsersController (create, new)
 * SessionsController (create, new, destroy)
-* PuzzlesController (show, index)
+* Api::PuzzlesController (show, index)
 
 ### Views
 * users/new.html.erb
 * session/new.html.erb
 * puzzle/show.html.erb
+* puzzle/show.json.jbuilder
+* puzzle/index.json.jbuilder
 
 ## Flux
 ### Views (React Components)
