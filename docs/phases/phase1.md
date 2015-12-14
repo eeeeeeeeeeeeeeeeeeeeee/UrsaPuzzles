@@ -4,6 +4,7 @@
 ### Models
 * User
 * Puzzle
+* Clues 
 
 ### Controllers
 * UsersController (create, new)

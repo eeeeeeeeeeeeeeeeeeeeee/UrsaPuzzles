@@ -17,8 +17,15 @@ author      | string    | not null
 difficulty  | string    | not null, indexed, in ["easy", "medium", "hard"]
 empty_grid  | array     | not null (2-d, each square is black, blank, or has number for clue)
 full_grid   | array     | not null (2-d, each square is nil or a letter)
-across_clues| hash      | not null (each number points to clue)
-down_clues  | hash      | not null (each number points to clue)
+
+## clues
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+puzzle_id   | integer   | not null, foreign key, indexed
+clue_number | integer   | not null, unique, indexed
+across      | boolean   | not null (true = across, false = down)
+description | string    | not null
 
 ## gameplay
 column name | data type | details

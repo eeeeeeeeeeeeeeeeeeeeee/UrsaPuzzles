@@ -1,6 +1,6 @@
 # Crossword
 
-[Heroku link][heroku] **NB:** This should be a link to your production site
+[Heroku link][heroku]
 
 [heroku]: http://www.herokuapp.com
 
@@ -11,7 +11,7 @@ Erato is a web application that allows users to play interactive crossword puzzl
 * Create an account
 * Log in / Log Out
 * Track game performance statistics
-* Select puzzles based on skill level or theme
+* Select puzzles based on skill level
 * Play crossword puzzles with interactive features:
   * Check if square, word, or puzzle is correct
   * Reveal square, word, or puzzle
