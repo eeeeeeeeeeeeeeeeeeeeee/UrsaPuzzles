@@ -39,7 +39,7 @@ For this phase, I plan to build the user signup and authentication process using
 
 ### Phase 2: Flux Architecture and Static Puzzle Rendering (2 days)
 
-In Phase 2 I will work on setting up the Flux architecture, React Router, and the React views for my app.  The majority of my work with React will be on the puzzle page itself, so in this phase I want to ensure I can render at least a static, fully filled in puzzle page.  This will include square number labelling, scroll boxes for down and across puzzle clues, and puzzle information.  This phase will require integration of HTML, CSS, and React.  
+In Phase 2 I will work on setting up the Flux architecture, React Router, and the React views for my app.  The majority of my work with React will be on the puzzle page itself, so in this phase I want to ensure I can render at least a static, fully filled in puzzle page.  This will include square number labelling, scroll boxes for down and across puzzle clues, and puzzle information.  This phase will require integration of CSS, Bootstrap, and React.  
 
 [Details][phase-two]
 
@@ -71,6 +71,7 @@ Add final touches to styling and improve overall UI as neccessary.  I also will 
 * Advanced statistics and metrics reporting
 * Live stats on other users activity
 * Email confirmation upon signup
+* Dictionary lookup
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md

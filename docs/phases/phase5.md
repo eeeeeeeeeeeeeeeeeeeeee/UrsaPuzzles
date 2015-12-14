@@ -4,6 +4,7 @@
 ### Models
 
 ### Controllers
+* Api::GamePlayController (index, show)
 
 ### Views
 
@@ -35,3 +36,4 @@
 * ApiUtil.fetchCurrentGame
 
 ## Gems/Libraries
+* Bootstrap 
