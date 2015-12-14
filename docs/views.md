@@ -12,11 +12,11 @@
 ## Puzzle Player
 ![puzzle-player]
 
-## Component Heirarchy
-![component-heirarchy]
+## Component Hierarchy
+![component-hierarchy]
 
 [new-user]: ./wireframes/new_user.png
 [new-session]: ./wireframes/new_session.png
-[homepage]: ./wireframes/user_homepage.png
+[user-homepage]: ./wireframes/user_homepage.png
 [puzzle-player]: ./wireframes/puzzle_player.png
-[component-heirarchy]: ./wireframes/component_heirarchy.png
+[component-hierarchy]: ./wireframes/component_hierarchy.png
