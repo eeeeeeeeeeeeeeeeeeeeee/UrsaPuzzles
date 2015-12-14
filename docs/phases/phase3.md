@@ -6,17 +6,16 @@
 ### Controllers
 
 ### Views
-* puzzle/show.json.jbuilder
 
 ## Flux
 ### Views (React Components)
 * PuzzleGrid
 * DownClues
 * AcrossClues
+* Timer
 
 ### Stores
 * Puzzle
-* User
 
 ### Actions
 * KeyActions.letterTyped
@@ -29,3 +28,4 @@
 * ApiUtil.fetchAllSquares
 
 ## Gems/Libraries
+* React.js

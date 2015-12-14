@@ -6,13 +6,10 @@
 ### Controllers
 
 ### Views
-* puzzle/show.json.jbuilder
 
 ## Flux
 ### Views (React Components)
-* PuzzleGrid
-* DownClues
-* AcrossClues
+* Helper
 
 ### Stores
 
@@ -20,10 +17,12 @@
 
 * ApiActions.revealSingleSquare
 * ApiActions.revealWord
-* ApiActions.revealPuzzle
+* ApiActions.revealAllSquares
 * ApiActions.checkSingleSquare
 * ApiActions.checkWord
 * ApiActions.checkFullPuzzle
+
+### ApiUtil
 
 
 ## Gems/Libraries

@@ -2,14 +2,10 @@
 
 ## Rails
 ### Models
-* User
-* Puzzle
 
 ### Controllers
-* UsersController
 
 ### Views
-* puzzle/index.json.jbuilder
 
 ## Flux
 ### Views (React Components)
@@ -23,8 +19,6 @@
   * PuzzleHardItem
 
 ### Stores
-* User
-* Puzzle
 
 ### Actions
 * ApiActions.receivePlayerStats

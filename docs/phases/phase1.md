@@ -4,17 +4,17 @@
 ### Models
 * User
 * Puzzle
-* Clues 
+* Clues
 
 ### Controllers
 * UsersController (create, new)
 * SessionsController (create, new, destroy)
 * Api::PuzzlesController (show, index)
+* Api::CluesController (show, index)
 
 ### Views
 * users/new.html.erb
 * session/new.html.erb
-* puzzle/show.html.erb
 * puzzle/show.json.jbuilder
 * puzzle/index.json.jbuilder
 

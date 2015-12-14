@@ -6,21 +6,17 @@
 ## New Session
 ![new-session]
 
-## NotesIndex / NoteIndexItem / NoteForm
-![notes]
+## User Homepage
+![user-homepage]
 
-## NotebooksIndex / NotebookIndexItem
-![notebooks]
-
-## NoteBookForm
-![notebook-form]
+## Puzzle Player
+![puzzle-player]
 
 ## Component Heirarchy
 ![component-heirarchy]
 
 [new-user]: ./wireframes/new_user.png
 [new-session]: ./wireframes/new_session.png
-[notes]: ./wireframes/root_notes.png
-[notebooks]: ./wireframes/root_notebooks.png
-[notebook-form]: ./wireframes/notebook_form.png
+[homepage]: ./wireframes/user_homepage.png
+[puzzle-player]: ./wireframes/puzzle_player.png
 [component-heirarchy]: ./wireframes/component_heirarchy.png

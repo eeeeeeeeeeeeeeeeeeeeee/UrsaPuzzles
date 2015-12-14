@@ -6,7 +6,8 @@
 ### Controllers
 
 ### Views
-* puzzle/show.json.jbuilder
+* clue/index.json.jbuilder
+* clue/show.json.jbuilder
 
 ## Flux
 ### Views (React Components)
@@ -17,16 +18,21 @@
 ### Stores
 * Puzzle
 * User
+* Clue
 
 ### Actions
-* ApiActions.receiveAllSquares
 * ApiActions.receiveSingleSquare
 * ApiActions.receiveWord
+* ApiActions.receiveAllSquares
+* ClueActions.receiveAcrossClues
+* ClueActions.receiveDownClues
 
 ### ApiUtil
 * ApiUtil.fetchSingleSquare
 * ApiUtil.fetchWord
 * ApiUtil.fetchAllSquares
+* ApiUtil.fetchAcrossClues
+* ApiUtil.fetchDownClues
 
 
 ## Gems/Libraries
