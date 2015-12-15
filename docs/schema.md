@@ -15,8 +15,8 @@ id          | integer   | not null, primary key
 title       | string    | not null
 author      | string    | not null
 difficulty  | string    | not null, indexed, in ["easy", "medium", "hard"]
-empty_grid  | array     | not null (2-d, each square is black, blank, or has number for clue)
-answer_grid | array     | not null (2-d, each square is nil or a letter)
+empty_grid  | JSON      | not null (2-d, each square is black, blank, or has number for clue)
+answer_grid | JSON      | not null (2-d, each square is nil or a letter)
 
 ## clues
 column name | data type | details
