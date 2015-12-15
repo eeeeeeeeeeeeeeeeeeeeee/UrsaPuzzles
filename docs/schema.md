@@ -36,4 +36,4 @@ user_id     | integer   | not null, foreign key, indexed
 won         | boolean   | not null, default: false
 time_elapsed| time      | (will be instantiated when user opens puzzle)
 hints_used  | boolean   | not null, default: false
-current_board_state | array   | not null, default: empty_grid via puzzle_id foreign key
+current_board_state | text   | not null, default: empty_grid via puzzle_id foreign key
