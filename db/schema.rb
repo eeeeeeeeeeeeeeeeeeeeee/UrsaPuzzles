@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151215185919) do
+ActiveRecord::Schema.define(version: 20151215194444) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "clues", force: :cascade do |t|
+    t.integer  "puzzle_id",   null: false
+    t.integer  "clue_number", null: false
+    t.boolean  "across",      null: false
+    t.string   "description", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "clues", ["clue_number"], name: "index_clues_on_clue_number", using: :btree
+  add_index "clues", ["puzzle_id"], name: "index_clues_on_puzzle_id", using: :btree
 
   create_table "puzzles", force: :cascade do |t|
     t.string   "title",       null: false
