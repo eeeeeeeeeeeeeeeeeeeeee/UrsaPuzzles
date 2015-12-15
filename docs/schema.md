@@ -27,7 +27,7 @@ clue_number | integer   | not null, unique, indexed
 across      | boolean   | not null (true = across, false = down)
 description | string    | not null
 
-## gameplay
+## game
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key

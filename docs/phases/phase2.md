@@ -34,6 +34,9 @@
 * ApiUtil.fetchAcrossClues
 * ApiUtil.fetchDownClues
 
+fetch all full puzzle 
+fetch all clues
+
 
 ## Gems/Libraries
 * Flux Dispatcher
