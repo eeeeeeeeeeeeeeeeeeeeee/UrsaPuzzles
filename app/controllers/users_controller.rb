@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       sign_in(@user)
-      redirect_to links_url
+      redirect_to user_url(@user)
     else
       flash.now[:errors] = @user.errors.full_messages
       render :new
@@ -19,5 +19,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:password, :username)
   end
-  
+
 end
