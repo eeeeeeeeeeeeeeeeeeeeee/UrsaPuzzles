@@ -15,8 +15,8 @@ id          | integer   | not null, primary key
 title       | string    | not null
 author      | string    | not null
 difficulty  | string    | not null, indexed, in ["easy", "medium", "hard"]
-empty_grid  | JSON      | not null (2-d, each square is black, blank, or has number for clue)
-answer_grid | JSON      | not null (2-d, each square is nil or a letter)
+empty_grid  | text      | not null (column type is text - model converts to JSON - seeder just enters array; each square is black, blank, or has number for clue)
+answer_grid | text      | not null (column type is text - model converts to JSON - seeder just enters array; each square is nil or a letter)
 
 ## clues
 column name | data type | details

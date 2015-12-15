@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+Puzzle.create!(title: "test puzzle",
+               author: "Claire Rogers",
+               difficulty: "easy",
+               empty_grid: [[:black, :blank, 1], [:blank, 2, :black], [3, :black, :blank]],
+               answer_grid: [[nil, 'A', 'B'], ['C', 'D', nil], ['E', nil, 'F']])
