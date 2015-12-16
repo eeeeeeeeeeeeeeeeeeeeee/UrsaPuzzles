@@ -3,8 +3,7 @@ var Store = require('flux/utils').Store;
 var PuzzleConstants = require('../constants/puzzle_constants');
 var AppDispatcher = require('../dispatcher/dispatcher');
 var _game = [];
-
-var _id, _author, _difficulty, _emptyGrid, _answerGrid;
+var _gameParams = { id: null, author: null, difficulty: null, emptyGrid: null, answerGrid: null };
 
 var GameStore = new Store(AppDispatcher);
 
@@ -16,19 +15,17 @@ var GameStore = new Store(AppDispatcher);
 //   return _puzzles.slice(0);
 // };
 
+GameStore.getGame = function () {
+  return _game.slice(0);
+}
 
-// GameStore.__onDispatch = function (payload) {
-//   switch(payload.actionType) {
-//     case PuzzleConstants.PUZZLES_RECEIVED:
-//       _id = payload.puzzles
-//
-//
-//
-//       // resetPuzzles(payload.puzzles);
-//       _puzzles = puzzles;
-//       PuzzleStore.__emitChange();
-//       break;
-//   }
-// };
+GameStore.__onDispatch = function (payload) {
+  switch(payload.actionType) {
+    case PuzzleConstants.GAME_RECEIVED:
+      _game = [payload.game]
+      GameStore.__emitChange();
+      break;
+  }
+};
 
-module.exports = PuzzleStore;
+module.exports = GameStore;

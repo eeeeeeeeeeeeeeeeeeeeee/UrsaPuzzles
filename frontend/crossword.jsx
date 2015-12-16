@@ -10,6 +10,7 @@ var Home = require('./components/home');
 
 var ApiUtil = require('./util/api_util');
 var ApiActions = require('./actions/api_actions');
+var GameContainer = require('./components/game_container');
 
 window.apiUtil = ApiUtil;
 window.apiActions = ApiActions;
@@ -30,6 +31,7 @@ var App = React.createClass({
 var routes = (
   <Route path="/" component={App}>
     <Route path="home" component={Home}/>
+    <Route path="puzzleplayer" component={GameContainer}/>
   </Route>
 );
 

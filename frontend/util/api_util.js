@@ -11,6 +11,17 @@ var ApiUtil = {
     });
   },
 
+  createGame: function(info) {
+    $.ajax({
+      type: 'POST',
+      url: 'api/games',
+      data: { game: info },
+      success: function(game) {
+        ApiActions.receiveGame(game);
+      }
+    });
+  }
+
   // createGame post request returns puzzle
   //
   // fetchPuzzle: function(id) {

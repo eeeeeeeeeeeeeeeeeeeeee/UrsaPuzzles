@@ -24,11 +24,23 @@ var Home = React.createClass({
     this.puzzleListener.remove();
   },
 
+  handleClick: function(event) {
+    event.preventDefault();
+    debugger
+    var game = { id: 4 };
+  },
+
   render: function() {
     var puzzleListItems = "";
     if(this.state.puzzles.length !== 0) {
       puzzleListItems = this.state.puzzles.map (function(puzzle) {
-        return <li key={puzzle.id}>{puzzle.title}</li>;
+        var url = "/api/games/"+puzzle.id;
+        return ( <li key={puzzle.id}>
+                    <a href="#" onClick={this.handleClick}>
+                      {puzzle.title}
+                    </a>
+                  </li>
+               );
       });
     }
 
