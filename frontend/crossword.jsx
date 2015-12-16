@@ -31,7 +31,7 @@ var App = React.createClass({
 var routes = (
   <Route path="/" component={App}>
     <Route path="home" component={Home}/>
-    <Route path="puzzleplayer" component={GameContainer}/>
+    <Route path="puzzle/player" component={GameContainer}/>
   </Route>
 );
 

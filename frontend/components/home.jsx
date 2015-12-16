@@ -1,12 +1,14 @@
 var React = require('react');
 var PuzzleStore = require('../stores/puzzle');
 var ApiUtil = require('../util/api_util');
+var Link = require('react-router').Link
 
 function _getAllPuzzles() {
   return PuzzleStore.all();
 }
 
 var Home = React.createClass({
+
   getInitialState: function() {
     return ({ puzzles: _getAllPuzzles() });
   },
@@ -24,21 +26,20 @@ var Home = React.createClass({
     this.puzzleListener.remove();
   },
 
-  handleClick: function(event) {
-    event.preventDefault();
-    debugger
-    var game = { id: 4 };
+  handleClick: function(id, event) {
+    ApiUtil.createGame({puzzle_id: id});
   },
 
   render: function() {
     var puzzleListItems = "";
+    var that = this;
+
     if(this.state.puzzles.length !== 0) {
       puzzleListItems = this.state.puzzles.map (function(puzzle) {
-        var url = "/api/games/"+puzzle.id;
         return ( <li key={puzzle.id}>
-                    <a href="#" onClick={this.handleClick}>
+                    <Link to="/puzzle/player" onClick={that.handleClick.bind(null, puzzle.id)}>
                       {puzzle.title}
-                    </a>
+                    </Link>
                   </li>
                );
       });
