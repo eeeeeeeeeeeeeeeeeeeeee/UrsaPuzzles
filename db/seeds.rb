@@ -12,3 +12,9 @@ Puzzle.create!(title: "test puzzle",
                difficulty: "easy",
                empty_grid: [[:black, :blank, 1], [:blank, 2, :black], [3, :black, :blank]],
                answer_grid: [[nil, 'A', 'B'], ['C', 'D', nil], ['E', nil, 'F']])
+
+Puzzle.create!(title: "puzzle 2",
+              author: "kirkpatrick",
+              difficulty: "medium",
+              empty_grid: [[:blank, 1, 2], [:black, 3, :black], [:blank, 4, 5]],
+              answer_grid: [['A', 'B', 'C'], [nil, 'D', nil], ['E', 'X', 'F']])

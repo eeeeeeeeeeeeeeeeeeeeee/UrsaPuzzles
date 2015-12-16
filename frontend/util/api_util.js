@@ -1,32 +1,26 @@
 var ApiActions = require('../actions/api_actions.js');
 
+
 var ApiUtil = {
-  fetchPuzzle: function(id) {
+  fetchPuzzles: function() {
     $.ajax({
       url: 'api/puzzles',
-      data: { id: id },
-      success: function(puzzle) {
-        ApiActions.receivePuzzle(puzzle);
+      success: function(puzzles) {
+        ApiActions.receivePuzzles(puzzles);
       }
     });
   },
 
-  // fetchPuzzle: function(){
-  //   var filter = FilterParamsStore.params();
-  //   $.get('api/benches', filter, function(benches){
-  //     ApiActions.receiveAll(benches);
+  // createGame post request returns puzzle
+  //
+  // fetchPuzzle: function(id) {
+  //   $.ajax({
+  //     url: 'api/puzzles',
+  //     data: { id: id },
+  //     success: function(puzzle) {
+  //       ApiActions.receivePuzzle(puzzle);
+  //     }
   //   });
-  // },
-  // createBench: function(data){
-  //   $.post('api/benches', { bench: data }, function(bench) {
-  //     ApiActions.receiveAll([bench]);
-  //   });
-  // },
-  // createReview: function(data) {
-  //   $.post('api/reviews', { review: data }, function (bench) {
-  //     ApiActions.receiveAll([bench]);
-  //   });
-  // }
 };
 
 module.exports = ApiUtil;

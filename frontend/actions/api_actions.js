@@ -1,6 +1,7 @@
 var AppDispatcher = require('../dispatcher/dispatcher');
 var PuzzleConstants = require('../constants/puzzle_constants');
 
+
 var ApiActions = {
   receivePuzzles: function(puzzles){
     AppDispatcher.dispatch({

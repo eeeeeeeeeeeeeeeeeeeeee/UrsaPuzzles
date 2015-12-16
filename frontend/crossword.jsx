@@ -6,9 +6,14 @@ var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var IndexRoute = ReactRouter.IndexRoute;
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   ReactDOM.render(<Search/>, document.getElementById('root'));
-// });
+var Home = require('./components/home');
+
+var ApiUtil = require('./util/api_util');
+var ApiActions = require('./actions/api_actions');
+
+window.apiUtil = ApiUtil;
+window.apiActions = ApiActions;
+
 
 
 var App = React.createClass({
@@ -16,7 +21,7 @@ var App = React.createClass({
     return (
       <div>
         <header><h1>Crossword!!!</h1></header>
-        <h2>Crossword!</h2>
+        {this.props.children}
       </div>
     );
   }
@@ -24,12 +29,10 @@ var App = React.createClass({
 
 var routes = (
   <Route path="/" component={App}>
-    // <IndexRoute component={Home}/>
-    // <Route path="game/:gameId" component={GameContainer}/>
-
-    // <Route path="benches/:benchId" component={BenchShow}>
-    //   <Route path="review" components={ReviewForm}/>
-    // </Route>
+    <Route path="home" component={Home}/>
   </Route>
 );
+
+
+
 ReactDOM.render(<Router>{routes}</Router>, root);
