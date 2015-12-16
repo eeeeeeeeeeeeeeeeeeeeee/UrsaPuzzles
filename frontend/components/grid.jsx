@@ -23,7 +23,7 @@ var Grid = React.createClass({
     return (
       <div>
         <table>
-
+          {rows}
         </table>
       </div>
 
