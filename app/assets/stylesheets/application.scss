@@ -1,2 +1,30 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.grid-square {
+  float: left;
+  height: 35px;
+  width: 35px;
+  border: 1px solid "grey";
+}
+
+.grid-square.black {
+  background: black;
+}
+
+.grid {
+  width: 550px;
+  height: 565px;
+  display: inline-block;
+  margin-top: 0;
+  opacity: 1;
+  border: 5px solid "black";
+}
+
+.clue-number {
+  color: black;
+  font-size: 11px;
+  font-family: Arial;
+  padding: 0px 1px 0px 1px;
+  z-index: 1;
+}
