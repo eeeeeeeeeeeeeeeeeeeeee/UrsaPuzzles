@@ -11,9 +11,13 @@ var Home = require('./components/home');
 var ApiUtil = require('./util/api_util');
 var ApiActions = require('./actions/api_actions');
 var GameContainer = require('./components/game_container');
+var PuzzleStore = require('./stores/puzzle');
+var GameStore = require('./stores/game');
 
 window.apiUtil = ApiUtil;
 window.apiActions = ApiActions;
+window.puzzleStore = PuzzleStore;
+window.gameStore = GameStore;
 
 
 
