@@ -8,6 +8,8 @@
   border-right: 1px solid gray;
   border-bottom: 1px solid gray;
   background: white;
+  text-transform: uppercase;
+
 }
 
 .grid-square:nth-child(15n) {
@@ -42,6 +44,7 @@
   font-family: Arial;
   padding: 0px 1px 0px 1px;
   z-index: 1;
+  position: absolute;
 }
 
 .user-login {
@@ -55,4 +58,22 @@
 .sign-up-form {
   background-color: rgba(192,192,192, .5);
   font-family: 'Poiret One', cursive;
+  width: 400px;
+  margin: auto;
+  margin-top: 100px;
+  height: 250px;
+
+}
+
+.user-type {
+  width: 35px;
+  height: 35px;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: black;
+  text-align: center;
+  position: absolute;
+  font-size: 25px;
+  padding-top: 7px;
 }

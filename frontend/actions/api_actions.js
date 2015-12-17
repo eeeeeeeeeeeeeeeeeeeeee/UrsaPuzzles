@@ -15,13 +15,6 @@ var ApiActions = {
       actionType: PuzzleConstants.GAME_RECEIVED,
       game: game
     });
-  },
-
-  receiveTypedLetter: function(letter) {
-    AppDispatcher.dispatch({
-      actionType: PuzzleConstants.LETTER_ENTERED,
-      letter: letter
-    })
   }
 }
 
