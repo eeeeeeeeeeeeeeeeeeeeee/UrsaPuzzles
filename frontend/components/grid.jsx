@@ -48,7 +48,7 @@ var Grid = React.createClass({
     }
 
     return (
-      <div className="grid" id="grid">
+      <div className="grid clearfix" id="grid">
         {rows}
       </div>
 
