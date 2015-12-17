@@ -5,7 +5,12 @@
   float: left;
   height: 35px;
   width: 35px;
-  border: 1px solid "grey";
+  border: 1px solid gray;
+}
+
+.grid-square:nth-child(15) {
+  border-right: 5px solid green;
+  background: red;
 }
 
 .grid-square.black {
@@ -13,12 +18,12 @@
 }
 
 .grid {
-  width: 550px;
-  height: 565px;
+  width: 527px;
+  height: 527px;
   display: inline-block;
   margin-top: 0;
   opacity: 1;
-  border: 5px solid "black";
+  border: 1px solid black;
 }
 
 .clue-number {
