@@ -6,18 +6,23 @@ var Square = React.createClass({
     return ({clueNumber: this.props.clueNumber, guess: " "});
   },
 
+  // componentDidMount: function() {
+  //   document.addEventListener("keyPress", this.handleType());
+  // },
+  handleType: function() {
+
+  },
+
   render: function() {
     var square = <div className="grid-square black"></div> ;
     if(this.state.clueNumber !== null) {
       square = <div className="grid-square">
-                 <div className="clue-number">{this.state.clueNumber}</div>
+                 <div className="clue-number" onKeyPress={this.handleType}>{this.state.clueNumber}</div>
                  <div className="guess"></div>
                </div>
     }
     return (
-      <div>
-        {square}
-      </div>
+      square
     );
   }
 

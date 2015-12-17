@@ -1,34 +1,32 @@
-<div class="text-center sign-up-form" id="background">
+<div class="text-center user-login">
 
-  <h1>Sign Up!</h1>
+  <div class="sign-up-form">
+    <h1>Sign Up!</h1>
 
+    <form action="<%= users_url %>" method="post" class="form-group">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-  <form action="<%= users_url %>" method="post">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <div class="col-xs-3" >
+          <input class="form-control" type="text" name="user[username]" placeholder="username">
+      </div>
 
-    <div class="form-group col-xs-3">
-      <!-- <label>Username: -->
-        <input class="form-control" type="text" name="user[username]" placeholder="username">
-      <!-- </label> -->
-    </div>
+      <br>
+      <br>
 
-    <br>
-    <br>
+      <div class="col-xs-3">
+          <input class="form-control" type="password" name="user[password]" placeholder="password">
+      </div>
 
-    <div class="form-group col-xs-3">
-      <!-- <label>Password: -->
-        <input class="form-control" type="password" name="user[password]" placeholder="password">
-      <!-- </label> -->
-    </div>
+      <br>
+      <br>
 
-    <br>
-    <br>
+      <div class="col-xs-3">
+        <input class="form-control" type="submit" value="Sign Up">
+      </div>
 
-    <div class="form-group col-xs-3">
-      <input class="form-control" type="submit" value="Sign Up">
-    </div>
+    </form>
 
-  </form>
+  </div>
 
 
 </div>

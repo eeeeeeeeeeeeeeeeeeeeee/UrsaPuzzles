@@ -25,7 +25,6 @@ var App = React.createClass({
   render: function(){
     return (
       <div>
-        <header><h1>Crossword!!!</h1></header>
         {this.props.children}
       </div>
     );
