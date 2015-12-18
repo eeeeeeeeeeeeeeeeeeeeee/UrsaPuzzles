@@ -97,3 +97,39 @@ h1 {
   width: 350px;
   align: center;
 }
+
+.crossword-clue-list {
+  width: 375px;
+  height: 302px;
+  overflow: scroll;
+  word-wrap: break-word;
+}
+
+.clue-list-item {
+  min-height: 18px;
+  padding: 3px 3px 3px 35px;
+  position: relative;
+  list-style-type: none;
+}
+
+li.clue-list-item::before {
+  position: absolute;
+  font-weight: bold;
+  content: attr(value) ' ';
+  left: 0;
+  text-align: right;
+  width: 25px;
+}
+
+ol {
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  overflow: auto;
+  font-size: 15px;
+  max-height: 295px;
+  line-height: normal;
+  line-style: inside none;
+  margin: 10px 0 0 0;
+  padding: 5px 0 0 0;
+  display: block;
+}
