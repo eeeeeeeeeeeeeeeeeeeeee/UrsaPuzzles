@@ -110,10 +110,14 @@ body { padding-top: 70px; }
 
 
 .crossword-clue-list {
-  width: 375px;
+  width: 275px;
   height: 302px;
   overflow: scroll;
   word-wrap: break-word;
+}
+
+.clue-list-direction-header {
+  float: left;
 }
 
 .clue-list-item {
@@ -137,7 +141,6 @@ ol {
   border-top: 1px solid #ccc;
   overflow: auto;
   font-size: 15px;
-  max-height: 295px;
   line-height: normal;
   line-style: inside none;
   margin: 10px 0 0 0;
@@ -145,9 +148,21 @@ ol {
   display: block;
 }
 
-div.across-and-down-lists {
-  width: 400px;
+ol.crossword-clue-list {
+  width: 230px;
+  height: 350px;
+}
+
+.across-clues-and-header {
   float: left;
+  width: 200px;
+  margin-right: 50px;
+}
+
+.down-clues-and-header {
+  float: left;
+  width: 200px;
+  margin-right: 50px;
 }
 
 .clue-list-direction-header {
@@ -159,7 +174,7 @@ div.across-and-down-lists {
 
 .game-container {
   display: inline-block;
-  width: 1200px;
+  width: 1300px;
   height: 650px;
-  padding-left: 100px;
+  padding-left: 50px;
 }
