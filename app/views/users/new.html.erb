@@ -5,24 +5,32 @@
     <div class="sign-up-form">
       <h1>Sign Up!</h1>
 
-      <form action="<%= users_url %>" method="post" class="form-group">
+      <form action="<%= users_url %>" method="post" class="form-group has-feedback">
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-        <div  >
-            <input class="form-control" type="text" name="user[username]" placeholder="username">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-user"></span>
+          </span>
+          <input class="form-control" type="text" name="user[username]" placeholder="username">
         </div>
 
         <br>
         <br>
 
-        <div >
-            <input class="form-control" type="password" name="user[password]" placeholder="password">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-lock"></span>
+          </span>
+          <input class="form-control" type="password" name="user[password]" placeholder="password">
         </div>
 
+
+
         <br>
         <br>
 
-        <div >
+        <div>
           <input class="form-control" type="submit" value="Sign Up">
         </div>
 
