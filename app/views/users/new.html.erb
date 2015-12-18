@@ -1,32 +1,35 @@
-<div class="text-center user-login">
+<div class="user-login-page">
 
-  <div class="sign-up-form">
-    <h1>Sign Up!</h1>
+  `<div class="text-center user-login">
 
-    <form action="<%= users_url %>" method="post" class="form-group">
-      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <div class="sign-up-form">
+      <h1>Sign Up!</h1>
 
-      <div  >
-          <input class="form-control" type="text" name="user[username]" placeholder="username">
-      </div>
+      <form action="<%= users_url %>" method="post" class="form-group">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-      <br>
-      <br>
+        <div  >
+            <input class="form-control" type="text" name="user[username]" placeholder="username">
+        </div>
 
-      <div >
-          <input class="form-control" type="password" name="user[password]" placeholder="password">
-      </div>
+        <br>
+        <br>
 
-      <br>
-      <br>
+        <div >
+            <input class="form-control" type="password" name="user[password]" placeholder="password">
+        </div>
 
-      <div >
-        <input class="form-control" type="submit" value="Sign Up">
-      </div>
+        <br>
+        <br>
 
-    </form>
+        <div >
+          <input class="form-control" type="submit" value="Sign Up">
+        </div>
+
+      </form>
+
+    </div>
+
 
   </div>
-
-
 </div>

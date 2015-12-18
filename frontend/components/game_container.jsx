@@ -25,8 +25,13 @@ var GameContainer = React.createClass({
   // },
 
   render: function() {
+    var focus = "";
+    if(document.getElementById("true")) {
+      focus = document.getElementById("true").focus();
+    }
     return (
         <div className="game-container">
+          {focus}
           <Grid game={this.state.game}/>
         </div>
     );

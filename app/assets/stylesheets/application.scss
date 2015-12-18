@@ -9,16 +9,16 @@
   border-bottom: 1px solid gray;
   background: white;
   text-transform: uppercase;
-
 }
 
-.grid-square:nth-child(15n) {
-
+.grid-square.highlight {
+  background-color: yellow;
 }
 
 .grid-square.black {
   background: black;
 }
+
 
 .grid {
   width: 529px;
@@ -47,22 +47,31 @@
   position: absolute;
 }
 
-.user-login {
+.user-login-page {
   background: url(Bookshelf.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  height: 700px;
 }
 
 .sign-up-form {
-  background-color: rgba(192,192,192, .5);
+  background-color: rgba(0,0,0, .5);
   font-family: 'Poiret One', cursive;
   width: 400px;
   margin: auto;
   margin-top: 100px;
-  height: 250px;
+  height: 300px;
+  border-radius: 25px;
+  padding: 20px;
+}
 
+h1 {
+  margin-top: 0px;
+  margin-bottom: 40px;
+  font-weight: bold;
+  color: white;
 }
 
 .user-type {
@@ -76,4 +85,15 @@
   position: absolute;
   font-size: 25px;
   padding-top: 7px;
+}
+
+.form-group {
+  width: 400px;
+  padding-left: 5px;
+
+}
+
+.form-control {
+  width: 350px;
+  align: center;
 }

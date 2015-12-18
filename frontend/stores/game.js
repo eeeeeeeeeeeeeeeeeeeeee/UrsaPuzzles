@@ -26,7 +26,7 @@ GameStore.__onDispatch = function (payload) {
       break;
     case PuzzleConstants.LETTER_ENTERED:
       var idx = payload.letter.idx;
-      _currentGrid[idx] = payload.letter.letter;
+      _currentGrid[idx] = payload.letter.letter.toUpperCase();
       GameStore.__emitChange();
       break;
   }
