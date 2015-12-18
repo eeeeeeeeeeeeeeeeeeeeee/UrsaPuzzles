@@ -1,52 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.grid-square {
-  float: left;
-  height: 35px;
-  width: 35px;
-  border-right: 1px solid gray;
-  border-bottom: 1px solid gray;
-  background: white;
-  text-transform: uppercase;
-}
-
-.grid-square.highlight {
-  background-color: yellow;
-}
-
-.grid-square.black {
-  background: black;
-}
-
-
-.grid {
-  width: 529px;
-  height: 529px;
-  display: inline-block;
-  margin-top: 0;
-  opacity: 1;
-  border: 2px solid black;
-  position: absolute;
-  top: 100px;
-  right: 100px;
-}
-
-.grid:after {
-  content: "";
-  display: block;
-  clear: both;
-}
-
-.clue-number {
-  color: black;
-  font-size: 11px;
-  font-family: Arial;
-  padding: 0px 1px 0px 1px;
-  z-index: 1;
-  position: absolute;
-}
-
 .user-login-page {
   background: url(Bookshelf.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -103,6 +57,58 @@ h1 {
   width: 350px;
 }
 
+body { padding-top: 70px; }
+
+
+
+
+
+.grid-square {
+  float: left;
+  height: 35px;
+  width: 35px;
+  border-right: 1px solid gray;
+  border-bottom: 1px solid gray;
+  background: white;
+  text-transform: uppercase;
+}
+
+.grid-square.highlight {
+  background-color: yellow;
+}
+
+.grid-square.black {
+  background: black;
+}
+
+.grid {
+  width: 529px;
+  height: 529px;
+  display: inline-block;
+  margin-top: 0;
+  opacity: 1;
+  border: 2px solid black;
+  // position: absolute;
+  // top: 100px;
+  // right: 100px;
+}
+
+.grid:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.clue-number {
+  color: black;
+  font-size: 11px;
+  font-family: Arial;
+  padding: 0px 1px 0px 1px;
+  z-index: 1;
+  position: absolute;
+}
+
+
 .crossword-clue-list {
   width: 375px;
   height: 302px;
@@ -139,6 +145,11 @@ ol {
   display: block;
 }
 
+div.across-and-down-lists {
+  width: 400px;
+  float: left;
+}
+
 .clue-list-direction-header {
   font-weight: bold;
   text-transform: uppercase;
@@ -146,4 +157,9 @@ ol {
   display: block;
 }
 
-body { padding-top: 70px; }
+.game-container {
+  display: inline-block;
+  width: 1200px;
+  height: 650px;
+  padding-left: 100px;
+}

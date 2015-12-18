@@ -56,7 +56,7 @@ var ClueLists = React.createClass({
     }
 
     return (
-      <div>
+      <div className="across-and-down-lists">
         <div className="clue-list-direction-header">Across</div>
         <ol className="crossword-clue-list">
           {acrossClueListItem}

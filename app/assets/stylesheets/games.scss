@@ -1,3 +1,94 @@
 // Place all the styles related to the games controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.grid-square {
+  float: left;
+  height: 35px;
+  width: 35px;
+  border-right: 1px solid gray;
+  border-bottom: 1px solid gray;
+  background: white;
+  text-transform: uppercase;
+}
+
+.grid-square.highlight {
+  background-color: yellow;
+}
+
+.grid-square.black {
+  background: black;
+}
+
+.grid {
+  width: 529px;
+  height: 529px;
+  display: inline-block;
+  margin-top: 0;
+  opacity: 1;
+  border: 2px solid black;
+  top: 100px;
+  right: 100px;
+  float: left;
+}
+
+.grid:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.clue-number {
+  color: black;
+  font-size: 11px;
+  font-family: Arial;
+  padding: 0px 1px 0px 1px;
+  z-index: 1;
+  position: absolute;
+}
+
+
+.crossword-clue-list {
+  width: 375px;
+  height: 302px;
+  overflow: scroll;
+  word-wrap: break-word;
+}
+
+.clue-list-item {
+  min-height: 18px;
+  padding: 3px 3px 3px 35px;
+  position: relative;
+  list-style-type: none;
+}
+
+li.clue-list-item::before {
+  position: absolute;
+  font-weight: bold;
+  content: attr(value) ' ';
+  left: 0;
+  text-align: right;
+  width: 25px;
+}
+
+ol {
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+  overflow: auto;
+  font-size: 15px;
+  max-height: 295px;
+  line-height: normal;
+  line-style: inside none;
+  margin: 10px 0 0 0;
+  padding: 5px 0 0 0;
+  display: block;
+}
+
+.clue-list-direction-header {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+  display: block;
+}

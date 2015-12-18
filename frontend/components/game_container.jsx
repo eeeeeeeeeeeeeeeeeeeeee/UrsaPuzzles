@@ -17,7 +17,7 @@ var GameContainer = React.createClass({
 
     return (
         <div className="game-container">
-          <ClueLists/>
+          <ClueLists className="clue-lists"/>
           <Grid game={this.state.game}/>
         </div>
     );
