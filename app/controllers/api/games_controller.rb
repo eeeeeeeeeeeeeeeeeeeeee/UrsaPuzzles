@@ -13,9 +13,12 @@ class Api::GamesController < ApplicationController
                     time_elapsed: Time.now(),
                     current_board_state: current_board_state)
 
+    clues = Clue.where("puzzle_id = ?", game_params[:puzzle_id])
+    render json: {game: game, puzzle: puzzle, clues: clues}
+
     # render Puzzle.find_by(id: puzzle_id)
     # redirect_to api_puzzle_url(puzzle_id)
-    render json: game
+    # render json: game
   end
 
   private

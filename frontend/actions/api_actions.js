@@ -13,7 +13,9 @@ var ApiActions = {
   receiveGame: function(game){
     AppDispatcher.dispatch({
       actionType: PuzzleConstants.GAME_RECEIVED,
-      game: game
+      game: game.game,
+      puzzle: game.puzzle,
+      clues: game.clues
     });
   }
 }
