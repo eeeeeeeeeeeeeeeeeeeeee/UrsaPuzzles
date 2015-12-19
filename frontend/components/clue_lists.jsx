@@ -76,6 +76,8 @@ var ClueLists = React.createClass({
       var className = "clue-list-item";
 
       acrossClueListItem = clues.across.map (function(clue) {
+        console.log("current across clue " + that.props.currentAcrossClue);
+        console.log("across " + that.props.across);
         if(that.props.currentAcrossClue == clue.clue_number && that.props.across) {
           className = "clue-list-item highlight active";
         } else if (that.props.currentDownClue == clue.clue_number) {

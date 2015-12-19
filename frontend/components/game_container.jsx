@@ -18,7 +18,7 @@ function _getDownClueIndices() {
 
 var GameContainer = React.createClass({
   getInitialState: function() {
-    return ({ game: _getGame(), currentAcrossClue: -1, currentDownClue: -1, across: false });
+    return ({ game: _getGame(), currentAcrossClue: -1, currentDownClue: -1, across: true });
   },
 
   updateClue: function(square) {

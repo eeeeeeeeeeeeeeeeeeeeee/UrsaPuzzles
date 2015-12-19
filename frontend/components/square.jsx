@@ -43,7 +43,7 @@ var Square = React.createClass({
         className = "grid-square highlight"
       }
 
-      square = <div className={className} onClick={this.handleClick}>
+      square = <div className={className} onDoubleClick={this.handleClick}>
                  <div className="clue-number">{this.state.clueNumber}</div>
                  <input className="user-type" id={"ut-" + this.props.counter} type="text" styles="text-transform:uppercase" onKeyPress={this.handleKeyPress} value={this.state.guess}></input>
                </div>
