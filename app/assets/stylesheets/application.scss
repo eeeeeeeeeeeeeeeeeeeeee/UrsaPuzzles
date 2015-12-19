@@ -77,6 +77,15 @@ body { padding-top: 70px; }
   background-color: yellow;
 }
 
+.clue-list-item.highlight {
+  border-bottom: 2px solid lightblue;
+  border-top: 2px solid lightblue;
+}
+
+.clue-list-item.highlight.active {
+  background-color: lightblue;
+}
+
 .grid-square.black {
   background: black;
 }

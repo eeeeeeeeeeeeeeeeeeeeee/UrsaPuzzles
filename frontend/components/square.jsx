@@ -30,6 +30,10 @@ var Square = React.createClass({
     this.setState({active: nextProps.active}, tester);
   },
 
+  handleClick: function() {
+    this.props.switchDirection();
+  },
+
   render: function() {
     var square = <div className="grid-square black"></div> ;
 
@@ -39,7 +43,7 @@ var Square = React.createClass({
         className = "grid-square highlight"
       }
 
-      square = <div className={className}>
+      square = <div className={className} onClick={this.handleClick}>
                  <div className="clue-number">{this.state.clueNumber}</div>
                  <input className="user-type" id={"ut-" + this.props.counter} type="text" styles="text-transform:uppercase" onKeyPress={this.handleKeyPress} value={this.state.guess}></input>
                </div>

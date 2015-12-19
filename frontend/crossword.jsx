@@ -21,6 +21,7 @@ window.apiActions = ApiActions;
 window.puzzleStore = PuzzleStore;
 window.gameStore = GameStore;
 window.currentSquareStore = CurrentSquareStore;
+window.gameContainer = GameContainer;
 
 
 

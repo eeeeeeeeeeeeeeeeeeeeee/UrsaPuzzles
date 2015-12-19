@@ -20,7 +20,7 @@ var Grid = React.createClass({
   getInitialState: function() {
     var game = _getGame()[0];
     var currentGameState = _getCurrentGameState();
-    return ({ game: game, currentGameState: currentGameState, currentSquare: null});
+    return ({ game: game, currentGameState: currentGameState, currentSquare: null, horizontal: true});
   },
 
   _gameChanged: function(){
@@ -37,6 +37,7 @@ var Grid = React.createClass({
       var id = 'ut-' + next;
       var input = document.getElementById(id);
       input.focus();
+      this.props.updateClue(next);
     });
   },
 
@@ -76,6 +77,11 @@ var Grid = React.createClass({
     return nil;
   },
 
+  currentWordIndices: function() {
+    var nextSquare = this.findNextSqaure();
+    var board = this.state.currentGameState;
+  },
+
   render: function() {
     var rows = "";
     var that = this;
@@ -90,13 +96,13 @@ var Grid = React.createClass({
         var col = counter % 15;
         var active = (nextSquare === counter) ? true : false;
         counter++;
-
+        
         if(square === 'black')
-          return <Square className="grid-square-outer" id={counter-1} key={counter-1} counter={counter-1} i={row} j={col} clueNumber={null}/> ;
+          return <Square className="grid-square-outer" switchDirection={that.props.switchDirection} id={counter-1} key={counter-1} counter={counter-1} i={row} j={col} clueNumber={null}/> ;
         else if(square === 'white')
-          return <Square className="grid-square-outer" id={counter-1} key={counter-1} active={active} counter={counter-1} i={row} j={col} clueNumber=" "/>;
+          return <Square className="grid-square-outer" switchDirection={that.props.switchDirection} id={counter-1} key={counter-1} active={active} counter={counter-1} i={row} j={col} clueNumber=" "/>;
         else
-          return <Square className="grid-square-outer" id={counter-1} key={counter-1} active={active} counter={counter-1} i={row} j={col} clueNumber={square}/>;
+          return <Square className="grid-square-outer" switchDirection={that.props.switchDirection} id={counter-1} key={counter-1} active={active} counter={counter-1} i={row} j={col} clueNumber={square}/>;
       });
     }
 
