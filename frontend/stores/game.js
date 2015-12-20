@@ -77,7 +77,7 @@ var findIndexOfClueNumber = function(clueNumber) {
   if(origBoard.indexOf(clueNumber) !== -1) {
     return origBoard.indexOf(clueNumber);
   } else {
-    return nil;
+    return null;
   }
 
 };

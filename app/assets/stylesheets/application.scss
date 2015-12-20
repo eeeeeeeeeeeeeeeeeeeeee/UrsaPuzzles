@@ -108,6 +108,45 @@ body { padding-top: 70px; }
   clear: both;
 }
 
+
+.clues {
+  width: 500px;
+  float: left;
+}
+
+.single-clue-bar {
+  min-height: 55px;
+  line-height: 55px;
+  width: 480px;
+  font-size: 18px;
+}
+
+.single-clue-bar.highlight {
+  background: lightblue;
+}
+
+.clue-bar-number {
+  padding: 0px 15px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+span.clue-bar-text {
+  padding-left: 15px;
+  margin: 10px 0;
+  vertical-align: middle;
+  border-left: 1px solid black;
+  line-height: 18px;
+  display: inline-block;
+  font-size: 18px;
+}
+
+div.clue-bar-both {
+  float: left;
+  margin-top: 10px;
+}
+
 .clue-number {
   color: black;
   font-size: 11px;
@@ -159,7 +198,7 @@ ol {
 
 ol.crossword-clue-list {
   width: 230px;
-  height: 350px;
+  height: 387px;
 }
 
 .across-clues-and-header {
@@ -185,5 +224,7 @@ ol.crossword-clue-list {
   display: inline-block;
   width: 1300px;
   height: 650px;
-  padding-left: 50px;
+  padding-left: 80px;
+  // margin-left: auto;
+  // margin-right: auto;
 }
