@@ -1,13 +1,22 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.user-login-page {
+div.user-login-page {
   background: url(Bookshelf.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 700px;
+  height: 800px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
+
+.navbar {
+  font-family: 'Poiret One', cursive;
+  font-weight: bold;
 }
 
 .sign-up-form {
@@ -15,10 +24,15 @@
   font-family: 'Poiret One', cursive;
   width: 400px;
   margin: auto;
-  margin-top: 100px;
-  height: 300px;
+  margin-top: 180px;
+  height: 330px;
   border-radius: 25px;
   padding: 20px;
+  color: white;
+}
+
+.user-link {
+  color: yellow;
 }
 
 h1 {
@@ -26,6 +40,22 @@ h1 {
   margin-bottom: 40px;
   font-weight: bold;
   color: white;
+}
+
+.btn-sign {
+  margin-right: 50px;
+  height: 40px;
+  margin-top: 5px;
+}
+
+li.btn-sign {
+  // margin-top: 10px;
+  padding-top: 7px;
+}
+
+a.btn-sign.btn.btn-default {
+  vertical-align: middle;
+  padding-top: 8px;
 }
 
 .user-type {

@@ -135,3 +135,6 @@ Clue.create!(puzzle_id: 1, clue_number: 59, across: false, answer_length: 4, des
 Clue.create!(puzzle_id: 1, clue_number: 60, across: false, answer_length: 4, description: "Not so much");
 Clue.create!(puzzle_id: 1, clue_number: 61, across: false, answer_length: 3, description: "Little lie");
 Clue.create!(puzzle_id: 1, clue_number: 62, across: false, answer_length: 3, description: "'Long ___...'");
+
+
+# User.create!(username: "Guest User", password_digest: , session_token: )
