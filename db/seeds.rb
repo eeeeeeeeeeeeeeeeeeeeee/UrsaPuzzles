@@ -56,6 +56,18 @@ Puzzle.create!(title: "puzzle 2",
               empty_grid: [[:blank, 1, 2], [:black, 3, :black], [:blank, 4, 5]],
               answer_grid: [['A', 'B', 'C'], [nil, 'D', nil], ['E', 'X', 'F']])
 
+Puzzle.create!(title: "Saturday",
+              author: "c rogers",
+              difficulty: "hard",
+              empty_grid: [[:blank, 1, 2], [:black, 3, :black], [:blank, 4, 5]],
+              answer_grid: [['A', 'B', 'C'], [nil, 'D', nil], ['E', 'X', 'F']])
+
+Puzzle.create!(title: "Friday",
+              author: "Topper",
+              difficulty: "Hard",
+              empty_grid: [[:blank, 1, 2], [:black, 3, :black], [:blank, 4, 5]],
+              answer_grid: [['A', 'B', 'C'], [nil, 'D', nil], ['E', 'X', 'F']])
+
 
 
 Clue.create!(puzzle_id: 1, clue_number: 1, across: true, answer_length: 5, description: "Beginning");

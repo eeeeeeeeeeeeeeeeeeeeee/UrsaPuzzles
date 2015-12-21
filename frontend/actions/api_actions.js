@@ -17,7 +17,14 @@ var ApiActions = {
       puzzle: game.puzzle,
       clues: game.clues
     });
+  },
+
+  receiveUserData: function(data) {
+    AppDispatcher.dispatch({
+      actionType: PuzzleConstants.USER_DATA_RECEIVED
+    });
   }
+
 }
 
 module.exports = ApiActions;

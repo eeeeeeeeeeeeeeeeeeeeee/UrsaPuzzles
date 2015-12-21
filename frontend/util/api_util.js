@@ -20,7 +20,19 @@ var ApiUtil = {
         ApiActions.receiveGame(game);
       }
     });
-  }
+  },
+
+  // fetchUserData: function(data) {
+  //   $.ajax({
+  //     url: 'users/games',
+  //     data: { game: info },
+  //     success: function(game) {
+  //       ApiActions.receiveGame(game);
+  //     }
+  //   });
+  // }
+
+
 
   // createGame post request returns puzzle
   //

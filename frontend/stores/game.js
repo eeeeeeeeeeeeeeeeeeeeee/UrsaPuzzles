@@ -8,6 +8,7 @@ var _currentGrid = [];
 var _gameParams = { id: null, author: null, difficulty: null, emptyGrid: null, answerGrid: null };
 var _solution = [];
 var _clues = [];
+var _across = true;
 
 var GameStore = new Store(AppDispatcher);
 
@@ -26,6 +27,10 @@ GameStore.getClues = function () {
 
 GameStore.getSolution = function () {
   return _solution.slice(0);
+};
+
+GameStore.getDirection = function () {
+  return _across;
 };
 
 GameStore.getAcrossCluesAndIndices = function() {
@@ -95,6 +100,11 @@ GameStore.__onDispatch = function (payload) {
     case PuzzleConstants.LETTER_ENTERED:
       var idx = payload.letter.idx;
       _currentGrid[idx] = payload.letter.letter.toUpperCase();
+      GameStore.__emitChange();
+      break;
+
+    case PuzzleConstants.SWITCH_DIRECTION:
+      _across = payload.across;
       GameStore.__emitChange();
       break;
   }

@@ -1,6 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+body {
+  font-family: 'Poiret One', cursive;
+}
+
 div.user-login-page {
   background: url(Bookshelf.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -17,7 +22,29 @@ div.user-login-page {
 .navbar {
   font-family: 'Poiret One', cursive;
   font-weight: bold;
+  // background: black;
 }
+
+.navbar-default {
+  background-color: black;
+  border-color: black;
+}
+
+.navbar-default .navbar-brand {
+  color: white;
+  border-right: 1px solid white;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: white;
+  padding-left: 20px;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: yellow;
+}
+
 
 .sign-up-form {
   background-color: rgba(0,0,0, .5);
@@ -261,6 +288,21 @@ ol.crossword-clue-list {
   width: 1300px;
   height: 650px;
   padding-left: 80px;
+  font-family: "Times New Roman", Times, serif;
   // margin-left: auto;
   // margin-right: auto;
+}
+
+h3.puzzle-list-header {
+  text-align: center;
+  padding-left: 0px;
+}
+
+.puzzle-list-element {
+  max-width: 280px;
+  padding-left: 25px;
+  border: 1px solid black;
+  border-radius: 25px;
+  font-weight: bold;
+  margin: 30px;
 }

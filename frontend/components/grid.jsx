@@ -79,12 +79,12 @@ var Grid = React.createClass({
     var newStart = downIndices.indexOf(downClueNumber);
     var downCluesInOrder = (newStart <= 0) ? downIndices: downIndices.slice(newStart).concat(downIndices.slice(0, newStart));
 
-    if(this.state.across)
+    if(this.state.across) {
       for(var i = 0; i < game.length; i++) {
         if(game[i] > idx)
           return game[i];
       }
-    else {
+    } else {
       for(var i = 0; i < downCluesInOrder.length; i++) {
         var clueNumber = downCluesInOrder[i];
         for(var j = 0; j < downClues[clueNumber].length; j++) {

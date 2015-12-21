@@ -1,6 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var ReactRouter = require('react-router');
+
 var root = document.getElementById('content');
 var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
@@ -26,6 +27,7 @@ window.gameContainer = GameContainer;
 
 
 var App = React.createClass({
+
   render: function(){
     return (
       <div>
@@ -37,11 +39,9 @@ var App = React.createClass({
 
 var routes = (
   <Route path="/" component={App}>
-    <Route path="home" component={Home}/>
-    <Route path="puzzle/player" component={GameContainer}/>
+    <IndexRoute component={Home} />
+    <Route path="puzzle/:id" component={GameContainer}/>
   </Route>
 );
-
-
 
 ReactDOM.render(<Router>{routes}</Router>, root);

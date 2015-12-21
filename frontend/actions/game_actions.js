@@ -8,6 +8,13 @@ var GameActions = {
       actionType: PuzzleConstants.LETTER_ENTERED,
       letter: letter
     })
+  },
+
+  receiveMove: function(across) {
+    AppDispatcher.dispatch({
+      actionType: PuzzleConstants.SWITCH_DIRECTION,
+      across: across
+    })
   }
 }
 

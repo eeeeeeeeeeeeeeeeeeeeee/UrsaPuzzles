@@ -21,6 +21,21 @@ var Square = React.createClass({
     GameActions.receiveTypedLetter(letterInfo);
   },
 
+  handleKeyDown: function(event) {
+    var key = event.which;
+    var across;
+
+    if(key === 37 && key === 39) {
+      across = true;
+      this.props.switchDirection();
+    } else if (key === 38 || key === 40) {
+      across = false;
+      this.props.switchDirection();
+    }
+
+    // GameActions.receiveMove(across);
+  },
+
   componentWillReceiveProps: function(nextProps) {
     var tester = function() {
       if(this.state.active) {
@@ -58,7 +73,7 @@ var Square = React.createClass({
 
       square = <div className={className} onDoubleClick={this.handleClick}>
                  <div className="clue-number">{this.state.clueNumber}</div>
-                 <input className="user-type" id={"ut-" + this.props.counter} type="text" styles="text-transform:uppercase" onKeyPress={this.handleKeyPress} value={this.state.guess}></input>
+                 <input className="user-type" id={"ut-" + this.props.counter} type="text" styles="text-transform:uppercase" onKeyDown={this.handleKeyDown} onKeyPress={this.handleKeyPress} value={this.state.guess}></input>
                </div>
     }
 
