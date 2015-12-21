@@ -79,6 +79,10 @@ body { padding-top: 70px; }
   background-color: yellow;
 }
 
+.grid-square.neighbor {
+  background-color: lightblue;
+}
+
 .clue-list-item.highlight {
   border-bottom: 2px solid lightblue;
   border-top: 2px solid lightblue;

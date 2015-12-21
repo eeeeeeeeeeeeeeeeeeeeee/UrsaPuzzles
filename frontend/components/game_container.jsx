@@ -52,7 +52,6 @@ var GameContainer = React.createClass({
   },
 
   render: function() {
-    console.log("game container direction: " +this.state.across);
     return (
         <div className="game-container">
           <div className="clues">

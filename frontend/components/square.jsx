@@ -1,11 +1,12 @@
 var React = require('react');
 var GameActions = require('../actions/game_actions')
 var reactDOM = require('react-dom');
+var GameStore = require('../stores/game');
 
 
 var Square = React.createClass({
   getInitialState: function() {
-    return ({clueNumber: this.props.clueNumber, active: false, guess: ""});
+    return ({clueNumber: this.props.clueNumber, active: false, guess: "", acrossCluesAndIndices: GameStore.getAcrossCluesAndIndices(), downCluesAndIndices: GameStore.getDownCluesAndIndices()});
   },
 
   // componentDidMount: function() {
@@ -35,12 +36,24 @@ var Square = React.createClass({
   },
 
   render: function() {
+    var wordIndices = [];
+    if(this.props.across && this.props.currentAcrossClue !== -1) {
+      wordIndices = this.state.acrossCluesAndIndices[this.props.currentAcrossClue];
+    } else if (this.props.currentAcrossClue !== -1){
+      wordIndices = this.state.downCluesAndIndices[this.props.currentDownClue];
+    }
+
+
     var square = <div className="grid-square black"></div> ;
+
 
     if(this.state.clueNumber !== null) {
       var className = "grid-square";
+
       if(this.state.active) {
-        className = "grid-square highlight"
+        className = "grid-square highlight";
+      } else if(wordIndices.indexOf(this.props.counter) !== -1) {
+        className = "grid-square neighbor";
       }
 
       square = <div className={className} onDoubleClick={this.handleClick}>
