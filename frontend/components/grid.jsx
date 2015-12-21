@@ -2,6 +2,7 @@ var React = require('react');
 var Square = require('./square');
 var GameStore = require('../stores/game');
 var CurrentSquareStore = require('../stores/current_square');
+var _ = require('underscore');
 
 
 function _getGame() {
@@ -20,19 +21,21 @@ var Grid = React.createClass({
   getInitialState: function() {
     var game = _getGame()[0];
     var currentGameState = _getCurrentGameState();
-    return ({ game: game, currentGameState: currentGameState, currentSquare: null, horizontal: true});
+    return ({ game: game, currentGameState: currentGameState,
+              currentSquare: null, across: true, currentDownClue: 1});
   },
 
   _gameChanged: function(){
     var game = _getGame()[0];
     var currentGameState = _getCurrentGameState();
-    this.setState({ game: game, currentGameState: currentGameState });
+    var across = this.props.across;
+    this.setState({ game: game, currentGameState: currentGameState, across: across });
 
   },
 
   _currentSquareChanged: function(idx) {
     var currentSquare = _getCurrentSquare();
-    this.setState({ currentSquare: currentSquare}, function () {
+    this.setState({ currentSquare: currentSquare, currentDownClue: this.props.currentDownClue}, function () {
       var next = this.findNextSqaure();
       var id = 'ut-' + next;
       var input = document.getElementById(id);
@@ -70,9 +73,27 @@ var Grid = React.createClass({
     var game = this.getOpenSquareIndices();
     var currentIndex = game.indexOf(idx);
 
-    for(var i = 0; i < game.length; i++) {
-      if(game[i] > idx)
-        return game[i];
+    var downClues = GameStore.getDownCluesAndIndices();
+    var downClueNumber = this.state.currentDownClue;
+    var downIndices = _.keys(downClues);
+    var newStart = downIndices.indexOf(downClueNumber);
+    var downCluesInOrder = (newStart <= 0) ? downIndices: downIndices.slice(newStart).concat(downIndices.slice(0, newStart));
+    console.log(this.state.across);
+    if(this.state.across)
+      for(var i = 0; i < game.length; i++) {
+        if(game[i] > idx)
+          return game[i];
+      }
+    else {
+      for(var i = 0; i < downCluesInOrder.length; i++) {
+        var clueNumber = downCluesInOrder[i];
+        for(var j = 0; j < downClues[clueNumber].length; j++) {
+          var clue = downClues[clueNumber][j];
+          if(clue > this.state.currentSquare || clueNumber != this.state.currentDownClue) {
+            return clue;
+          }
+        }
+      }
     }
     return nil;
   },
@@ -96,7 +117,7 @@ var Grid = React.createClass({
         var col = counter % 15;
         var active = (nextSquare === counter) ? true : false;
         counter++;
-        
+
         if(square === 'black')
           return <Square className="grid-square-outer" switchDirection={that.props.switchDirection} id={counter-1} key={counter-1} counter={counter-1} i={row} j={col} clueNumber={null}/> ;
         else if(square === 'white')

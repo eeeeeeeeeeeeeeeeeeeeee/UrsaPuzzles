@@ -52,14 +52,14 @@ var GameContainer = React.createClass({
   },
 
   render: function() {
-
+    console.log("game container direction: " +this.state.across);
     return (
         <div className="game-container">
           <div className="clues">
             <ClueLists className="clue-lists" currentAcrossClue={this.state.currentAcrossClue} currentDownClue={this.state.currentDownClue} across={this.state.across}/>
             <ClueSpotlight className="clue-spotlight" currentAcrossClue={this.state.currentAcrossClue} currentDownClue={this.state.currentDownClue} across={this.state.across}/>
           </div>
-          <Grid game={this.state.game} updateClue={this.updateClue} across={this.state.across} switchDirection={this.switchDirection}/>
+          <Grid game={this.state.game} updateClue={this.updateClue} across={this.state.across} switchDirection={this.switchDirection} currentAcrossClue={this.state.currentAcrossClue} currentDownClue={this.state.currentDownClue}/>
         </div>
     );
   }

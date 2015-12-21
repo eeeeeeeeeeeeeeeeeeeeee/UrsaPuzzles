@@ -37,13 +37,15 @@ var ClueSpotlight = React.createClass({
       downClass = "single-clue-bar highlight";
     }
 
+    var acrossClueNumber = (this.props.currentAcrossClue === -1 ? 1 : this.props.currentAcrossClue);
+    var downClueNumber = (this.props.currentDownClue === -1 ? 1 : this.props.currentDownClue);
 
     for(var i = 0; i < this.state.clues.length; i++) {
       var clue = this.state.clues[i];
-      if(clue.clue_number == this.props.currentAcrossClue && clue.across === true) {
+      if(clue.clue_number == acrossClueNumber && clue.across === true) {
         acrossClue = clue.description;
       }
-      if(clue.clue_number == this.props.currentDownClue && clue.across === false){
+      if(clue.clue_number == downClueNumber && clue.across === false){
         downClue = clue.description;
       }
     }
@@ -54,7 +56,7 @@ var ClueSpotlight = React.createClass({
         <div className={acrossClass} key="across">
           <div>
             <span className="clue-bar-number" key="across">
-              {this.props.currentAcrossClue}
+              {acrossClueNumber}
               <span className="direction">A</span>
               .
             </span>
@@ -64,7 +66,7 @@ var ClueSpotlight = React.createClass({
         <div className={downClass} key="down">
           <div>
             <span className="clue-bar-number" key="down">
-              {this.props.currentDownClue}
+              {downClueNumber}
               <span className="direction">D</span>
               .
             </span>
