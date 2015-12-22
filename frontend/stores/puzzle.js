@@ -17,7 +17,6 @@ PuzzleStore.all = function () {
 PuzzleStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
     case PuzzleConstants.PUZZLES_RECEIVED:
-      // resetPuzzles(payload.puzzles);
       _puzzles = payload.puzzles;
       PuzzleStore.__emitChange();
       break;

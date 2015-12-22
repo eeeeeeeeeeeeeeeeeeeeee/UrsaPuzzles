@@ -3,6 +3,7 @@ var Square = require('./square');
 var GameStore = require('../stores/game');
 var CurrentSquareStore = require('../stores/current_square');
 var _ = require('underscore');
+var GameActions = require('../actions/game_actions');
 
 
 function _getGame() {
@@ -33,19 +34,25 @@ var Grid = React.createClass({
     var game = _getGame()[0];
     var currentGameState = _getCurrentGameState();
     var across = _getDirection();
-    this.setState({ game: game, currentGameState: currentGameState, across: across });
+    this.setState({ game: game, currentGameState: currentGameState, across: across }, function() {
+      this._currentSquareChanged();
+    }.bind(this));
 
   },
 
-  _currentSquareChanged: function(idx) {
+  _currentSquareChanged: function() {
     var currentSquare = _getCurrentSquare();
-    this.setState({ currentSquare: currentSquare, currentDownClue: this.props.currentDownClue, currentAcrossClue: this.props.currentAcrossClue}, function () {
-      var next = this.findNextSqaure();
-      var id = 'ut-' + next;
-      var input = document.getElementById(id);
-      input.focus();
-      this.props.updateClue(next);
-    });
+
+    this.setState({ nextSquare: this.findNextSqaure(currentSquare) }, function() {
+      this._updateFocus();
+      this.props.updateClue(this.state.nextSquare);
+    }.bind(this));
+  },
+
+  _updateFocus: function() {
+    var id = 'ut-' + this.state.nextSquare;
+    var input = document.getElementById(id);
+    input.focus();
   },
 
   componentDidMount: function() {
@@ -71,28 +78,29 @@ var Grid = React.createClass({
     return openSquares;
   },
 
-  findNextSqaure: function() {
-    var idx = (typeof this.state.currentSquare === "undefined" ? 1 : this.state.currentSquare);
+  findNextSqaure: function(currentSquare) {
+    var idx = (typeof currentSquare === "undefined" ? 1 : currentSquare);
     var game = this.getOpenSquareIndices();
     var currentIndex = game.indexOf(idx);
 
     var downClues = GameStore.getDownCluesAndIndices();
-    var downClueNumber = this.state.currentDownClue;
+    var downClueNumber = this.props.currentDownClue;
     var downIndices = _.keys(downClues);
     var newStart = downIndices.indexOf(downClueNumber);
     var downCluesInOrder = (newStart <= 0) ? downIndices: downIndices.slice(newStart).concat(downIndices.slice(0, newStart));
 
     if(this.state.across) {
       for(var i = 0; i < game.length; i++) {
-        if(game[i] > idx)
+        if(game[i] > idx) {
           return game[i];
+        }
       }
     } else {
       for(var i = 0; i < downCluesInOrder.length; i++) {
         var clueNumber = downCluesInOrder[i];
         for(var j = 0; j < downClues[clueNumber].length; j++) {
           var clue = downClues[clueNumber][j];
-          if(clue > this.state.currentSquare || clueNumber != this.state.currentDownClue && game.indexOf(clue) !== -1) {
+          if(clue > currentSquare || clueNumber != downClueNumber && game.indexOf(clue) !== -1) {
             return clue;
           }
         }
@@ -113,7 +121,7 @@ var Grid = React.createClass({
     if(this.state.game) {
       var boardArray = $.parseJSON(this.state.game.current_board_state);
       var counter = 0;
-      var nextSquare = this.findNextSqaure();
+      var nextSquare = this.state.nextSquare;
 
       rows = boardArray.map( function(square) {
         var row = counter / 15;
@@ -131,9 +139,9 @@ var Grid = React.createClass({
         if(square === 'black')
           return <Square className="grid-square-outer" switchDirection={that.props.switchDirection} id={counter-1} key={counter-1} counter={counter-1} i={row} j={col} clueNumber={null}/> ;
         else if(square === 'white')
-          return <Square className="grid-square-outer" switchDirection={that.props.switchDirection} id={counter-1} key={counter-1} active={active} counter={counter-1} i={row} j={col} clueNumber=" " currentAcrossClue={that.state.currentAcrossClue} currentDownClue={that.state.currentDownClue} across={that.state.across}/>;
+          return <Square className="grid-square-outer" switchDirection={that.props.switchDirection} id={counter-1} key={counter-1} active={active} counter={counter-1} i={row} j={col} clueNumber=" " currentAcrossClue={that.props.currentAcrossClue} currentDownClue={that.props.currentDownClue} across={that.state.across}/>;
         else
-          return <Square className="grid-square-outer" switchDirection={that.props.switchDirection} id={counter-1} key={counter-1} active={active} counter={counter-1} i={row} j={col} clueNumber={square} currentAcrossClue={that.state.currentAcrossClue} currentDownClue={that.state.currentDownClue} across={that.state.across}/>;
+          return <Square className="grid-square-outer" switchDirection={that.props.switchDirection} id={counter-1} key={counter-1} active={active} counter={counter-1} i={row} j={col} clueNumber={square} currentAcrossClue={that.props.currentAcrossClue} currentDownClue={that.props.currentDownClue} across={that.state.across}/>;
       });
     }
 

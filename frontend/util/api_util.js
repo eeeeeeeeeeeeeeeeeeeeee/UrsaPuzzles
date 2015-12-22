@@ -1,4 +1,5 @@
 var ApiActions = require('../actions/api_actions.js');
+var GameActions = require('../actions/game_actions.js');
 
 
 var ApiUtil = {
@@ -29,6 +30,15 @@ var ApiUtil = {
         ApiActions.receiveUserData(data);
       }
     });
+  },
+
+  fetchPuzzle: function(puzzleId) {
+    $.ajax({
+      url: 'api/puzzles/'+puzzleId,
+      success: function(puzzle) {
+        GameActions.receivePuzzle(puzzle);
+      }
+    })
   }
 
 

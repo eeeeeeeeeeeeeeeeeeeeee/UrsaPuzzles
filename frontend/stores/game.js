@@ -14,6 +14,12 @@ var _currentDownClue = 1;
 
 var GameStore = new Store(AppDispatcher);
 
+// bad, not flux, replace with action call
+// GameStore.setExisitingGame = function(game) {
+//   _game = game;
+//
+// }
+
 
 GameStore.getGame = function () {
   return _game.slice(0);
@@ -121,6 +127,19 @@ GameStore.__onDispatch = function (payload) {
 
     case PuzzleConstants.DOWN_CLUE:
       _currentDownClue = payload.clueNum;
+      GameStore.__emitChange();
+      break;
+
+    case PuzzleConstants.PREVIOUS_GAME:
+      _game = [payload.game];
+      _currentGrid = $.parseJSON(payload.game.current_board_state);
+      GameStore.__emitChange();
+      break;
+
+    case PuzzleConstants.PUZZLE_RECEIVED:
+      _game = [payload.game];
+      _solution = payload.puzzle.answer_grid;
+      _clues = payload.clues;
       GameStore.__emitChange();
       break;
   }

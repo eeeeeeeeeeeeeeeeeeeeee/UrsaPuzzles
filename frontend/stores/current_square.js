@@ -1,8 +1,8 @@
 var Store = require('flux/utils').Store;
 var PuzzleConstants = require('../constants/puzzle_constants');
 var AppDispatcher = require('../dispatcher/dispatcher');
-var _currentSquare;
-var _currentWord;
+var _currentSquare = 0;
+var _nextSquare = 1;
 
 var CurrentSquareStore = new Store(AppDispatcher);
 
@@ -14,6 +14,10 @@ CurrentSquareStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
     case PuzzleConstants.LETTER_ENTERED:
       _currentSquare = payload.letter.idx;
+      CurrentSquareStore.__emitChange();
+      break;
+    case PuzzleConstants.NEW_CURRENT_SQUARE:
+      _nextSquare = payload.idx;
       CurrentSquareStore.__emitChange();
       break;
   }

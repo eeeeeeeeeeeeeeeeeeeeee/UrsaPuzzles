@@ -1,5 +1,7 @@
 var React = require('react');
 var GameStore = require('../stores/game');
+var UserStore = require('../stores/user');
+var CurrentSquareStore = require('../stores/current_square');
 var ApiUtil = require('../util/api_util');
 var Grid = require('./grid');
 var ClueLists = require('./clue_lists');
@@ -57,6 +59,10 @@ var GameContainer = React.createClass({
     var currentAcrossClue = clues["across"];
     var currentDownClue = clues["down"];
     this.setState({ across: across });
+  },
+
+  _userChanged: function() {
+
   },
 
   componentDidMount: function() {

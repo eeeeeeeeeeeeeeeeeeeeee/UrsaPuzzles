@@ -6,6 +6,9 @@ var Link = require('react-router').Link
 
 
 var Home = React.createClass({
+  componentDidMount: function() {
+    ApiUtil.fetchUserData();
+  },
 
   render: function() {
 

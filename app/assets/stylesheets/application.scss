@@ -1,6 +1,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.errors {
+  color: white;
+  margin-top: 15px;
+  list-style-type: none;
+  margin-left: 200px;
+}
 
 body {
   font-family: 'Poiret One', cursive;
@@ -13,7 +19,7 @@ div.user-login-page {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 800px;
+  height: 100%;
   position: absolute;
   top: 0px;
   left: 0px;

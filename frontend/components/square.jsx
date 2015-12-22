@@ -32,14 +32,20 @@ var Square = React.createClass({
     }
   },
 
-  componentWillReceiveProps: function(nextProps) {
-    var tester = function() {
-      if(this.state.active) {
-        reactDOM.findDOMNode(this).focus();
-      }
-    }.bind(this);
+  componentDidMount: function() {
+    if(this.props.counter === 0) {
+      document.querySelector("#ut-0").focus();
+    }
+  },
 
-    this.setState({active: nextProps.active}, tester);
+  componentWillReceiveProps: function(nextProps) {
+    // var tester = function() {
+    //   if(this.state.active) {
+    //     reactDOM.findDOMNode(this).focus();
+    //   }
+    // }.bind(this);
+
+    this.setState({active: nextProps.active, currentAcrossClue: nextProps.currentAcrossClue, currentDownClue: nextProps.currentDownClue});
   },
 
   handleClick: function() {

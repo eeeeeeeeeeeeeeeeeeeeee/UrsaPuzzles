@@ -21,7 +21,8 @@ var ApiActions = {
 
   receiveUserData: function(data) {
     AppDispatcher.dispatch({
-      actionType: PuzzleConstants.USER_DATA_RECEIVED
+      actionType: PuzzleConstants.USER_DATA_RECEIVED,
+      data: data
     });
   }
 

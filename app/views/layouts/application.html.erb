@@ -65,12 +65,13 @@
           </li> -->
         </ul>
           <% end %>
+        <li class="errors"><%= render 'layouts/errors' %></li>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-  <!-- <%= current_user.username if current_user %> -->
 
   <%= render 'layouts/errors' %>
+  <h3>hello</h3>
 
   <%= yield %>
 

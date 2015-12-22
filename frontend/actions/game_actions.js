@@ -29,6 +29,27 @@ var GameActions = {
       actionType: PuzzleConstants.DOWN_CLUE,
       clueNum: clueNum
     })
+  },
+
+  receivePreviousGame: function(game) {
+    AppDispatcher.dispatch({
+      actionType: PuzzleConstants.PREVIOUS_GAME,
+      game: game
+    })
+  },
+
+  receivePuzzle: function(puzzle) {
+    AppDispatcher.dispatch({
+      actionType: PuzzleConstants.PUZZLE_RECEIVED,
+      puzzle: puzzle
+    })
+  },
+
+  receiveCurrentSquare: function(idx) {
+    AppDispatcher.dispatch({
+      actionType: PuzzleConstants.NEW_CURRENT_SQUARE,
+      idx: idx
+    })
   }
 }
 
