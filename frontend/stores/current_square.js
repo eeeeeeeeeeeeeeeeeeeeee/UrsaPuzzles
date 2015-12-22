@@ -1,7 +1,7 @@
 var Store = require('flux/utils').Store;
 var PuzzleConstants = require('../constants/puzzle_constants');
 var AppDispatcher = require('../dispatcher/dispatcher');
-var _currentSquare = 0;
+var _currentSquare = -1;
 var _nextSquare = 1;
 
 var CurrentSquareStore = new Store(AppDispatcher);
