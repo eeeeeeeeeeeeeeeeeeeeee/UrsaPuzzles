@@ -17,6 +17,10 @@ function _getDownClueIndices() {
   return GameStore.getDownCluesAndIndices();
 }
 
+function _getDirection() {
+  return GameStore.getDirection();
+}
+
 var GameContainer = React.createClass({
   getInitialState: function() {
     return ({ game: _getGame(), currentAcrossClue: -1, currentDownClue: -1, across: true });
@@ -32,7 +36,6 @@ var GameContainer = React.createClass({
         this.setState({currentAcrossClue: clue});
         break;
       }
-
     }
 
     for(var clue in downClues) {
@@ -41,11 +44,22 @@ var GameContainer = React.createClass({
         this.setState({currentDownClue: clue});
         break;
       }
-
     }
-
-
   },
+
+  _gameChanged: function(){
+    var across = _getDirection();
+    this.setState({ across: across });
+  },
+
+  componentDidMount: function() {
+    this.gameListener = GameStore.addListener(this._gameChanged);
+  },
+
+  componentWillUnmount: function() {
+    this.gameListener.remove();
+  },
+
 
   switchDirection: function() {
     this.state.across = (this.state.across ? false : true);

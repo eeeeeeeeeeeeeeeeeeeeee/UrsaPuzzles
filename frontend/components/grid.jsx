@@ -68,10 +68,10 @@ var Grid = React.createClass({
   },
 
   findNextSqaure: function() {
-    // only works for across.... need to add down functionality
     var idx = this.state.currentSquare;
     var game = this.getOpenSquareIndices();
     var currentIndex = game.indexOf(idx);
+    console.log(game);
 
     var downClues = GameStore.getDownCluesAndIndices();
     var downClueNumber = this.state.currentDownClue;
@@ -116,7 +116,15 @@ var Grid = React.createClass({
         var row = counter / 15;
         var col = counter % 15;
         var active = (nextSquare === counter) ? true : false;
+
+        if(that.props.currentAcrossClue === -1 && counter === 0) {
+          active = true;
+        } else if(that.props.currentAcrossClue === -1 && counter === 1) {
+          active = false;
+        }
+
         counter++;
+
         if(square === 'black')
           return <Square className="grid-square-outer" switchDirection={that.props.switchDirection} id={counter-1} key={counter-1} counter={counter-1} i={row} j={col} clueNumber={null}/> ;
         else if(square === 'white')

@@ -4,6 +4,7 @@
 
 body {
   font-family: 'Poiret One', cursive;
+  min-width: 1300px;
 }
 
 div.user-login-page {
@@ -52,6 +53,24 @@ div.user-login-page {
   color: yellow;
 }
 
+a.dropdown-toggle {
+  padding-right: 50px;
+}
+
+.navbar-default .navbar-nav > .dropdown > a {
+  margin-right: 50px;
+}
+
+// .navbar-default .navbar-nav > .dropdown > a:hover ,
+.navbar-default .navbar-nav > .dropdown > a:focus {
+  color: yellow;
+  background: transparent;
+}
+
+ul.dropdown-menu {
+  width: 120px;
+}
+
 
 .sign-up-form {
   background-color: rgba(0,0,0, .5);
@@ -85,6 +104,13 @@ h1 {
 li.btn-sign {
   // margin-top: 10px;
   padding-top: 7px;
+  color: white;
+}
+
+li.btn-sign a {
+  position: fixed;
+  top: 0;
+  margin-right: 30px;
 }
 
 .button_to {
@@ -301,10 +327,12 @@ ol.crossword-clue-list {
   display: inline-block;
   width: 1300px;
   height: 650px;
-  padding-left: 80px;
+  padding-left: 120px;
+  padding-top: 30px;
   font-family: "Times New Roman", Times, serif;
-  // margin-left: auto;
+  margin: 0 auto;
   // margin-right: auto;
+  // margin-top: 30px;
 }
 
 

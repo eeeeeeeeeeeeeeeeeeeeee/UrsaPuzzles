@@ -25,15 +25,11 @@ var Square = React.createClass({
     var key = event.which;
     var across;
 
-    // if(key === 37 && key === 39) {
-    //   across = true;
-    //   this.props.switchDirection();
-    // } else if (key === 38 || key === 40) {
-    //   across = false;
-    //   this.props.switchDirection();
-    // }
-
-    GameActions.receiveMove(across);
+    if(key === 37 || key === 39) {
+      GameActions.receiveMove(true);
+    } else if (key === 38 || key === 40) {
+      GameActions.receiveMove(false);
+    }
   },
 
   componentWillReceiveProps: function(nextProps) {
@@ -64,7 +60,7 @@ var Square = React.createClass({
 
     if(this.state.clueNumber !== null) {
       var className = "grid-square";
-
+      
       if(this.state.active) {
         className = "grid-square highlight";
       } else if(wordIndices.indexOf(this.props.counter) !== -1) {
