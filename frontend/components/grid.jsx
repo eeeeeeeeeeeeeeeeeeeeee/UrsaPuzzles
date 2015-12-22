@@ -71,7 +71,6 @@ var Grid = React.createClass({
     var idx = this.state.currentSquare;
     var game = this.getOpenSquareIndices();
     var currentIndex = game.indexOf(idx);
-    console.log(game);
 
     var downClues = GameStore.getDownCluesAndIndices();
     var downClueNumber = this.state.currentDownClue;
@@ -89,7 +88,7 @@ var Grid = React.createClass({
         var clueNumber = downCluesInOrder[i];
         for(var j = 0; j < downClues[clueNumber].length; j++) {
           var clue = downClues[clueNumber][j];
-          if(clue > this.state.currentSquare || clueNumber != this.state.currentDownClue) {
+          if(clue > this.state.currentSquare || clueNumber != this.state.currentDownClue && game.indexOf(clue) !== -1) {
             return clue;
           }
         }

@@ -66,6 +66,16 @@ var ClueLists = React.createClass({
     return {across: across, down: down};
   },
 
+  handleAcrossClick: function() {
+    console.log("click!");
+
+  },
+
+  handleDownClick: function() {
+    console.log("down click!");
+
+  },
+
   render: function() {
     var acrossClueListItem = "";
     var downClueListItem = "";
@@ -84,7 +94,7 @@ var ClueLists = React.createClass({
           className = "clue-list-item";
         }
 
-        return <li className={className} value={clue.clue_number}>{clue.description}</li>
+        return <li className={className} value={clue.clue_number} onClick={that.handleAcrossClick}>{clue.description}</li>
       });
 
       downClueListItem = clues.down.map (function(clue) {
@@ -95,7 +105,7 @@ var ClueLists = React.createClass({
         } else {
           className = "clue-list-item";
         }
-        return <li className={className} value={clue.clue_number}>{clue.description}</li>
+        return <li className={className} value={clue.clue_number} onClick={that.handleDownClick}>{clue.description}</li>
       });
     }
 
