@@ -25,15 +25,15 @@ var Square = React.createClass({
     var key = event.which;
     var across;
 
-    if(key === 37 && key === 39) {
-      across = true;
-      this.props.switchDirection();
-    } else if (key === 38 || key === 40) {
-      across = false;
-      this.props.switchDirection();
-    }
+    // if(key === 37 && key === 39) {
+    //   across = true;
+    //   this.props.switchDirection();
+    // } else if (key === 38 || key === 40) {
+    //   across = false;
+    //   this.props.switchDirection();
+    // }
 
-    // GameActions.receiveMove(across);
+    GameActions.receiveMove(across);
   },
 
   componentWillReceiveProps: function(nextProps) {

@@ -10,7 +10,7 @@ var Home = React.createClass({
   render: function() {
 
     return (
-      <div>
+      <div className="home-group">
         <PuzzleList className="puzzle-list"/>
       </div>
     );

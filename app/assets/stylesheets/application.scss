@@ -22,12 +22,14 @@ div.user-login-page {
 .navbar {
   font-family: 'Poiret One', cursive;
   font-weight: bold;
+
   // background: black;
 }
 
 .navbar-default {
   background-color: black;
   border-color: black;
+  border-bottom: 1px solid gray;
 }
 
 .navbar-default .navbar-brand {
@@ -42,7 +44,12 @@ div.user-login-page {
 
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-    color: yellow;
+  color: yellow;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: yellow;
 }
 
 
@@ -78,6 +85,15 @@ h1 {
 li.btn-sign {
   // margin-top: 10px;
   padding-top: 7px;
+}
+
+.button_to {
+  background: white;
+}
+
+.button_to:hover {
+  // margin-top: 10px;
+  color: yellow;
 }
 
 a.btn-sign.btn.btn-default {
@@ -117,8 +133,6 @@ a.btn-sign.btn.btn-default {
 }
 
 body { padding-top: 70px; }
-
-
 
 
 
@@ -293,16 +307,72 @@ ol.crossword-clue-list {
   // margin-right: auto;
 }
 
+
+
 h3.puzzle-list-header {
   text-align: center;
   padding-left: 0px;
+  font-weight: bold;
+  color: black;
 }
 
 .puzzle-list-element {
   max-width: 280px;
   padding-left: 25px;
-  border: 1px solid black;
+  border: 2px solid black;
   border-radius: 25px;
+  margin: 0 auto;
+  margin-top: 100px;
   font-weight: bold;
-  margin: 30px;
+}
+
+.puzzle-list-items a {
+  color: black;
+  font-weight: bolder;
+}
+
+.puzzle-header {
+  font-weight: bold;
+  color: black;
+}
+
+div.puzzle-list-element {
+  width: 300px;
+  // background: white;
+  // background-color: rgba(5,5,5, .8);
+  // background: black;
+  background: white;
+  font-weight: bold;
+}
+
+.home-group {
+  display: inline-block;
+  width: 100%;
+}
+
+.puzzle-list {
+  float: left;
+  width: 280px;
+}
+
+// div.home-group {
+//   background: url(newsprint_diagonal.jpg) no-repeat center center fixed;
+//   -webkit-background-size: cover;
+//   -moz-background-size: cover;
+//   -o-background-size: cover;
+//   background-size: cover;
+//   height: 800px;
+//   position: absolute;
+//   top: 0px;
+//   left: 0px;
+//   width: 100%;
+// }
+
+li.puzzle-list-item::before {
+  position: absolute;
+  font-weight: bold;
+  content: attr(value) ' ';
+  left: 0;
+  text-align: right;
+  width: 25px;
 }

@@ -8,7 +8,7 @@
 
 
 
-Puzzle.create!(title: "Monday 001",
+Puzzle.create!(title: "Monday 001 (play me!)",
               author: "Mike Torch / Will Shortz",
               difficulty: "easy",
               empty_grid: [1,2,3,4,5,:black,6,7,8,9,:black,10,11,12,13,
@@ -50,21 +50,33 @@ Puzzle.create!(title: "test puzzle",
                empty_grid: [[:black, :blank, 1], [:blank, 2, :black], [3, :black, :blank]],
                answer_grid: [[nil, 'A', 'B'], ['C', 'D', nil], ['E', nil, 'F']])
 
-Puzzle.create!(title: "puzzle 2",
-              author: "kirkpatrick",
+Puzzle.create!(title: "Wednesday Sample",
+              author: "Haloumi",
               difficulty: "medium",
               empty_grid: [[:blank, 1, 2], [:black, 3, :black], [:blank, 4, 5]],
               answer_grid: [['A', 'B', 'C'], [nil, 'D', nil], ['E', 'X', 'F']])
 
-Puzzle.create!(title: "Saturday",
-              author: "c rogers",
+Puzzle.create!(title: "Saturday Puzzle",
+              author: "Summer Joy",
               difficulty: "hard",
               empty_grid: [[:blank, 1, 2], [:black, 3, :black], [:blank, 4, 5]],
               answer_grid: [['A', 'B', 'C'], [nil, 'D', nil], ['E', 'X', 'F']])
 
-Puzzle.create!(title: "Friday",
+Puzzle.create!(title: "Friday Toughie",
               author: "Topper",
               difficulty: "Hard",
+              empty_grid: [[:blank, 1, 2], [:black, 3, :black], [:blank, 4, 5]],
+              answer_grid: [['A', 'B', 'C'], [nil, 'D', nil], ['E', 'X', 'F']])
+
+Puzzle.create!(title: "Another Friday Toughie",
+              author: "Egbert Souse",
+              difficulty: "Hard",
+              empty_grid: [[:blank, 1, 2], [:black, 3, :black], [:blank, 4, 5]],
+              answer_grid: [['A', 'B', 'C'], [nil, 'D', nil], ['E', 'X', 'F']])
+
+Puzzle.create!(title: "Not too tough",
+              author: "Rod Dibbles",
+              difficulty: "Medium",
               empty_grid: [[:blank, 1, 2], [:black, 3, :black], [:blank, 4, 5]],
               answer_grid: [['A', 'B', 'C'], [nil, 'D', nil], ['E', 'X', 'F']])
 
