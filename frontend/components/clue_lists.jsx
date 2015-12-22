@@ -67,7 +67,7 @@ var ClueLists = React.createClass({
   },
 
   handleAcrossClick: function() {
-    console.log("click!");
+    
 
   },
 

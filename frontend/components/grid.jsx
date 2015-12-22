@@ -17,6 +17,10 @@ function _getCurrentSquare() {
   return CurrentSquareStore.getCurrentSquare();
 }
 
+function _getDirection() {
+  return GameStore.getDirection();
+}
+
 var Grid = React.createClass({
   getInitialState: function() {
     var game = _getGame()[0];
@@ -28,7 +32,7 @@ var Grid = React.createClass({
   _gameChanged: function(){
     var game = _getGame()[0];
     var currentGameState = _getCurrentGameState();
-    var across = this.props.across;
+    var across = _getDirection();
     this.setState({ game: game, currentGameState: currentGameState, across: across });
 
   },
@@ -68,7 +72,7 @@ var Grid = React.createClass({
   },
 
   findNextSqaure: function() {
-    var idx = this.state.currentSquare;
+    var idx = (typeof this.state.currentSquare === "undefined" ? 1 : this.state.currentSquare);
     var game = this.getOpenSquareIndices();
     var currentIndex = game.indexOf(idx);
 
@@ -94,7 +98,7 @@ var Grid = React.createClass({
         }
       }
     }
-    return nil;
+    return null;
   },
 
   currentWordIndices: function() {

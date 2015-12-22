@@ -21,6 +21,10 @@ function _getDirection() {
   return GameStore.getDirection();
 }
 
+function _getCurrentClues() {
+  return GameStore.getCurrentClues();
+}
+
 var GameContainer = React.createClass({
   getInitialState: function() {
     return ({ game: _getGame(), currentAcrossClue: -1, currentDownClue: -1, across: true });
@@ -49,6 +53,9 @@ var GameContainer = React.createClass({
 
   _gameChanged: function(){
     var across = _getDirection();
+    var clues = _getCurrentClues();
+    var currentAcrossClue = clues["across"];
+    var currentDownClue = clues["down"];
     this.setState({ across: across });
   },
 
@@ -59,7 +66,6 @@ var GameContainer = React.createClass({
   componentWillUnmount: function() {
     this.gameListener.remove();
   },
-
 
   switchDirection: function() {
     this.state.across = (this.state.across ? false : true);

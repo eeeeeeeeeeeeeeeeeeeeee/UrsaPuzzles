@@ -64,19 +64,19 @@ Puzzle.create!(title: "Saturday Puzzle",
 
 Puzzle.create!(title: "Friday Toughie",
               author: "Topper",
-              difficulty: "Hard",
+              difficulty: "hard",
               empty_grid: [[:blank, 1, 2], [:black, 3, :black], [:blank, 4, 5]],
               answer_grid: [['A', 'B', 'C'], [nil, 'D', nil], ['E', 'X', 'F']])
 
 Puzzle.create!(title: "Another Friday Toughie",
               author: "Egbert Souse",
-              difficulty: "Hard",
+              difficulty: "hard",
               empty_grid: [[:blank, 1, 2], [:black, 3, :black], [:blank, 4, 5]],
               answer_grid: [['A', 'B', 'C'], [nil, 'D', nil], ['E', 'X', 'F']])
 
 Puzzle.create!(title: "Not too tough",
               author: "Rod Dibbles",
-              difficulty: "Medium",
+              difficulty: "medium",
               empty_grid: [[:blank, 1, 2], [:black, 3, :black], [:blank, 4, 5]],
               answer_grid: [['A', 'B', 'C'], [nil, 'D', nil], ['E', 'X', 'F']])
 
@@ -91,7 +91,7 @@ Clue.create!(puzzle_id: 1, clue_number: 16, across: true, answer_length: 4, desc
 Clue.create!(puzzle_id: 1, clue_number: 17, across: true, answer_length: 5, description: "Prevent legally");
 Clue.create!(puzzle_id: 1, clue_number: 18, across: true, answer_length: 4, description: "Bucks' mates");
 Clue.create!(puzzle_id: 1, clue_number: 19, across: true, answer_length: 4, description: "Riot spray");
-Clue.create!(puzzle_id: 1, clue_number: 20, across: true, answer_length: 13, description: "What a cadet won't do (or tolerate those who do), per the West Point honor code");
+Clue.create!(puzzle_id: 1, clue_number: 20, across: true, answer_length: 13, description: "What a cadet won't do"); # (or tolerate those who do), per the West Point honor code
 Clue.create!(puzzle_id: 1, clue_number: 23, across: true, answer_length: 3, description: "Bale contents");
 Clue.create!(puzzle_id: 1, clue_number: 24, across: true, answer_length: 4, description: "Four years for a U.S. president");
 Clue.create!(puzzle_id: 1, clue_number: 25, across: true, answer_length: 3, description: "'My Gal' of song");
@@ -161,4 +161,5 @@ Clue.create!(puzzle_id: 1, clue_number: 61, across: false, answer_length: 3, des
 Clue.create!(puzzle_id: 1, clue_number: 62, across: false, answer_length: 3, description: "'Long ___...'");
 
 
-# User.create!(username: "Guest User", password_digest: , session_token: )
+User.create!(username: "Demo User", password: "password" )
+ # Eugene T. Maleska

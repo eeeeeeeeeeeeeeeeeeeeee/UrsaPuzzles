@@ -20,6 +20,23 @@ div.user-login-page {
   width: 100%;
 }
 
+.plain-link {
+  color: yellow;
+  background: transparent;
+  border: none;
+}
+
+.plain-link:hover {
+  color: #337ab7;
+  text-decoration: underline;
+}
+
+
+
+.hidden-form {
+  display: inline;
+}
+
 .navbar {
   font-family: 'Poiret One', cursive;
   font-weight: bold;

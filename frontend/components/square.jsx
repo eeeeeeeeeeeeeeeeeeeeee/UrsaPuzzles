@@ -60,7 +60,7 @@ var Square = React.createClass({
 
     if(this.state.clueNumber !== null) {
       var className = "grid-square";
-      
+
       if(this.state.active) {
         className = "grid-square highlight";
       } else if(wordIndices.indexOf(this.props.counter) !== -1) {

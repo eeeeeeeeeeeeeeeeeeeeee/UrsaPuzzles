@@ -9,6 +9,8 @@ var _gameParams = { id: null, author: null, difficulty: null, emptyGrid: null, a
 var _solution = [];
 var _clues = [];
 var _across = true;
+var _currentAcrossClue = 1;
+var _currentDownClue = 1;
 
 var GameStore = new Store(AppDispatcher);
 
@@ -23,6 +25,10 @@ GameStore.getCurrentGameState = function () {
 
 GameStore.getClues = function () {
   return _clues.slice(0);
+};
+
+GameStore.getCurrentClues = function () {
+  return {across: _currentAcrossClue, down: _currentDownClue};
 };
 
 GameStore.getSolution = function () {
@@ -105,6 +111,16 @@ GameStore.__onDispatch = function (payload) {
 
     case PuzzleConstants.SWITCH_DIRECTION:
       _across = payload.across;
+      GameStore.__emitChange();
+      break;
+
+    case PuzzleConstants.ACROSS_CLUE:
+      _currentAcrossClue = payload.clueNum;
+      GameStore.__emitChange();
+      break;
+
+    case PuzzleConstants.DOWN_CLUE:
+      _currentDownClue = payload.clueNum;
       GameStore.__emitChange();
       break;
   }

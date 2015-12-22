@@ -15,6 +15,20 @@ var GameActions = {
       actionType: PuzzleConstants.SWITCH_DIRECTION,
       across: across
     })
+  },
+
+  receiveAcrossClue: function(clueNum) {
+    AppDispatcher.dispatch({
+      actionType: PuzzleConstants.ACROSS_CLUE,
+      clueNum: clueNum
+    })
+  },
+
+  receiveDownClue: function(clueNum) {
+    AppDispatcher.dispatch({
+      actionType: PuzzleConstants.DOWN_CLUE,
+      clueNum: clueNum
+    })
   }
 }
 

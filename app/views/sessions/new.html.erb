@@ -36,7 +36,24 @@
       </form>
 
       New user? <a class="user-link" href="/users/new">Create account here.</a>
-      Or, sign-in as <a class="user-link" href="#">demo-user</a>.
+      <!-- Or, sign-in as <a class="user-link" href="#">demo-user</a>. -->
+       Or, sign-in as
+        <form action="<%= session_url %>" method="POST" class="hidden-form">
+          <input
+            type="hidden"
+            name="authenticity_token"
+            value="<%= form_authenticity_token %>" >
+          <input
+            type="hidden"
+            name="user[username]"
+            value="Demo User">
+          <input type="hidden"
+            name="user[password]"
+            value="password">
+          <input type="submit" class="plain-link" value="demo user.">
+        </form>
+
+
 
     </div>
   </div>
