@@ -22,23 +22,19 @@ var ApiUtil = {
     });
   },
 
-  // fetchUserData: function(data) {
-  //   $.ajax({
-  //     url: 'users/games',
-  //     data: { game: info },
-  //     success: function(game) {
-  //       ApiActions.receiveGame(game);
-  //     }
-  //   });
-  // }
+  fetchUserData: function() {
+    $.ajax({
+      url: 'api/users',
+      success: function(data) {
+        ApiActions.receiveUserData(data);
+      }
+    });
+  }
 
 
-
-  // createGame post request returns puzzle
-  //
   // fetchPuzzle: function(id) {
   //   $.ajax({
-  //     url: 'api/puzzles',
+  //     url: 'api/users',
   //     data: { id: id },
   //     success: function(puzzle) {
   //       ApiActions.receivePuzzle(puzzle);
