@@ -119,7 +119,7 @@ var Grid = React.createClass({
     var that = this;
 
     if(this.state.game) {
-      var boardArray = $.parseJSON(this.state.game.current_board_state);
+      var boardArray = $.parseJSON(this.state.game.current_board_state);  // not technically current board state, cause never gets updated ===> should rename
       var counter = 0;
       var nextSquare = this.state.nextSquare;
 
@@ -136,12 +136,28 @@ var Grid = React.createClass({
 
         counter++;
 
-        if(square === 'black')
-          return <Square className="grid-square-outer" switchDirection={that.props.switchDirection} id={counter-1} key={counter-1} counter={counter-1} i={row} j={col} clueNumber={null}/> ;
-        else if(square === 'white')
-          return <Square className="grid-square-outer" switchDirection={that.props.switchDirection} id={counter-1} key={counter-1} active={active} counter={counter-1} i={row} j={col} clueNumber=" " currentAcrossClue={that.props.currentAcrossClue} currentDownClue={that.props.currentDownClue} across={that.state.across}/>;
-        else
-          return <Square className="grid-square-outer" switchDirection={that.props.switchDirection} id={counter-1} key={counter-1} active={active} counter={counter-1} i={row} j={col} clueNumber={square} currentAcrossClue={that.props.currentAcrossClue} currentDownClue={that.props.currentDownClue} across={that.state.across}/>;
+        if(square === 'black') {
+          return <Square className="grid-square-outer"
+                         switchDirection={that.props.switchDirection}
+                         id={counter-1} key={counter-1} counter={counter-1}
+                         i={row} j={col} clueNumber={null}/> ;
+        } else if(square === 'white') {
+          return <Square className="grid-square-outer"
+                         switchDirection={that.props.switchDirection}
+                         id={counter-1} key={counter-1} active={active}
+                         counter={counter-1} i={row} j={col} clueNumber=" "
+                         currentAcrossClue={that.props.currentAcrossClue}
+                         currentDownClue={that.props.currentDownClue}
+                         across={that.state.across}/>;
+        } else {
+          return <Square className="grid-square-outer"
+                         switchDirection={that.props.switchDirection}
+                         id={counter-1} key={counter-1} active={active}
+                         counter={counter-1} i={row} j={col} clueNumber={square}
+                         currentAcrossClue={that.props.currentAcrossClue}
+                         currentDownClue={that.props.currentDownClue}
+                         across={that.state.across}/>;
+        }
       });
     }
 

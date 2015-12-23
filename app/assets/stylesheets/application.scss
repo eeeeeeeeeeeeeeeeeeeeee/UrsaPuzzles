@@ -1,3 +1,16 @@
+/*
+*= require_self
+*= require games
+*= require puzzles
+*= require sessions
+*= require users
+*/
+
+
+
+
+
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -324,7 +337,7 @@ ol {
 
 ol.crossword-clue-list {
   width: 230px;
-  height: 387px;
+  min-height: 387px;
 }
 
 .across-clues-and-header {
@@ -426,4 +439,11 @@ li.puzzle-list-item::before {
   left: 0;
   text-align: right;
   width: 25px;
+}
+
+
+
+
+.game-toolbar {
+  outline: 1px solid black;
 }

@@ -137,9 +137,8 @@ GameStore.__onDispatch = function (payload) {
       break;
 
     case PuzzleConstants.PUZZLE_RECEIVED:
-      _game = [payload.game];
-      _solution = payload.puzzle.answer_grid;
-      _clues = payload.clues;
+      _solution = payload.puzzle.puzzle.answer_grid;
+      _clues = payload.puzzle.clues;
       GameStore.__emitChange();
       break;
   }

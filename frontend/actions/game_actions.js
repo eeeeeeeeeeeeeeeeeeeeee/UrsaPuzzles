@@ -51,6 +51,7 @@ var GameActions = {
       idx: idx
     })
   }
+  
 }
 
 module.exports = GameActions;

@@ -30,14 +30,14 @@ var PuzzleList = React.createClass({
   },
 
   handleClick: function(id, event) {
-    // currentGame = UserStore.getPreviousGameState(id);
-    // if(currentGame) {
-    //   GameActions.receivePreviousGame(currentGame);
-    //   ApiUtil.fetchPuzzle(id);
-    // } else {
-    //   ApiUtil.createGame({puzzle_id: id});
-    // }
-    ApiUtil.createGame({puzzle_id: id});
+    currentGame = UserStore.getPreviousGameState(id);
+    if(currentGame) {
+      ApiUtil.fetchPuzzle(id);
+      GameActions.receivePreviousGame(currentGame);
+    } else {
+      ApiUtil.createGame({puzzle_id: id});
+    }
+    // ApiUtil.createGame({puzzle_id: id});
   },
 
   sortPuzzlesByDifficulty: function() {

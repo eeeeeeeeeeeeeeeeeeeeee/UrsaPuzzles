@@ -2,11 +2,21 @@ var React = require('react');
 var GameActions = require('../actions/game_actions')
 var reactDOM = require('react-dom');
 var GameStore = require('../stores/game');
+var _ = require('underscore');
 
+function _getAcrossCluesAndIndices() {
+  return GameStore.getAcrossCluesAndIndices();
+};
+
+function _getDownCluesAndIndices() {
+  return GameStore.getDownCluesAndIndices();
+};
 
 var Square = React.createClass({
   getInitialState: function() {
-    return ({clueNumber: this.props.clueNumber, active: false, guess: "", acrossCluesAndIndices: GameStore.getAcrossCluesAndIndices(), downCluesAndIndices: GameStore.getDownCluesAndIndices()});
+    var acrossCluesAndIndices = _getAcrossCluesAndIndices();
+    var downCluesAndIndices = _getDownCluesAndIndices();
+    return ({clueNumber: this.props.clueNumber, active: false, guess: "", acrossCluesAndIndices: acrossCluesAndIndices, downCluesAndIndices: downCluesAndIndices});
   },
 
   // componentDidMount: function() {
@@ -36,6 +46,18 @@ var Square = React.createClass({
     if(this.props.counter === 0) {
       document.querySelector("#ut-0").focus();
     }
+    this.gameListener = GameStore.addListener(this._gameChanged);
+  },
+
+  componentWillUnmount: function() {
+    this.gameListener.remove();
+  },
+
+  _gameChanged: function() {
+    var acrossCluesAndIndices = _getAcrossCluesAndIndices();
+    var downCluesAndIndices = _getDownCluesAndIndices();
+    this.setState({acrossCluesAndIndices: acrossCluesAndIndices,
+                   downCluesAndIndices: downCluesAndIndices});
   },
 
   componentWillReceiveProps: function(nextProps) {
@@ -54,9 +76,10 @@ var Square = React.createClass({
 
   render: function() {
     var wordIndices = [];
-    if(this.props.across && this.props.currentAcrossClue !== -1) {
+
+    if(!_.isEmpty(this.state.acrossCluesAndIndices) && this.props.across && this.props.currentAcrossClue !== -1) {
       wordIndices = this.state.acrossCluesAndIndices[this.props.currentAcrossClue];
-    } else if (this.props.currentAcrossClue !== -1){
+    } else if (!_.isEmpty(this.state.downCluesAndIndices) && this.props.currentAcrossClue !== -1){
       wordIndices = this.state.downCluesAndIndices[this.props.currentDownClue];
     }
 
@@ -66,6 +89,7 @@ var Square = React.createClass({
 
     if(this.state.clueNumber !== null) {
       var className = "grid-square";
+
 
       if(this.state.active) {
         className = "grid-square highlight";

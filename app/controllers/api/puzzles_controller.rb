@@ -8,7 +8,7 @@ class Api::PuzzlesController < ApplicationController
   def show
     puzzle = Puzzle.find_by(id: params[:id])
     clues = Clue.where("puzzle_id = ?", params[:id])
-    
+
     render json: {puzzle: puzzle, clues: clues}
   end
 

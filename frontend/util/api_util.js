@@ -21,6 +21,7 @@ var ApiUtil = {
         ApiActions.receiveGame(game);
       }
     });
+    console.log("game created");
   },
 
   fetchUserData: function() {
