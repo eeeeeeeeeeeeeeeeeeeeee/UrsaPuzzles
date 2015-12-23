@@ -34,7 +34,7 @@ var GameToolbar = React.createClass({
     var userId = UserStore.getUserId();
     var currentGameState = GameStore.getCurrentGameState();
     var timeElapsed = this.state.timeElapsed;
-    var game = {currentGameState: currentGameState, timeElapsed: timeElapsed};
+    var game = {current_game_state: currentGameState, time_elapsed: timeElapsed};
 
     ApiUtil.saveGame(userId, game);
   },

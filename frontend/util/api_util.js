@@ -46,7 +46,7 @@ var ApiUtil = {
     $.ajax({
       type: 'PATCH',
       url: '/users/'+userId,
-      data: { game: game },
+      data: { user: game },
       success: function() {
         console.log("game saved!");
       }

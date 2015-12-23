@@ -15,9 +15,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    current_game_state = user_params[:current_game_state]
+    time_elapsed = user_params[:time_elapsed]
+
+    
+  end
+
   private
   def user_params
-    params.require(:user).permit(:password, :username)
+    params.require(:user).permit(:password, :username, {:current_game_state => []}, :time_elapsed)
   end
 
 end
