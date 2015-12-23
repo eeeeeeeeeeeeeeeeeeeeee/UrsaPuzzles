@@ -6,6 +6,7 @@ var ApiUtil = require('../util/api_util');
 var Grid = require('./grid');
 var ClueLists = require('./clue_lists');
 var ClueSpotlight = require('./clue_spotlight');
+var GameToolbar = require('./game_toolbar');
 
 function _getGame() {
   return GameStore.getGame();
@@ -81,6 +82,7 @@ var GameContainer = React.createClass({
     return (
         <div className="game-container">
           <div className="clues">
+            <GameToolbar/>
             <ClueLists className="clue-lists" currentAcrossClue={this.state.currentAcrossClue} currentDownClue={this.state.currentDownClue} across={this.state.across}/>
             <ClueSpotlight className="clue-spotlight" currentAcrossClue={this.state.currentAcrossClue} currentDownClue={this.state.currentDownClue} across={this.state.across}/>
           </div>

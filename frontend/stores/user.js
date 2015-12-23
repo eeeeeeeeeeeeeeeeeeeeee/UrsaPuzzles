@@ -6,6 +6,10 @@ var UserStore = new Store(AppDispatcher);
 
 var _userData;
 
+UserStore.getUserId = function() {
+  return _userData[0].user_id;
+};
+
 UserStore.getPreviousGameState = function(puzzleId) {
   for(var i = 0; i < _userData.length; i++) {
     if(_userData[i].puzzle_id === puzzleId)

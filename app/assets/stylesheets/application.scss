@@ -337,7 +337,7 @@ ol {
 
 ol.crossword-clue-list {
   width: 230px;
-  min-height: 387px;
+  min-height: 350px;
 }
 
 .across-clues-and-header {
@@ -445,5 +445,25 @@ li.puzzle-list-item::before {
 
 
 .game-toolbar {
-  outline: 1px solid black;
+  border-bottom: 1px solid lightgray;
+  width: 490px;
+  margin-top: 1px;
+  height: 40px;
+  display: inline-block;
+}
+
+.save-button {
+  margin-top: 7px;
+  margin-right: 40px;
+  float: right;
+  border: 1px solid lightgray;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.timer-count {
+  float: left;
+  margin-top: 7px;
+  margin-left: 40px;
+  font-size: 20px;
 }
