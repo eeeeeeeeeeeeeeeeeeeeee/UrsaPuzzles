@@ -39,8 +39,19 @@ var ApiUtil = {
       success: function(puzzle) {
         GameActions.receivePuzzle(puzzle);
       }
-    })
-  }
+    });
+  },
+
+  saveGame: function(userId, game) {
+    $.ajax({
+      type: 'PATCH',
+      url: '/users/'+userId,
+      data: { game: game },
+      success: function() {
+        console.log("game saved!");
+      }
+    });
+  },
 
 
   // fetchPuzzle: function(id) {

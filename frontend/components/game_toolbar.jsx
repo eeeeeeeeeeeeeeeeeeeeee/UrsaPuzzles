@@ -1,6 +1,7 @@
 var React = require('react');
 var UserStore = require('../stores/user');
 var GameStore = require('../stores/game');
+var ApiUtil = require('../util/api_util');
 
 var GameToolbar = React.createClass({
   getInitialState: function() {
@@ -29,7 +30,17 @@ var GameToolbar = React.createClass({
     return hours + ":" + minutes + ":" + seconds;
   },
 
+  saveGame: function() {
+    var userId = UserStore.getUserId();
+    var currentGameState = GameStore.getCurrentGameState();
+    var timeElapsed = this.state.timeElapsed;
+    var game = {currentGameState: currentGameState, timeElapsed: timeElapsed};
+
+    ApiUtil.saveGame(userId, game);
+  },
+
   render: function() {
+
     var id = UserStore.getUserId();
     var link = "/users/" + id;
     var currentGameState = GameStore.getCurrentGameState();
