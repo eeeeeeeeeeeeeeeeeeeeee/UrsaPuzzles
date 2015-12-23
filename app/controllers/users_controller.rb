@@ -19,7 +19,12 @@ class UsersController < ApplicationController
     current_game_state = user_params[:current_game_state]
     time_elapsed = user_params[:time_elapsed]
 
-    
+    update_params = {}
+
+    unless current_user.update()
+      flash.now[:errors] = @user.errors.full_messages
+    end
+
   end
 
   private

@@ -5,6 +5,7 @@ var ApiUtil = require('../util/api_util');
 
 var GameToolbar = React.createClass({
   getInitialState: function() {
+    //change time elapsed to start at value stored in game -- needs to be int first...
     return { timeElapsed: 0 };
   },
 
@@ -31,19 +32,15 @@ var GameToolbar = React.createClass({
   },
 
   saveGame: function() {
-    var userId = UserStore.getUserId();
+    var gameId = GameStore.getGame()[0].id;
     var currentGameState = GameStore.getCurrentGameState();
     var timeElapsed = this.state.timeElapsed;
     var game = {current_game_state: currentGameState, time_elapsed: timeElapsed};
 
-    ApiUtil.saveGame(userId, game);
+    ApiUtil.saveGame(gameId, game);
   },
 
   render: function() {
-
-    var id = UserStore.getUserId();
-    var link = "/users/" + id;
-    var currentGameState = GameStore.getCurrentGameState();
 
     return (
       <div className="game-toolbar">

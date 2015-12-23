@@ -115,6 +115,7 @@ var Grid = React.createClass({
   },
 
   render: function() {
+    debugger
     var rows = "";
     var that = this;
 

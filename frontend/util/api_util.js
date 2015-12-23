@@ -42,11 +42,11 @@ var ApiUtil = {
     });
   },
 
-  saveGame: function(userId, game) {
+  saveGame: function(gameId, game) {
     $.ajax({
       type: 'PATCH',
-      url: '/users/'+userId,
-      data: { user: game },
+      url: '/games/'+gameId,
+      data: { game: game },
       success: function() {
         console.log("game saved!");
       }

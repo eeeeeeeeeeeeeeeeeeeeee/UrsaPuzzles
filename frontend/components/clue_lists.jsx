@@ -38,16 +38,16 @@ var ClueLists = React.createClass({
     var firstAcross = $('ol.across li').eq(0);
     var downEl = $('ol.down .highlight').eq(0);
     var firstDown = $('ol.down li').eq(0);
-    // debugger;
+
     if (acrossEl.length > 0) {
       $('ol.across').animate({
         scrollTop: acrossEl.offset().top - firstAcross.offset().top + 6
-      }, 500);
+      }, 250);
     }
     if (downEl.length > 0) {
       $('ol.down').animate({
         scrollTop: downEl.offset().top - firstDown.offset().top + 6
-      }, 500);
+      }, 250);
     }
   },
 
@@ -94,7 +94,9 @@ var ClueLists = React.createClass({
           className = "clue-list-item";
         }
 
-        return <li className={className} value={clue.clue_number} onClick={that.handleAcrossClick}>{clue.description}</li>
+        key = "A-" + clue.clue_number;
+
+        return <li className={className} key={key} value={clue.clue_number} onClick={that.handleAcrossClick}>{clue.description}</li>
       });
 
       downClueListItem = clues.down.map (function(clue) {
@@ -105,7 +107,10 @@ var ClueLists = React.createClass({
         } else {
           className = "clue-list-item";
         }
-        return <li className={className} value={clue.clue_number} onClick={that.handleDownClick}>{clue.description}</li>
+
+        key = "D" + clue.clue_number;
+        
+        return <li className={className} key={key} value={clue.clue_number} onClick={that.handleDownClick}>{clue.description}</li>
       });
     }
 

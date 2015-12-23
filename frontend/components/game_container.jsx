@@ -34,6 +34,7 @@ var GameContainer = React.createClass({
   },
 
   updateClue: function(square) {
+    
     var acrossClues = _getAcrossClueIndices();
     var downClues = _getDownClueIndices();
 

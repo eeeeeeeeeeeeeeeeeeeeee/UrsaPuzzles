@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151218200456) do
+ActiveRecord::Schema.define(version: 20151223184612) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,11 +33,11 @@ ActiveRecord::Schema.define(version: 20151218200456) do
     t.integer  "puzzle_id",                           null: false
     t.integer  "user_id",                             null: false
     t.boolean  "won",                 default: false
-    t.time     "time_elapsed"
     t.boolean  "hints_used",          default: false
     t.text     "current_board_state"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "time_elapsed",        default: 0
   end
 
   add_index "games", ["puzzle_id"], name: "index_games_on_puzzle_id", using: :btree

@@ -10,6 +10,13 @@ var GameActions = {
     })
   },
 
+  receiveArrowMove: function(keyCode) {
+    AppDispatcher.dispatch({
+      actionType: PuzzleConstants.ARROW_MOVE,
+      keyCode: keyCode
+    })
+  },
+
   receiveMove: function(across) {
     AppDispatcher.dispatch({
       actionType: PuzzleConstants.SWITCH_DIRECTION,
@@ -51,7 +58,7 @@ var GameActions = {
       idx: idx
     })
   }
-  
+
 }
 
 module.exports = GameActions;

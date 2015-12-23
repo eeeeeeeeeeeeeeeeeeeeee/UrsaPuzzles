@@ -99,6 +99,13 @@ var findIndexOfClueNumber = function(clueNumber) {
 
 };
 
+function _updateFromArrow(keyCode) {
+  // switch keyCode  {
+  //   case 37
+  //
+  // }
+}
+
 GameStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
     case PuzzleConstants.GAME_RECEIVED:
@@ -139,6 +146,11 @@ GameStore.__onDispatch = function (payload) {
     case PuzzleConstants.PUZZLE_RECEIVED:
       _solution = payload.puzzle.puzzle.answer_grid;
       _clues = payload.puzzle.clues;
+      GameStore.__emitChange();
+      break;
+
+    case PuzzleConstants.ARROW_MOVE:
+      _updateFromArrow(payload.keyCode);
       GameStore.__emitChange();
       break;
   }

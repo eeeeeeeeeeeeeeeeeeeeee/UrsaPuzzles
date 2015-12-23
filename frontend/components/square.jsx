@@ -33,12 +33,19 @@ var Square = React.createClass({
 
   handleKeyDown: function(event) {
     var key = event.which;
-    var across;
 
     if(key === 37 || key === 39) {
-      GameActions.receiveMove(true);
+      if(this.props.across) {
+        GameActions.receiveArrowMove(key);
+      } else {
+        GameActions.receiveMove(true);
+      }
     } else if (key === 38 || key === 40) {
-      GameActions.receiveMove(false);
+      if(this.props.across) {
+        GameActions.receiveMove(false);
+      } else {
+        GameActions.receiveArrowMove(key);
+      }
     }
   },
 
