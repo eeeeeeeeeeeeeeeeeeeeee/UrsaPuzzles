@@ -14,7 +14,9 @@ var Home = React.createClass({
 
     return (
       <div className="home-group">
-        <PuzzleList className="puzzle-list"/>
+        <div className="color-band">
+          <PuzzleList className="puzzle-list"/>
+        </div>
       </div>
     );
   }

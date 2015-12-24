@@ -97,7 +97,12 @@ var Square = React.createClass({
     // document.querySelector(squareString).focus();
 
     next = this.props.counter;
-    if(this.props.across) next -= 1;
+    if(this.props.across) {
+      next -= 1;
+    } else {
+      next += 15; // need to fix, still one off
+    }
+
     GameActions.receiveCurrentSquare(next);
   },
 

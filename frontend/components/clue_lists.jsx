@@ -88,7 +88,7 @@ var ClueLists = React.createClass({
       acrossClueListItem = clues.across.map (function(clue) {
         if(that.props.currentAcrossClue == clue.clue_number && that.props.across) {
           className = "clue-list-item highlight active";
-        } else if (that.props.currentDownClue == clue.clue_number) {
+        } else if (that.props.currentAcrossClue == clue.clue_number) {
           className = "clue-list-item highlight";
         } else {
           className = "clue-list-item";
@@ -108,8 +108,8 @@ var ClueLists = React.createClass({
           className = "clue-list-item";
         }
 
-        key = "D" + clue.clue_number;
-        
+        key = "D-" + clue.clue_number;
+
         return <li className={className} key={key} value={clue.clue_number} onClick={that.handleDownClick}>{clue.description}</li>
       });
     }
