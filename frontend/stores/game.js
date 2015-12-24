@@ -173,7 +173,11 @@ GameStore.__onDispatch = function (payload) {
 
     case PuzzleConstants.CLEAR:
       _currentGrid = _emptyGrid;
-      debugger
+      GameStore.__emitChange();
+      break;
+
+    case PuzzleConstants.SHOW_ALL:
+      _currentGrid = _solution;
       GameStore.__emitChange();
       break;
   }

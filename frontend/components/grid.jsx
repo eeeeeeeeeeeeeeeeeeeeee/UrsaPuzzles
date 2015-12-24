@@ -136,7 +136,7 @@ var Grid = React.createClass({
       var currentBoard = GameStore.getCurrentGameState();
       var counter = 0;
       var nextSquare = this.state.nextSquare;
-
+      debugger
       rows = boardArray.map( function(square) {
         var row = counter / 15;
         var col = counter % 15;
@@ -154,7 +154,7 @@ var Grid = React.createClass({
         }
 
         counter++;
-
+        debugger
         if(square === 'black') {
           return <Square className="grid-square-outer"
                          switchDirection={that.props.switchDirection}

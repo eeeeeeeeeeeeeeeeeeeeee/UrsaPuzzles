@@ -130,7 +130,7 @@ var Square = React.createClass({
                         type="text" styles="text-transform:uppercase"
                         onKeyDown={this.handleKeyDown}
                         onKeyPress={this.handleKeyPress}
-                        defaultValue={this.props.value}></input>
+                        value={this.props.value}></input>
                </div>
     }
 

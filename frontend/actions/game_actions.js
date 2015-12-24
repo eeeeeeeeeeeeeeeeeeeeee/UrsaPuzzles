@@ -63,6 +63,12 @@ var GameActions = {
     AppDispatcher.dispatch({
       actionType: PuzzleConstants.CLEAR
     })
+  },
+
+  receiveSolutionRequest: function() {
+    AppDispatcher.dispatch({
+      actionType: PuzzleConstants.SHOW_ALL
+    })
   }
 
 }

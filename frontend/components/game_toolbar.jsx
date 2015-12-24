@@ -51,6 +51,11 @@ var GameToolbar = React.createClass({
     this.saveGame();
   },
 
+  revealGame: function() {
+    GameActions.receiveSolutionRequest();
+    // set hints used to true
+  },
+
   render: function() {
 
     return (
@@ -58,6 +63,7 @@ var GameToolbar = React.createClass({
         <span className="timer-count">{this._convertSecondsToTimer()}</span>
         <button type="button" className="save-button btn" onClick={this.saveGame}>Save Game</button>
         <button type="button" className="save-button btn" onClick={this.clearGame}>Clear</button>
+        <button type="button" className="save-button btn" onClick={this.revealGame}>Reveal Solution</button>
       </div>
     );
   }

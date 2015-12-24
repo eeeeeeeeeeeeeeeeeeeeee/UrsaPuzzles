@@ -10,7 +10,8 @@ var PuzzleConstants = {
   PREVIOUS_GAME: "PREVIOUS_GAME",
   PUZZLE_RECEIVED: "PUZZLE_RECEIVED",
   ARROW_MOVE: "ARROW_MOVE",
-  CLEAR: "CLEAR"
+  CLEAR: "CLEAR",
+  SHOW_ALL: "SHOW_ALL"
 }
 
 module.exports = PuzzleConstants;
