@@ -94,11 +94,11 @@ var Square = React.createClass({
   handleClick: function() {
     var squareString = "#ut-" + this.props.counter;
     // debugger
-    document.querySelector(squareString).focus();
+    // document.querySelector(squareString).focus();
 
     next = this.props.counter;
-    if(this.prop.across) next -= 1;
-    GameActions.receiveCurrentSquare(this.props.counter);
+    if(this.props.across) next -= 1;
+    GameActions.receiveCurrentSquare(next);
   },
 
   render: function() {
@@ -126,7 +126,11 @@ var Square = React.createClass({
 
       square = <div className={className} onDoubleClick={this.handleDoubleClick} onClick={this.handleClick}>
                  <div className="clue-number">{this.state.clueNumber}</div>
-                 <input className="user-type" id={"ut-" + this.props.counter} type="text" styles="text-transform:uppercase" onKeyDown={this.handleKeyDown} onKeyPress={this.handleKeyPress} defaultValue={this.props.value}></input>
+                 <input className="user-type" id={"ut-" + this.props.counter}
+                        type="text" styles="text-transform:uppercase"
+                        onKeyDown={this.handleKeyDown}
+                        onKeyPress={this.handleKeyPress}
+                        defaultValue={this.props.value}></input>
                </div>
     }
 

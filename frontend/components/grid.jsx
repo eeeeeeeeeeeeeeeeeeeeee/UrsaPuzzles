@@ -43,7 +43,7 @@ var Grid = React.createClass({
   _currentSquareChanged: function() {
     var currentSquare = _getCurrentSquare();
 
-    this.setState({ nextSquare: this.findNextSqaure(currentSquare) }, function() {
+    this.setState({ nextSquare: this.findNextSqaure(currentSquare), }, function() {
       this._updateFocus();
       this.props.updateClue(this.state.nextSquare);
     }.bind(this));
@@ -74,7 +74,7 @@ var Grid = React.createClass({
         openSquares.push(i);
       }
     }
-    
+
     return openSquares;
   },
 
@@ -84,7 +84,7 @@ var Grid = React.createClass({
     var currentIndex = game.indexOf(idx);
 
     var downClues = GameStore.getDownCluesAndIndices();
-    var downClueNumber = this.props.currentDownClue;
+    var downClueNumber = this._findClueNumFromIndex(idx);
     var downIndices = _.keys(downClues);
     var newStart = downIndices.indexOf(downClueNumber);
     var downCluesInOrder = (newStart <= 0) ? downIndices: downIndices.slice(newStart).concat(downIndices.slice(0, newStart));
@@ -106,6 +106,18 @@ var Grid = React.createClass({
         }
       }
     }
+    return null;
+  },
+
+  _findClueNumFromIndex: function(idx) {
+    var downClues = GameStore.getDownCluesAndIndices();
+
+    for(var clueNum in downClues) {
+      if(downClues[clueNum].indexOf(idx) !== -1) {
+        return clueNum;
+      }
+    }
+
     return null;
   },
 
