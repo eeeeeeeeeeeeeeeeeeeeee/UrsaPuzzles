@@ -69,6 +69,13 @@ var GameActions = {
     AppDispatcher.dispatch({
       actionType: PuzzleConstants.SHOW_ALL
     })
+  },
+
+  receiveStep: function(idx) {
+    AppDispatcher.dispatch({
+      actionType: PuzzleConstants.STEP,
+      idx: idx
+    })
   }
 
 }

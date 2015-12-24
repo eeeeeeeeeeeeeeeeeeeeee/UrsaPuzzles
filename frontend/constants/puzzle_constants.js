@@ -11,7 +11,8 @@ var PuzzleConstants = {
   PUZZLE_RECEIVED: "PUZZLE_RECEIVED",
   ARROW_MOVE: "ARROW_MOVE",
   CLEAR: "CLEAR",
-  SHOW_ALL: "SHOW_ALL"
+  SHOW_ALL: "SHOW_ALL",
+  STEP: "STEP"
 }
 
 module.exports = PuzzleConstants;

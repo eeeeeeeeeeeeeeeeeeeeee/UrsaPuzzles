@@ -20,6 +20,10 @@ CurrentSquareStore.__onDispatch = function (payload) {
       _currentSquare = payload.idx;
       CurrentSquareStore.__emitChange();
       break;
+    case PuzzleConstants.STEP:
+      _currentSquare = payload.idx;
+      CurrentSquareStore.__emitChange();
+      break;
   }
 };
 

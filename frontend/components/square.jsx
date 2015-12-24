@@ -46,7 +46,7 @@ var Square = React.createClass({
 
     if(key === 37 || key === 39) {
       if(this.props.across) {
-        this.props.currentSquareChanged;
+        GameActions.receiveStep(this.props.counter);
       } else {
         GameActions.receiveMove(true);
       }
@@ -54,7 +54,7 @@ var Square = React.createClass({
       if(this.props.across) {
         GameActions.receiveMove(false);
       } else {
-        this.props.currentSquareChanged;
+        GameActions.receiveStep(this.props.counter);
       }
     }
   },
