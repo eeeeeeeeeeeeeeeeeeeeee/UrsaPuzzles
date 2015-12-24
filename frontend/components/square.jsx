@@ -33,10 +33,20 @@ var Square = React.createClass({
 
   handleKeyDown: function(event) {
     var key = event.which;
+    // var board = GameStore.getStartingBoard();
+    // var thisSquare = this.props.counter;
+    // var newSquare;
+    //
+    // if(key === 37 || key === 39 && this.props.across) {
+    //
+    //   while(board[thisSquare + 1] === "black") {
+    //
+    //   }
+    // }
 
     if(key === 37 || key === 39) {
       if(this.props.across) {
-        GameActions.receiveArrowMove(key);
+        this.props.currentSquareChanged;
       } else {
         GameActions.receiveMove(true);
       }
@@ -44,7 +54,7 @@ var Square = React.createClass({
       if(this.props.across) {
         GameActions.receiveMove(false);
       } else {
-        GameActions.receiveArrowMove(key);
+        this.props.currentSquareChanged;
       }
     }
   },
@@ -106,7 +116,7 @@ var Square = React.createClass({
 
       square = <div className={className} onDoubleClick={this.handleClick}>
                  <div className="clue-number">{this.state.clueNumber}</div>
-                 <input className="user-type" id={"ut-" + this.props.counter} type="text" styles="text-transform:uppercase" onKeyDown={this.handleKeyDown} onKeyPress={this.handleKeyPress} value={this.state.guess}></input>
+                 <input className="user-type" id={"ut-" + this.props.counter} type="text" styles="text-transform:uppercase" onKeyDown={this.handleKeyDown} onKeyPress={this.handleKeyPress} value={this.props.value}></input>
                </div>
     }
 

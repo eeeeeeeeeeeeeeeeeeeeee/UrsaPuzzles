@@ -70,11 +70,11 @@ var Grid = React.createClass({
     var openSquares = [];
 
     for(var i = 0; i < board.length; i++) {
-      if(board[i] === "white" || typeof board[i] === "number") {
+      if(board[i] === "white" || typeof board[i] === "number" || parseInt(board[i])) {
         openSquares.push(i);
       }
     }
-
+    debugger
     return openSquares;
   },
 
@@ -115,12 +115,13 @@ var Grid = React.createClass({
   },
 
   render: function() {
-    debugger
     var rows = "";
     var that = this;
 
     if(this.state.game) {
-      var boardArray = $.parseJSON(this.state.game.current_board_state);  // not technically current board state, cause never gets updated ===> should rename
+      // var boardArray = $.parseJSON(this.state.game.current_board_state);  // not technically current board state, cause never gets updated ===> should rename
+      var boardArray = GameStore.getStartingBoard();
+      var currentBoard = GameStore.getCurrentGameState();
       var counter = 0;
       var nextSquare = this.state.nextSquare;
 
@@ -128,6 +129,11 @@ var Grid = React.createClass({
         var row = counter / 15;
         var col = counter % 15;
         var active = (nextSquare === counter) ? true : false;
+        var value = "";
+
+        if(!parseInt(currentBoard[counter]) && currentBoard[counter].length <= 1) {
+          value = currentBoard[counter];
+        }
 
         if(that.props.currentAcrossClue === -1 && counter === 0) {
           active = true;
@@ -149,7 +155,9 @@ var Grid = React.createClass({
                          counter={counter-1} i={row} j={col} clueNumber=" "
                          currentAcrossClue={that.props.currentAcrossClue}
                          currentDownClue={that.props.currentDownClue}
-                         across={that.state.across}/>;
+                         across={that.state.across}
+                         currentSquareChanged={that._currentSquareChanged}
+                         value={value}/>;
         } else {
           return <Square className="grid-square-outer"
                          switchDirection={that.props.switchDirection}
@@ -157,7 +165,9 @@ var Grid = React.createClass({
                          counter={counter-1} i={row} j={col} clueNumber={square}
                          currentAcrossClue={that.props.currentAcrossClue}
                          currentDownClue={that.props.currentDownClue}
-                         across={that.state.across}/>;
+                         across={that.state.across}
+                         currentSquareChanged={that._currentSquareChanged}
+                         value={value}/>;
         }
       });
     }

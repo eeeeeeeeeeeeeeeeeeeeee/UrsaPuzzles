@@ -6,6 +6,8 @@
 
       <h1>Sign In</h1>
 
+      <div class="errors-div"></div>
+
       <form action="<%= session_url %>" method="post" class="form-group has-feedback">
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
@@ -52,8 +54,6 @@
             value="password">
           <input type="submit" class="plain-link" value="demo user.">
         </form>
-
-
 
     </div>
   </div>

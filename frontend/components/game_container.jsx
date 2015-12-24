@@ -34,7 +34,7 @@ var GameContainer = React.createClass({
   },
 
   updateClue: function(square) {
-    
+
     var acrossClues = _getAcrossClueIndices();
     var downClues = _getDownClueIndices();
 
@@ -64,7 +64,7 @@ var GameContainer = React.createClass({
   },
 
   _userChanged: function() {
-
+    // do I need to keep???
   },
 
   componentDidMount: function() {

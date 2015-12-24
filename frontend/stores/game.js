@@ -5,6 +5,7 @@ var PuzzleConstants = require('../constants/puzzle_constants');
 var AppDispatcher = require('../dispatcher/dispatcher');
 var _game = [];
 var _currentGrid = [];
+var _emptyGrid = [];
 var _gameParams = { id: null, author: null, difficulty: null, emptyGrid: null, answerGrid: null };
 var _solution = [];
 var _clues = [];
@@ -43,6 +44,11 @@ GameStore.getSolution = function () {
 
 GameStore.getDirection = function () {
   return _across;
+};
+
+GameStore.getStartingBoard = function() {
+  return _emptyGrid;
+  // return $.parseJSON(_game[0].current_board_state);
 };
 
 GameStore.getAcrossCluesAndIndices = function() {
@@ -89,7 +95,8 @@ GameStore.getDownCluesAndIndices = function() {
 };
 
 var findIndexOfClueNumber = function(clueNumber) {
-  var origBoard = $.parseJSON(_game[0].current_board_state);
+  // var origBoard = $.parseJSON(_game[0].current_board_state);
+  var origBoard = _emptyGrid;
 
   if(origBoard.indexOf(clueNumber) !== -1) {
     return origBoard.indexOf(clueNumber);
@@ -100,8 +107,10 @@ var findIndexOfClueNumber = function(clueNumber) {
 };
 
 function _updateFromArrow(keyCode) {
+
   // switch keyCode  {
-  //   case 37
+  //   case 37:
+  //
   //
   // }
 }
@@ -111,6 +120,7 @@ GameStore.__onDispatch = function (payload) {
     case PuzzleConstants.GAME_RECEIVED:
       _game = [payload.game];
       _currentGrid = $.parseJSON(payload.game.current_board_state);
+      _emptyGrid = $.parseJSON(payload.game.current_board_state);
       _solution = payload.puzzle.answer_grid;
       _clues = payload.clues;
       GameStore.__emitChange();
@@ -146,6 +156,7 @@ GameStore.__onDispatch = function (payload) {
     case PuzzleConstants.PUZZLE_RECEIVED:
       _solution = payload.puzzle.puzzle.answer_grid;
       _clues = payload.puzzle.clues;
+      _emptyGrid = payload.puzzle.puzzle.empty_grid;
       GameStore.__emitChange();
       break;
 

@@ -17,7 +17,7 @@ CurrentSquareStore.__onDispatch = function (payload) {
       CurrentSquareStore.__emitChange();
       break;
     case PuzzleConstants.NEW_CURRENT_SQUARE:
-      _nextSquare = payload.idx;
+      _currentSquare = payload.idx;
       CurrentSquareStore.__emitChange();
       break;
   }

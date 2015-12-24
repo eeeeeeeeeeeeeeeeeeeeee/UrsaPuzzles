@@ -10,6 +10,7 @@ class GamesController < ApplicationController
       flash.now[:errors] = @user.errors.full_messages
     end
 
+    render json: ""
   end
 
   private
