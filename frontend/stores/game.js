@@ -12,6 +12,7 @@ var _clues = [];
 var _across = true;
 var _currentAcrossClue = 1;
 var _currentDownClue = 1;
+var _startTime = 0;
 
 var GameStore = new Store(AppDispatcher);
 
@@ -44,6 +45,10 @@ GameStore.getSolution = function () {
 
 GameStore.getDirection = function () {
   return _across;
+};
+
+GameStore.getStartTime = function () {
+  return _startTime;
 };
 
 GameStore.getStartingBoard = function() {
@@ -149,6 +154,7 @@ GameStore.__onDispatch = function (payload) {
 
     case PuzzleConstants.PREVIOUS_GAME:
       _game = [payload.game];
+      _startTime = payload.game.time_elapsed;
       _currentGrid = $.parseJSON(payload.game.current_board_state);
       GameStore.__emitChange();
       break;
@@ -162,6 +168,11 @@ GameStore.__onDispatch = function (payload) {
 
     case PuzzleConstants.ARROW_MOVE:
       _updateFromArrow(payload.keyCode);
+      GameStore.__emitChange();
+      break;
+
+    case PuzzleConstants.CLEAR:
+      _currentGrid = _emptyGrid;
       GameStore.__emitChange();
       break;
   }

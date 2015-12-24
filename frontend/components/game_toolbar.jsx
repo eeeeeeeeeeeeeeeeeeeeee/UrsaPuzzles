@@ -2,11 +2,17 @@ var React = require('react');
 var UserStore = require('../stores/user');
 var GameStore = require('../stores/game');
 var ApiUtil = require('../util/api_util');
+var GameActions = require('../actions/game_actions');
+
+function _getStartTime() {
+  return GameStore.getStartTime();
+}
 
 var GameToolbar = React.createClass({
   getInitialState: function() {
     //change time elapsed to start at value stored in game -- needs to be int first...
-    return { timeElapsed: 0 };
+    var timeElapsed = _getStartTime();
+    return { timeElapsed: timeElapsed };
   },
 
   componentDidMount: function () {
@@ -40,12 +46,18 @@ var GameToolbar = React.createClass({
     ApiUtil.saveGame(gameId, game);
   },
 
+  clearGame: function() {
+    GameActions.receiveClearRequest();
+    this.saveGame();
+  },
+
   render: function() {
 
     return (
       <div className="game-toolbar">
         <span className="timer-count">{this._convertSecondsToTimer()}</span>
         <button type="button" className="save-button btn" onClick={this.saveGame}>Save Game</button>
+        <button type="button" className="save-button btn" onClick={this.clearGame}>Clear</button>
       </div>
     );
   }

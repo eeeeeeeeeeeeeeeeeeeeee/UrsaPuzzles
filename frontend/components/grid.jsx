@@ -74,7 +74,7 @@ var Grid = React.createClass({
         openSquares.push(i);
       }
     }
-    debugger
+    
     return openSquares;
   },
 

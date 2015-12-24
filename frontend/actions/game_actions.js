@@ -57,6 +57,12 @@ var GameActions = {
       actionType: PuzzleConstants.NEW_CURRENT_SQUARE,
       idx: idx
     })
+  },
+
+  receiveClearRequest: function() {
+    AppDispatcher.dispatch({
+      actionType: PuzzleConstants.CLEAR
+    })
   }
 
 }

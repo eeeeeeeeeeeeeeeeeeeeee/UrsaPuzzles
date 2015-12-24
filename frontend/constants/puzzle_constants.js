@@ -9,7 +9,8 @@ var PuzzleConstants = {
   DOWN_CLUE: "DOWN_CLUE",
   PREVIOUS_GAME: "PREVIOUS_GAME",
   PUZZLE_RECEIVED: "PUZZLE_RECEIVED",
-  ARROW_MOVE: "ARROW_MOVE"
+  ARROW_MOVE: "ARROW_MOVE",
+  CLEAR: "CLEAR"
 }
 
 module.exports = PuzzleConstants;

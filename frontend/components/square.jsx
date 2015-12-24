@@ -87,8 +87,18 @@ var Square = React.createClass({
     this.setState({active: nextProps.active, currentAcrossClue: nextProps.currentAcrossClue, currentDownClue: nextProps.currentDownClue});
   },
 
-  handleClick: function() {
+  handleDoubleClick: function() {
     this.props.switchDirection();
+  },
+
+  handleClick: function() {
+    var squareString = "#ut-" + this.props.counter;
+    // debugger
+    document.querySelector(squareString).focus();
+
+    next = this.props.counter;
+    if(this.prop.across) next -= 1;
+    GameActions.receiveCurrentSquare(this.props.counter);
   },
 
   render: function() {
@@ -114,9 +124,9 @@ var Square = React.createClass({
         className = "grid-square neighbor";
       }
 
-      square = <div className={className} onDoubleClick={this.handleClick}>
+      square = <div className={className} onDoubleClick={this.handleDoubleClick} onClick={this.handleClick}>
                  <div className="clue-number">{this.state.clueNumber}</div>
-                 <input className="user-type" id={"ut-" + this.props.counter} type="text" styles="text-transform:uppercase" onKeyDown={this.handleKeyDown} onKeyPress={this.handleKeyPress} value={this.props.value}></input>
+                 <input className="user-type" id={"ut-" + this.props.counter} type="text" styles="text-transform:uppercase" onKeyDown={this.handleKeyDown} onKeyPress={this.handleKeyPress} defaultValue={this.props.value}></input>
                </div>
     }
 
