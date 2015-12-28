@@ -8,7 +8,7 @@
 
 
 
-Puzzle.create!(title: "Monday 001 (play me!)",
+Puzzle.create!(title: "Monday 001",
               author: "Mike Torch / Will Shortz",
               difficulty: "easy",
               empty_grid: [1,2,3,4,5,:black,6,7,8,9,:black,10,11,12,13,
@@ -43,6 +43,48 @@ Puzzle.create!(title: "Monday 001 (play me!)",
                             'I','G','O','R',:black,'I','K','E','A',:black,'E','L','V','I','S',
                             'B','O','W','S',:black,'T','E','E','S',:black,'R','E','E','L','S'
                            ])
+
+Puzzle.create!(title: "Tuesday",
+             author: "Oliver Hill / Will Shortz",
+             difficulty: "easy",
+             empty_grid: [1,2,3,4,5,6,:black,7,8,9,10,:black,11,12,13,
+                          14,:white,:white,:white,:white,:white,:black,15,:white,:white,:white,:black,16,:white,:white,
+                          17,:white,:white,:white,:white,:white,18,:white,:white,:white,:white,:black,19,:white,:white,
+                          :black,:black,:black,:black,20,:white,:white,:black,21,:white,:white,22,:white,:white,:white,
+                          23,24,25,:black,:black,26,:white,27,:black,28,:white,:white,:white,:white,:white,
+                          29,:white,:white,30,31,:white,:white,:white,32,:black,:black,33,:white,:white,:white,
+                          34,:white,:white,:white,:white,:white,:black,35,:white,36,37,:black,:black,:black,:black,
+                          :black,38,:white,:white,:white,:white,39,:white,:white,:white,:white,40,41,42,:black,
+                          :black,:black,:black,:black,43,:white,:white,:white,:black,44,:white,:white,:white,:white,45,
+                          46,47,48,49,:black,:black,50,:white,51,:white,:white,:white,:white,:white,:white,
+                          52,:white,:white,:white,53,54,:black,55,:white,:white,:black,:black,56,:white,:white,
+                          57,:white,:white,:white,:white,:white,58,:black,59,:white,60,:black,:black,:black,:black,
+                          61,:white,:white,:black,62,:white,:white,63,:white,:white,:white,64,65,66,67,
+                          68,:white,:white,:black,69,:white,:white,:white,:black,70,:white,:white,:white,:white,:white,
+                          71,:white,:white,:black,72,:white,:white,:white,:black,73,:white,:white,:white,:white,:white
+                         ],
+             answer_grid: ['A','T','O','M','I','C',:black,'A','C','T','V',:black,'C','D','S',
+                           'R','I','V','E','R','A',:black,'B','O','R','E',:black,'H','E','N',
+                           'C','A','I','N','A','N','D','A','B','E','L',:black,'E','R','A',
+                           :black,:black,:black,:black,'N','O','R',:black,'B','E','D','L','A','M','P',
+                           'O','B','I',:black,:black,'P','A','L',:black,'S','T','O','P','I','T',
+                           'H','A','N','D','L','E','B','A','R',:black,:black,'S','O','S','O',
+                           'S','C','R','E','E','N',:black,'M','E','G','S',:black,:black,:black,:black,
+                           :black,'H','E','A','T','E','D','B','L','A','N','K','E','T',:black,
+                           :black,:black,:black,:black,'A','R','O','D',:black,'R','E','I','N','I','N',
+                           'I','C','E','D',:black,:black,'B','A','L','D','E','A','G','L','E',
+                           'G','A','M','E','O','N',:black,'S','A','E',:black,:black,'R','E','D',
+                           'E','N','A','B','L','E','D',:black,'I','N','A',:black,:black,:black,:black,
+                           'T','O','I',:black,'S','W','I','T','C','H','B','L','A','D','E',
+                           'I','L','L',:black,'O','L','G','A',:black,'O','C','E','L','O','T',
+                           'T','A','S',:black,'N','Y','S','E',:black,'E','S','T','A','T','E'
+                          ])
+
+
+
+
+
+
 
 Puzzle.create!(title: "test puzzle",
                author: "Claire Rogers",
@@ -159,6 +201,90 @@ Clue.create!(puzzle_id: 1, clue_number: 59, across: false, answer_length: 4, des
 Clue.create!(puzzle_id: 1, clue_number: 60, across: false, answer_length: 4, description: "Not so much");
 Clue.create!(puzzle_id: 1, clue_number: 61, across: false, answer_length: 3, description: "Little lie");
 Clue.create!(puzzle_id: 1, clue_number: 62, across: false, answer_length: 3, description: "'Long ___...'");
+
+
+
+
+
+Clue.create!(puzzle_id: 2, clue_number: 1, across: true, answer_length: 6, description: "Tiny");
+Clue.create!(puzzle_id: 2, clue_number: 7, across: true, answer_length: 4, description: "End of a Shakespeare Play");
+Clue.create!(puzzle_id: 2, clue_number: 11, across: true, answer_length: 3, description: "MP3 holders");
+Clue.create!(puzzle_id: 2, clue_number: 14, across: true, answer_length: 6, description: "Artist Diego");
+Clue.create!(puzzle_id: 2, clue_number: 15, across: true, answer_length: 4, description: "One who talks only about himself, say");
+Clue.create!(puzzle_id: 2, clue_number: 16, across: true, answer_length: 3, description: "Egg layer");
+Clue.create!(puzzle_id: 2, clue_number: 17, across: true, answer_length: 11, description: "Genesis duo");
+Clue.create!(puzzle_id: 2, clue_number: 19, across: true, answer_length: 3, description: "Historical time");
+Clue.create!(puzzle_id: 2, clue_number: 20, across: true, answer_length: 3, description: "Fish-fowl connector");
+Clue.create!(puzzle_id: 2, clue_number: 21, across: true, answer_length: 7, description: "It's found on a nightstand"); # (or tolerate those who do), per the West Point honor code
+Clue.create!(puzzle_id: 2, clue_number: 23, across: true, answer_length: 3, description: "___-Wan with the Force");
+Clue.create!(puzzle_id: 2, clue_number: 26, across: true, answer_length: 3, description: "Chum");
+Clue.create!(puzzle_id: 2, clue_number: 28, across: true, answer_length: 6, description: "'Enough!'");
+Clue.create!(puzzle_id: 2, clue_number: 29, across: true, answer_length: 9, description: "Certain mustache shape");
+Clue.create!(puzzle_id: 2, clue_number: 33, across: true, answer_length: 4, description: "Not great, but not awful either");
+Clue.create!(puzzle_id: 2, clue_number: 34, across: true, answer_length: 6, description: "TV part");
+Clue.create!(puzzle_id: 2, clue_number: 35, across: true, answer_length: 4, description: "Computer capacity, informally");
+Clue.create!(puzzle_id: 2, clue_number: 38, across: true, answer_length: 13, description: "Means of staying toasty at night");
+Clue.create!(puzzle_id: 2, clue_number: 43, across: true, answer_length: 4, description: "Yankee nickname starting in 2004");
+Clue.create!(puzzle_id: 2, clue_number: 44, across: true, answer_length: 6, description: "Control, as expenses");
+Clue.create!(puzzle_id: 2, clue_number: 46, across: true, answer_length: 4, description: "Treated, as a sprained ankle");
+Clue.create!(puzzle_id: 2, clue_number: 50, across: true, answer_length: 9, description: "American symbol");
+Clue.create!(puzzle_id: 2, clue_number: 52, across: true, answer_length: 6, description: "'Let's play!'");
+Clue.create!(puzzle_id: 2, clue_number: 55, across: true, answer_length: 3, description: "Major coll. fraternity");
+Clue.create!(puzzle_id: 2, clue_number: 56, across: true, answer_length: 3, description: "Sunburned");
+Clue.create!(puzzle_id: 2, clue_number: 57, across: true, answer_length: 7, description: "Made possible");
+Clue.create!(puzzle_id: 2, clue_number: 59, across: true, answer_length: 3, description: "'___ moment!' ('Don't rush me!')");
+Clue.create!(puzzle_id: 2, clue_number: 61, across: true, answer_length: 3, description: "French pronoun");
+Clue.create!(puzzle_id: 2, clue_number: 62, across: true, answer_length: 11, description: "Street weapon");
+Clue.create!(puzzle_id: 2, clue_number: 68, across: true, answer_length: 3, description: "Under the weather");
+Clue.create!(puzzle_id: 2, clue_number: 69, across: true, answer_length: 4, description: "Bond girl Kurylenko");
+Clue.create!(puzzle_id: 2, clue_number: 70, across: true, answer_length: 5, description: "Spotted feline");
+Clue.create!(puzzle_id: 2, clue_number: 71, across: true, answer_length: 3, description: "Profs.' helpers");
+Clue.create!(puzzle_id: 2, clue_number: 72, across: true, answer_length: 4, description: "Wall Street inits.");
+Clue.create!(puzzle_id: 2, clue_number: 73, across: true, answer_length: 5, description: "Darcy's Pemberley, e.g., in 'Pride and Prejudice'");
+
+Clue.create!(puzzle_id: 2, clue_number: 1, across: false, answer_length: 3, description: "Parabola, e.g.");
+Clue.create!(puzzle_id: 2, clue_number: 2, across: false, answer_length: 3, description: "___ Maria");
+Clue.create!(puzzle_id: 2, clue_number: 3, across: false, answer_length: 3, description: "Prefix with duct");
+Clue.create!(puzzle_id: 2, clue_number: 4, across: false, answer_length: 3, description: "Target audience of Details magazine");
+Clue.create!(puzzle_id: 2, clue_number: 5, across: false, answer_length: 4, description: "Country with a Guardian Council");
+Clue.create!(puzzle_id: 2, clue_number: 6, across: false, answer_length: 9, description: "One use of a Swiss Army knife");
+Clue.create!(puzzle_id: 2, clue_number: 7, across: false, answer_length: 3, description: "Laywers' org.");
+Clue.create!(puzzle_id: 2, clue_number: 8, across: false, answer_length: 4, description: "Ty with batting titles");
+Clue.create!(puzzle_id: 2, clue_number: 9, across: false, answer_length: 5, description: "Sequoias, e.g.");
+Clue.create!(puzzle_id: 2, clue_number: 10, across: false, answer_length: 5, description: "Open grassland");
+Clue.create!(puzzle_id: 2, clue_number: 11, across: false, answer_length: 6, description: "Penny-pincher, slangily");
+Clue.create!(puzzle_id: 2, clue_number: 12, across: false, answer_length: 6, description: "Skin layer");
+Clue.create!(puzzle_id: 2, clue_number: 13, across: false, answer_length: 6, description: "Wake with a start");
+Clue.create!(puzzle_id: 2, clue_number: 18, across: false, answer_length: 4, description: "Blah");
+Clue.create!(puzzle_id: 2, clue_number: 22, across: false, answer_length: 3, description: "___ Lonely Boys (rock band)");
+Clue.create!(puzzle_id: 2, clue_number: 23, across: false, answer_length: 3, description: "Cries of surprise");
+Clue.create!(puzzle_id: 2, clue_number: 24, across: false, answer_length: 4, description: "'The Well-Tempered Clavier' composer");
+Clue.create!(puzzle_id: 2, clue_number: 25, across: false, answer_length: 4, description: "Memo starter");
+Clue.create!(puzzle_id: 2, clue_number: 27, across: false, answer_length: 7, description: "Greek L's");
+Clue.create!(puzzle_id: 2, clue_number: 30, across: false, answer_length: 3, description: "Org. monitoring narcotics smuggling");
+Clue.create!(puzzle_id: 2, clue_number: 31, across: false, answer_length: 4, description: "'___ thousand flowers bloom'");
+Clue.create!(puzzle_id: 2, clue_number: 32, across: false, answer_length: 3, description: "Bible study: Abbr.");
+Clue.create!(puzzle_id: 2, clue_number: 36, across: false, answer_length: 9, description: "Tool you can lean on");
+Clue.create!(puzzle_id: 2, clue_number: 37, across: false, answer_length: 4, description: "Snick's partner");
+Clue.create!(puzzle_id: 2, clue_number: 39, across: false, answer_length: 3, description: "When you entered this world: Abbr.");
+Clue.create!(puzzle_id: 2, clue_number: 40, across: false, answer_length: 3, description: "Seoul-based automaker");
+Clue.create!(puzzle_id: 2, clue_number: 41, across: false, answer_length: 4, description: "Hwy. planner");
+Clue.create!(puzzle_id: 2, clue_number: 42, across: false, answer_length: 4, description: "10-point Q, e.g.");
+Clue.create!(puzzle_id: 2, clue_number: 45, across: false, answer_length: 3, description: "Actor Beatty");
+Clue.create!(puzzle_id: 2, clue_number: 46, across: false, answer_length: 6, description: "'That's clear'");
+Clue.create!(puzzle_id: 2, clue_number: 47, across: false, answer_length: 6, description: "Kind of oil");
+Clue.create!(puzzle_id: 2, clue_number: 48, across: false, answer_length: 6, description: "Contacts via the Net");
+Clue.create!(puzzle_id: 2, clue_number: 49, across: false, answer_length: 3, description: "Girl with a coming-out party");
+Clue.create!(puzzle_id: 2, clue_number: 51, across: false, answer_length: 4, description: "Secular");
+Clue.create!(puzzle_id: 2, clue_number: 53, across: false, answer_length: 5, description: "Johnny who used to cry 'Come on down!'");
+Clue.create!(puzzle_id: 2, clue_number: 54, across: false, answer_length: 5, description: "As of late");
+Clue.create!(puzzle_id: 2, clue_number: 58, across: false, answer_length: 4, description: "Shovels");
+Clue.create!(puzzle_id: 2, clue_number: 60, across: false, answer_length: 4, description: "Rudimentary education");
+Clue.create!(puzzle_id: 2, clue_number: 63, across: false, answer_length: 3, description: "___ Bo");
+Clue.create!(puzzle_id: 2, clue_number: 64, across: false, answer_length: 3, description: "Redo, in tennis");
+Clue.create!(puzzle_id: 2, clue_number: 65, across: false, answer_length: 3, description: "___ mode");
+Clue.create!(puzzle_id: 2, clue_number: 66, across: false, answer_length: 3, description: "Half of a colon");
+Clue.create!(puzzle_id: 2, clue_number: 67, across: false, answer_length: 3, description: "Summer on the Seine");
 
 
 User.create!(username: "Demo User", password: "password" )
