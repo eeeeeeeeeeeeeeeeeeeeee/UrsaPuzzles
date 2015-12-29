@@ -46,7 +46,7 @@
 
         <ul class="nav navbar-nav navbar-right">
           <!-- <li><a href="<%= session_url %>" class="btn-sign btn btn-default" role="button">Sign Out</a></li> -->
-            <li class="btn-sign"><%= current_user.username %></li>
+            <li class="btn-sign name"><%= current_user.username %></li>
             <li class="btn-sign"><%= link_to(content_tag(:i,nil,class: "fa fa-sign-out"), session_url, method: :delete)%></li>
 
             <!-- <li class="btn-sign"><%= button_to 'Sign In', new_session_url %></li> -->

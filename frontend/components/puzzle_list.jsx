@@ -96,15 +96,30 @@ var PuzzleList = React.createClass({
       });
     }
 
+    // <div className="puzzle-list-element">
+    //   <h3 className="puzzle-list-header">Crosswords to Play</h3>
+    //   <div className="puzzle-header">Easy</div>
+    //   <ul className="puzzle-list-items">{easyPuzzleList}</ul>
+    //   <div className="puzzle-header">Medium</div>
+    //   <ul className="puzzle-list-items">{mediumPuzzleList}</ul>
+    //   <div className="puzzle-header">Hard</div>
+    //   <ul className="puzzle-list-items">{hardPuzzleList}</ul>
+    // </div>
+
     return (
-      <div className="puzzle-list-element">
-        <h3 className="puzzle-list-header">Crosswords to Play</h3>
-        <div className="puzzle-header">Easy</div>
-        <ul className="puzzle-list-items">{easyPuzzleList}</ul>
-        <div className="puzzle-header">Medium</div>
-        <ul className="puzzle-list-items">{mediumPuzzleList}</ul>
-        <div className="puzzle-header">Hard</div>
-        <ul className="puzzle-list-items">{hardPuzzleList}</ul>
+      <div className="all-puzzle-lists">
+        <div className="puzzle-list-element">
+          <h3 className="puzzle-list-header">Easy</h3>
+          <ul className="puzzle-list-items">{easyPuzzleList}</ul>
+        </div>
+        <div className="puzzle-list-element">
+          <h3 className="puzzle-list-header">Medium</h3>
+          <ul className="puzzle-list-items">{mediumPuzzleList}</ul>
+        </div>
+        <div className="puzzle-list-element">
+          <h3 className="puzzle-list-header">Hard</h3>
+          <ul className="puzzle-list-items">{hardPuzzleList}</ul>
+        </div>
       </div>
     );
   }

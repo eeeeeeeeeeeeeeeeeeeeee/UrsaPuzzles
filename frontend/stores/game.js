@@ -153,6 +153,7 @@ GameStore.__onDispatch = function (payload) {
       break;
 
     case PuzzleConstants.PREVIOUS_GAME:
+      debugger
       _game = [payload.game];
       _startTime = payload.game.time_elapsed;
       _currentGrid = $.parseJSON(payload.game.current_board_state);
@@ -178,6 +179,11 @@ GameStore.__onDispatch = function (payload) {
 
     case PuzzleConstants.SHOW_ALL:
       _currentGrid = _solution;
+      GameStore.__emitChange();
+      break;
+
+    case PuzzleConstants.BACKSPACE:
+      _currentGrid[payload.idx+1] = "";
       GameStore.__emitChange();
       break;
   }

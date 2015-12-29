@@ -35,14 +35,15 @@ var Grid = React.createClass({
     var currentGameState = _getCurrentGameState();
     var across = _getDirection();
     this.setState({ game: game, currentGameState: currentGameState, across: across }, function() {
-      this._currentSquareChanged();
+      // debugger
+      // this._currentSquareChanged();
     }.bind(this));
 
   },
 
   _currentSquareChanged: function() {
-    debugger
     var currentSquare = _getCurrentSquare();
+
     this.setState({ nextSquare: this.findNextSqaure(currentSquare), }, function() {
       this._updateFocus();
       this.props.updateClue(this.state.nextSquare);
@@ -50,6 +51,7 @@ var Grid = React.createClass({
   },
 
   _updateFocus: function() {
+
     var id = 'ut-' + this.state.nextSquare;
     var input = document.getElementById(id);
     input.focus();
@@ -70,7 +72,8 @@ var Grid = React.createClass({
     var openSquares = [];
 
     for(var i = 0; i < board.length; i++) {
-      if(board[i] === "white" || typeof board[i] === "number" || parseInt(board[i])) {
+      // if(board[i] === "white" || typeof board[i] === "number" || parseInt(board[i])) {
+      if(board[i] !== "black") {
         openSquares.push(i);
       }
     }
@@ -88,14 +91,19 @@ var Grid = React.createClass({
     var downIndices = _.keys(downClues);
     var newStart = downIndices.indexOf(downClueNumber);
     var downCluesInOrder = (newStart <= 0) ? downIndices: downIndices.slice(newStart).concat(downIndices.slice(0, newStart));
-
+    
     if(this.state.across) {
       for(var i = 0; i < game.length; i++) {
         if(game[i] > idx) {
           return game[i];
+        } else if(idx === 224) {
+          return 0;
         }
       }
     } else {
+      if(typeof downClueNumber === "undefined" || downClueNumber === null) {
+        return currentSquare + 15;
+      }
       for(var i = 0; i < downCluesInOrder.length; i++) {
         var clueNumber = downCluesInOrder[i];
         for(var j = 0; j < downClues[clueNumber].length; j++) {

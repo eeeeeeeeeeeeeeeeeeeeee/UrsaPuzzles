@@ -33,6 +33,7 @@ var Square = React.createClass({
 
   handleKeyDown: function(event) {
     var key = event.which;
+    var counter = this.props.counter;
     // var board = GameStore.getStartingBoard();
     // var thisSquare = this.props.counter;
     // var newSquare;
@@ -44,17 +45,37 @@ var Square = React.createClass({
     //   }
     // }
 
-    if(key === 37 || key === 39) {
+    if(key === 39) {
       if(this.props.across) {
         GameActions.receiveStep(this.props.counter);
       } else {
         GameActions.receiveMove(true);
       }
-    } else if (key === 38 || key === 40) {
+    // } else if (key === 37) {
+    //   if(this.props.across) {
+    //     debugger
+    //     counter -= 1;
+    //     GameActions.receiveStep(counter);
+    //   } else {
+    //     GameActions.receiveMove(true);
+    //   }
+    } else if (key === 40) {
       if(this.props.across) {
         GameActions.receiveMove(false);
       } else {
         GameActions.receiveStep(this.props.counter);
+      }
+    // } else if (key === 38) {
+    //   if(this.props.across) {
+    //     GameActions.receiveMove(false);
+    //   } else {
+    //     GameActions.receiveStep(this.props.counter-15);
+    //   }
+    } else if (key === 8) {
+      if(this.props.across) {
+        GameActions.receiveBackspace(this.props.counter - 2);
+      } else {
+
       }
     }
   },
@@ -88,7 +109,8 @@ var Square = React.createClass({
   },
 
   handleDoubleClick: function() {
-    this.props.switchDirection();
+    var across = (this.props.across === true ? false : true);
+    GameActions.receiveMove(across);
   },
 
   handleClick: function() {
@@ -100,7 +122,7 @@ var Square = React.createClass({
     if(this.props.across) {
       next -= 1;
     } else {
-      next += 15; // need to fix, still one off
+      next -= 15;
     }
 
     GameActions.receiveCurrentSquare(next);
@@ -129,13 +151,16 @@ var Square = React.createClass({
         className = "grid-square neighbor";
       }
 
-      square = <div className={className} onDoubleClick={this.handleDoubleClick} onClick={this.handleClick}>
+      square = <div className={className}
+                    onDoubleClick={this.handleDoubleClick}
+                    onClick={this.handleClick}>
                  <div className="clue-number">{this.state.clueNumber}</div>
                  <input className="user-type" id={"ut-" + this.props.counter}
                         type="text" styles="text-transform:uppercase"
                         onKeyDown={this.handleKeyDown}
                         onKeyPress={this.handleKeyPress}
-                        value={this.props.value}></input>
+                        value={this.props.value}>
+                 </input>
                </div>
     }
 

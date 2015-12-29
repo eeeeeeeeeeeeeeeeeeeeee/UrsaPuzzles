@@ -24,6 +24,11 @@ CurrentSquareStore.__onDispatch = function (payload) {
       _currentSquare = payload.idx;
       CurrentSquareStore.__emitChange();
       break;
+
+    case PuzzleConstants.BACKSPACE:
+      _currentSquare = payload.idx;
+      CurrentSquareStore.__emitChange();
+      break;
   }
 };
 

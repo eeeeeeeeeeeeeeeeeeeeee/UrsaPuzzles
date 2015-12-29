@@ -12,7 +12,8 @@ var PuzzleConstants = {
   ARROW_MOVE: "ARROW_MOVE",
   CLEAR: "CLEAR",
   SHOW_ALL: "SHOW_ALL",
-  STEP: "STEP"
+  STEP: "STEP",
+  BACKSPACE: "BACKSPACE"
 }
 
 module.exports = PuzzleConstants;
