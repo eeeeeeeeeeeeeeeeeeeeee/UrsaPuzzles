@@ -70,7 +70,7 @@ var PuzzleList = React.createClass({
 
       var easyPuzzleList = easyPuzzles.map (function(puzzle) {
         return ( <li key={puzzle.id}>
-                    <Link to="/puzzle/:id" onClick={that.handleClick.bind(null, puzzle.id)}>
+                    <Link to="/puzzle/:id" className="puzzle-link" onClick={that.handleClick.bind(null, puzzle.id)}>
                       {puzzle.title}
                     </Link>
                   </li>
@@ -79,7 +79,7 @@ var PuzzleList = React.createClass({
 
       var mediumPuzzleList = mediumPuzzles.map (function(puzzle) {
         return ( <li key={puzzle.id}>
-                    <Link to="/puzzle/:id" onClick={that.handleClick.bind(null, puzzle.id)}>
+                    <Link to="/puzzle/:id" className="puzzle-link" onClick={that.handleClick.bind(null, puzzle.id)}>
                       {puzzle.title}
                     </Link>
                   </li>
@@ -88,7 +88,7 @@ var PuzzleList = React.createClass({
 
       var hardPuzzleList = hardPuzzles.map (function(puzzle) {
         return ( <li key={puzzle.id}>
-                    <Link to="/puzzle/:id" onClick={that.handleClick.bind(null, puzzle.id)}>
+                    <Link to="/puzzle/:id" className="puzzle-link" onClick={that.handleClick.bind(null, puzzle.id)}>
                       {puzzle.title}
                     </Link>
                   </li>

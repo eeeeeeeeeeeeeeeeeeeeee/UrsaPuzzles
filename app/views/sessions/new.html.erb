@@ -19,7 +19,6 @@
         </div>
 
         <br>
-        <br>
 
         <div class="input-group">
           <span class="input-group-addon">
@@ -32,14 +31,13 @@
         <br>
 
         <div>
-          <input class="form-control" type="submit" value="Sign In">
+          <input class="form-control sign-in-button" type="submit" value="Sign In">
         </div>
 
       </form>
 
       New user? <a class="user-link" href="/users/new">Create account here.</a>
-      <!-- Or, sign-in as <a class="user-link" href="#">demo-user</a>. -->
-       Or, sign-in as
+      Or, sign-in as
         <form action="<%= session_url %>" method="POST" class="hidden-form">
           <input
             type="hidden"

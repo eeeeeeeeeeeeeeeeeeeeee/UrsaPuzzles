@@ -65,3 +65,9 @@ li.puzzle-list-item::before {
   padding-top: 43px;
   margin-top: 75px;
 }
+
+.puzzle-link:hover {
+  text-decoration: none;
+  font-weight: bolder;
+  color: cornflowerblue;
+}

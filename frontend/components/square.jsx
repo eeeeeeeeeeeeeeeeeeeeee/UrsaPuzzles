@@ -145,7 +145,7 @@ var Square = React.createClass({
 
   render: function() {
     var wordIndices = [];
-
+    debugger
     if(!_.isEmpty(this.state.acrossCluesAndIndices) && this.props.across) {
       var clueNum = (this.props.currentAcrossClue === -1 ? 1 : this.props.currentAcrossClue);
       wordIndices = this.state.acrossCluesAndIndices[clueNum];

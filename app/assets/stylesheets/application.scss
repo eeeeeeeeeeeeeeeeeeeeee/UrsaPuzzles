@@ -14,17 +14,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.errors {
-  color: white;
-  margin-top: 15px;
-  list-style-type: none;
-  margin-left: 200px;
-}
 
-body {
-  font-family: 'Poiret One', cursive;
-  min-width: 1300px;
-}
+// body {
+//   font-family: 'Poiret One', cursive;
+//   min-width: 1300px;
+//   padding-top: 50px;
+// }
 
 div.user-login-page {
   background: url(Bookshelf.jpg) no-repeat center center fixed;
@@ -45,11 +40,11 @@ div.user-login-page {
   background: transparent;
   border: none;
 }
-
-.plain-link:hover {
-  color: #337ab7;
-  text-decoration: underline;
-}
+//
+// .plain-link:hover {
+//   color: #337ab7;
+//   text-decoration: underline;
+// }
 
 
 
@@ -129,8 +124,30 @@ ul.nav.navbar-nav.navbar-right {
   color: yellow;
 }
 
+.user-link:hover {
+  color: cyan;
+  font-weight: bolder;
+  text-decoration: none;
+}
+
+.plain-link {
+  padding-left: 0px;
+}
+
+.plain-link:hover {
+  color: cyan;
+  font-weight: bolder;
+  text-decoration: none;
+}
+
+.sign-in-button:hover {
+  background: antiquewhite;
+  // color: white;
+  font-weight: bolder;
+}
+
 h1 {
-  margin-top: 0px;
+  margin-top: 5px;
   margin-bottom: 10px;
   font-weight: bold;
   color: white;
@@ -138,8 +155,8 @@ h1 {
 
 .errors-div {
   min-height: 20px;
-  margin-bottom: 10px;
-  color: white;
+  margin-bottom: 20px;
+  color: yellow;
   font-style: italic;
   font-weight: bolder;
 }
@@ -357,7 +374,7 @@ ol {
 
 ol.crossword-clue-list {
   width: 230px;
-  min-height: 340px;
+  min-height: 337px;
 }
 
 .across-clues-and-header {
@@ -395,16 +412,19 @@ ol.crossword-clue-list {
 
 .container {
   text-align: center;
-  width: 100%;
+  width: 1100px;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  background: white;
 }
 
 
 
 .game-toolbar {
   border-bottom: 1px solid lightgray;
-  width: 490px;
+  width: 480px;
   margin-top: 1px;
-  height: 40px;
+  height: 43px;
   display: inline-block;
 }
 
@@ -417,11 +437,60 @@ ol.crossword-clue-list {
   padding-right: 20px;
   background: white;
   height: 30px;
+  font-weight: bold;
+  box-shadow: 1px 1px 1px lightgray;
 }
+
+// .save-button:active {
+//   box-shadow: 1px 1px 1px lightgray;
+//   color: lightgray;
+// }
 
 .timer-count {
   float: left;
-  margin-top: 7px;
-  margin-left: 40px;
-  font-size: 20px;
+  margin-top: 10px;
+  margin-left: 25px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.save-button:hover {
+  // background: lightblue;
+  background-color: rgba(173,216,230,.8);
+}
+
+.save-button:focus, .save-button:active, .save-button.active, .save-button:focus:active {
+  background-image: none;
+  outline: none;
+  -webkit-box-shadow: none;
+  // box-shadow: none;
+  box-shadow: 1px 1px 1px lightgray;
+  // color: gray;
+}
+
+
+
+body {
+  font-family: 'Poiret One', cursive;
+  // min-width: 1200px;
+  width: 100%;
+  padding-top: 50px;
+
+  // background: url(Bookshelf.jpg) no-repeat center center fixed;
+  // -webkit-background-size: cover;
+  // -moz-background-size: cover;
+  // -o-background-size: cover;
+  // background-size: cover;
+  // background: lightblue;
+  // background-color: rgba(173,216,230,.5);
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
+
+.outer-container {
+  background-color: rgba(173,216,230,.3);
+
 }

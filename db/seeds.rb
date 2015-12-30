@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 
 # puzzle 1
 Puzzle.create!(title: "Monday 001",
@@ -46,7 +38,7 @@ Puzzle.create!(title: "Monday 001",
 
 # puzzle 2
 # Tuesday, April 27, 2010
-Puzzle.create!(title: "Tuesday",
+Puzzle.create!(title: "Tuesday, 27 April 2010",
              author: "Oliver Hill / Will Shortz",
              difficulty: "easy",
              empty_grid: [1,2,3,4,5,6,:black,7,8,9,10,:black,11,12,13,
@@ -276,10 +268,10 @@ Clue.create!(puzzle_id: 2, clue_number: 61, across: true, answer_length: 3, desc
 Clue.create!(puzzle_id: 2, clue_number: 62, across: true, answer_length: 11, description: "Street weapon");
 Clue.create!(puzzle_id: 2, clue_number: 68, across: true, answer_length: 3, description: "Under the weather");
 Clue.create!(puzzle_id: 2, clue_number: 69, across: true, answer_length: 4, description: "Bond girl Kurylenko");
-Clue.create!(puzzle_id: 2, clue_number: 70, across: true, answer_length: 5, description: "Spotted feline");
+Clue.create!(puzzle_id: 2, clue_number: 70, across: true, answer_length: 6, description: "Spotted feline");
 Clue.create!(puzzle_id: 2, clue_number: 71, across: true, answer_length: 3, description: "Profs.' helpers");
 Clue.create!(puzzle_id: 2, clue_number: 72, across: true, answer_length: 4, description: "Wall Street inits.");
-Clue.create!(puzzle_id: 2, clue_number: 73, across: true, answer_length: 5, description: "Darcy's Pemberley, e.g., in 'Pride and Prejudice'");
+Clue.create!(puzzle_id: 2, clue_number: 73, across: true, answer_length: 6, description: "Darcy's Pemberley, e.g., in 'Pride and Prejudice'");
 
 Clue.create!(puzzle_id: 2, clue_number: 1, across: false, answer_length: 3, description: "Parabola, e.g.");
 Clue.create!(puzzle_id: 2, clue_number: 2, across: false, answer_length: 3, description: "___ Maria");
