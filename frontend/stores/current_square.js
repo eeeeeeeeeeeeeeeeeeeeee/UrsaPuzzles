@@ -16,18 +16,22 @@ CurrentSquareStore.__onDispatch = function (payload) {
       _currentSquare = payload.letter.idx;
       CurrentSquareStore.__emitChange();
       break;
+
     case PuzzleConstants.NEW_CURRENT_SQUARE:
       _currentSquare = payload.idx;
       CurrentSquareStore.__emitChange();
       break;
+
     case PuzzleConstants.STEP:
       _currentSquare = payload.idx;
       CurrentSquareStore.__emitChange();
       break;
+
     case PuzzleConstants.BACKSPACE:
       _currentSquare = payload.idx;
       CurrentSquareStore.__emitChange();
       break;
+
     case PuzzleConstants.BACKSPACE_UP:
       _currentSquare = payload.idx;
       CurrentSquareStore.__emitChange();

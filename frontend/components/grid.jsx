@@ -58,6 +58,7 @@ var Grid = React.createClass({
   },
 
   componentDidMount: function() {
+    debugger
     this.gameListener = GameStore.addListener(this._gameChanged);
     this.currentSquareListener = CurrentSquareStore.addListener(this._currentSquareChanged);
   },
@@ -92,8 +93,9 @@ var Grid = React.createClass({
     var newStart = downIndices.indexOf(downClueNumber);
     var downCluesInOrder = (newStart <= 0) ? downIndices: downIndices.slice(newStart).concat(downIndices.slice(0, newStart));
 
-    if(this.state.across) {
-      debugger
+    if(typeof currentSquare === "undefined"){
+      return 0;
+    } else if(this.state.across) {
       for(var i = 0; i < game.length; i++) {
         if(game[i] > idx) {
           return game[i];

@@ -56,6 +56,16 @@ GameStore.getStartingBoard = function() {
   // return $.parseJSON(_game[0].current_board_state);
 };
 
+GameStore.getDownCoords = function() {
+  var values = _.values(this.getDownCluesAndIndices());
+  return _.flatten(values);
+}
+
+GameStore.getAcrossCoords = function() {
+  var values = _.values(this.getAcrossCluesAndIndices());
+  return _.flatten(values);
+}
+
 GameStore.getAcrossCluesAndIndices = function() {
   var cluesAndIndices = {};
 
@@ -182,12 +192,16 @@ GameStore.__onDispatch = function (payload) {
       break;
 
     case PuzzleConstants.BACKSPACE:
-      _currentGrid[payload.idx+1] = "";
+      var currIdx = this.getAcrossCoords().indexOf(payload.idx);
+      var newIdx = this.getAcrossCoords()[currIdx+1];
+      _currentGrid[newIdx] = "";
       GameStore.__emitChange();
       break;
 
     case PuzzleConstants.BACKSPACE_UP:
-      _currentGrid[payload.idx+15] = "";
+      var currIdx = this.getDownCoords().indexOf(payload.idx);
+      var newIdx = this.getDownCoords()[currIdx+1];
+      _currentGrid[newIdx] = "";
       GameStore.__emitChange();
       break;
   }

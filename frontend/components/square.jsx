@@ -48,7 +48,10 @@ var Square = React.createClass({
       }
     } else if (key === 37) {
       if(this.props.across) {
-        GameActions.receiveStep(this.props.counter - 2);
+        var coords = GameStore.getAcrossCoords();
+        var idx = coords.indexOf(this.props.counter);
+        // GameActions.receiveStep(this.props.counter - 2);
+        GameActions.receiveStep(coords[idx-2]);
       } else {
         GameActions.receiveMove(true);
       }
@@ -58,17 +61,23 @@ var Square = React.createClass({
       } else {
         GameActions.receiveStep(this.props.counter);
       }
-    // } else if (key === 38) {
-    //   if(this.props.across) {
-    //     GameActions.receiveMove(false);
-    //   } else {
-    //     GameActions.receiveStep(this.props.counter-15);
-    //   }
+    } else if (key === 38) {
+      if(this.props.across) {
+        GameActions.receiveMove(false);
+      } else {
+        var coords = GameStore.getDownCoords();
+        var idx = coords.indexOf(this.props.counter);
+        GameActions.receiveStep(coords[idx-2]);
+      }
     } else if (key === 8) {
       if(this.props.across) {
-        GameActions.receiveBackspace(this.props.counter - 2);
+        var coords = GameStore.getAcrossCoords();
+        var idx = coords.indexOf(this.props.counter);
+        GameActions.receiveBackspace(coords[idx-2]);
       } else {
-        GameActions.receiveUpBackspace(this.props.counter - 30);
+        var coords = GameStore.getDownCoords();
+        var idx = coords.indexOf(this.props.counter);
+        GameActions.receiveUpBackspace(coords[idx-2]);
       }
     }
   },
@@ -143,9 +152,7 @@ var Square = React.createClass({
       wordIndices = this.state.downCluesAndIndices[this.props.currentDownClue];
     }
 
-
     var square = <div className="grid-square black"></div> ;
-
 
     if(this.state.clueNumber !== null) {
       var className = "grid-square";

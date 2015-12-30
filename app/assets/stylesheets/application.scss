@@ -108,6 +108,10 @@ ul.dropdown-menu {
   width: 120px;
 }
 
+ul.nav.navbar-nav.navbar-right {
+  margin-right: 50px;
+}
+
 
 .sign-up-form {
   background-color: rgba(0,0,0, .5);
@@ -141,14 +145,14 @@ h1 {
 }
 
 .btn-sign {
-  margin-right: 50px;
+  // margin-right: 10px;
   height: 40px;
   margin-top: 5px;
 }
 
 li.btn-sign {
   // margin-top: 10px;
-  padding-top: 7px;
+  padding-top: 8px;
   color: white;
   // margin-right: 10px;
 }
