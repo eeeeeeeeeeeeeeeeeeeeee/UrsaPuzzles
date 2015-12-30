@@ -1,6 +1,7 @@
 var React = require('react');
 var GameStore = require('../stores/game');
 var ApiUtil = require('../util/api_util');
+var GameActions = require('../actions/game_actions');
 
 function _getClues() {
   return GameStore.getClues();
@@ -66,14 +67,45 @@ var ClueLists = React.createClass({
     return {across: across, down: down};
   },
 
-  handleAcrossClick: function() {
+  handleAcrossClick: function(e) {
+    var marker = e.dispatchMarker;
+    var clueNum = marker.slice(marker.indexOf("-") + 1);
+    var clues = GameStore.getAcrossCluesAndIndices();
 
+    if(this.props.across) {
+      GameActions.receiveCurrentSquare(clues[clueNum][0] - 1);
+    } else {
+      GameActions.receiveMove(true);
+      GameActions.receiveCurrentSquare(clues[clueNum][0] - 1);
 
+    }
   },
 
-  handleDownClick: function() {
-    console.log("down click!");
+  handleDownClick: function(e) {
+    var marker = e.dispatchMarker;
+    var clueNum = marker.slice(marker.indexOf("-") + 1);
+    var clues = GameStore.getDownCluesAndIndices();
+    var callback2 = function() {
+      GameActions.receiveCurrentSquare(clues[clueNum][0] - 15);
+    }.bind(this);
+    var callback1 = function() {
+      GameActions.receiveMove(false);
+    }
 
+    if(!this.props.across) {
+      GameActions.receiveCurrentSquare(clues[clueNum][0] - 15);
+    } else {
+      GameActions.receiveMove(false);
+      GameActions.receiveCurrentSquare(clues[clueNum][0] - 15);
+      //
+      // if(true) {
+      //   GameActions.receiveCurrentSquare(clues[clueNum][0] - 15);
+      // }
+      //
+      // GameActions.receiveMove(false, function() {
+      //   GameActions.receiveCurrentSquare(clues[clueNum][0] - 15);
+      // }.bind(this));
+    }
   },
 
   render: function() {

@@ -44,7 +44,7 @@ var Grid = React.createClass({
   _currentSquareChanged: function() {
     var currentSquare = _getCurrentSquare();
 
-    this.setState({ nextSquare: this.findNextSqaure(currentSquare), }, function() {
+    this.setState({nextSquare: this.findNextSqaure(currentSquare)}, function() {
       this._updateFocus();
       this.props.updateClue(this.state.nextSquare);
     }.bind(this));
@@ -58,7 +58,6 @@ var Grid = React.createClass({
   },
 
   componentDidMount: function() {
-    debugger
     this.gameListener = GameStore.addListener(this._gameChanged);
     this.currentSquareListener = CurrentSquareStore.addListener(this._currentSquareChanged);
   },
@@ -83,6 +82,7 @@ var Grid = React.createClass({
   },
 
   findNextSqaure: function(currentSquare) {
+    var across = _getDirection();
     var idx = (typeof currentSquare === "undefined" ? 1 : currentSquare);
     var game = this.getOpenSquareIndices();
     var currentIndex = game.indexOf(idx);
@@ -95,7 +95,7 @@ var Grid = React.createClass({
 
     if(typeof currentSquare === "undefined"){
       return 0;
-    } else if(this.state.across) {
+    } else if(across) {
       for(var i = 0; i < game.length; i++) {
         if(game[i] > idx) {
           return game[i];

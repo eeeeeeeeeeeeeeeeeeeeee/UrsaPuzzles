@@ -18,6 +18,7 @@ var GameActions = {
   },
 
   receiveMove: function(across) {
+    debugger
     AppDispatcher.dispatch({
       actionType: PuzzleConstants.SWITCH_DIRECTION,
       across: across
