@@ -77,7 +77,6 @@ var ClueLists = React.createClass({
     } else {
       GameActions.receiveMove(true);
       GameActions.receiveCurrentSquare(clues[clueNum][0] - 1);
-
     }
   },
 
@@ -85,26 +84,12 @@ var ClueLists = React.createClass({
     var marker = e.dispatchMarker;
     var clueNum = marker.slice(marker.indexOf("-") + 1);
     var clues = GameStore.getDownCluesAndIndices();
-    var callback2 = function() {
-      GameActions.receiveCurrentSquare(clues[clueNum][0] - 15);
-    }.bind(this);
-    var callback1 = function() {
-      GameActions.receiveMove(false);
-    }
 
     if(!this.props.across) {
       GameActions.receiveCurrentSquare(clues[clueNum][0] - 15);
     } else {
       GameActions.receiveMove(false);
       GameActions.receiveCurrentSquare(clues[clueNum][0] - 15);
-      //
-      // if(true) {
-      //   GameActions.receiveCurrentSquare(clues[clueNum][0] - 15);
-      // }
-      //
-      // GameActions.receiveMove(false, function() {
-      //   GameActions.receiveCurrentSquare(clues[clueNum][0] - 15);
-      // }.bind(this));
     }
   },
 

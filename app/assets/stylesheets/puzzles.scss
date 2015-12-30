@@ -12,17 +12,13 @@ h3.puzzle-list-header {
 }
 
 div.puzzle-list-element {
-  // position: relative;
   width: 250px;
-  // padding-left: 25px;
   border: 2px solid black;
   border-radius: 25px;
-  // margin: 0 auto;
   font-weight: bold;
   background: white;
   box-shadow: 5px 5px 3px black;
   display: inline-block;
-  // float: left;
   text-align: left;
   margin-left: 20px;
   margin-right: 20px;
@@ -32,9 +28,6 @@ div.puzzle-list-element {
 
 div.all-puzzle-lists {
   text-align: center;
-  // display: inline-block;
-  // margin: 0 auto;
-  // align-items: center;
   width: 100%;
 }
 
@@ -51,38 +44,10 @@ ul.puzzle-list-items {
   font-weight: bold;
   color: black;
 }
-//
-// .puzzle-list-element {
-//   width: 300px;
-//   // background: white;
-//   // background-color: rgba(5,5,5, .8);
-//   // background: black;
-//   background: white;
-//   font-weight: bold;
-// }
 
 .home-group {
-  // display: inline-block;
   width: 100%;
 }
-
-// .puzzle-list {
-//   float: left;
-//   width: 280px;
-// }
-
-// div.home-group {
-//   background: url(newsprint_diagonal.jpg) no-repeat center center fixed;
-//   -webkit-background-size: cover;
-//   -moz-background-size: cover;
-//   -o-background-size: cover;
-//   background-size: cover;
-//   height: 800px;
-//   position: absolute;
-//   top: 0px;
-//   left: 0px;
-//   width: 100%;
-// }
 
 li.puzzle-list-item::before {
   position: absolute;
@@ -94,20 +59,9 @@ li.puzzle-list-item::before {
 }
 
 .color-band {
-  // display: inline-block;
   background: lightblue;
   width: 100%;
   height: 380px;
-  // vertical-align: middle;
   padding-top: 43px;
   margin-top: 75px;
-  // top: 100%;
-
-  // position: absolute;
-  // top: 50%;
-  // height: 100px;
-  // margin-top: -50px;
-
-
 }
-//

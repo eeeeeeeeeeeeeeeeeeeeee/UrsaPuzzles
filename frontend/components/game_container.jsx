@@ -81,6 +81,7 @@ var GameContainer = React.createClass({
 
   render: function() {
     return (
+      <div className="container">
         <div className="game-container">
           <div className="clues">
             <GameToolbar/>
@@ -89,6 +90,7 @@ var GameContainer = React.createClass({
           </div>
           <Grid game={this.state.game} updateClue={this.updateClue} across={this.state.across} switchDirection={this.switchDirection} currentAcrossClue={this.state.currentAcrossClue} currentDownClue={this.state.currentDownClue}/>
         </div>
+      </div>
     );
   }
 });
