@@ -34,16 +34,11 @@ var Square = React.createClass({
   handleKeyDown: function(event) {
     var key = event.which;
     var counter = this.props.counter;
-    // var board = GameStore.getStartingBoard();
-    // var thisSquare = this.props.counter;
-    // var newSquare;
-    //
-    // if(key === 37 || key === 39 && this.props.across) {
-    //
-    //   while(board[thisSquare + 1] === "black") {
-    //
-    //   }
-    // }
+
+    // var openIndices = this.getOpenSquareIndices();
+    // var backOne = this.props.counter-2;
+    // while(backOne )
+
 
     if(key === 39) {
       if(this.props.across) {
@@ -51,14 +46,12 @@ var Square = React.createClass({
       } else {
         GameActions.receiveMove(true);
       }
-    // } else if (key === 37) {
-    //   if(this.props.across) {
-    //     debugger
-    //     counter -= 1;
-    //     GameActions.receiveStep(counter);
-    //   } else {
-    //     GameActions.receiveMove(true);
-    //   }
+    } else if (key === 37) {
+      if(this.props.across) {
+        GameActions.receiveStep(this.props.counter - 2);
+      } else {
+        GameActions.receiveMove(true);
+      }
     } else if (key === 40) {
       if(this.props.across) {
         GameActions.receiveMove(false);
@@ -75,9 +68,22 @@ var Square = React.createClass({
       if(this.props.across) {
         GameActions.receiveBackspace(this.props.counter - 2);
       } else {
-
+        GameActions.receiveUpBackspace(this.props.counter - 30);
       }
     }
+  },
+
+  getOpenSquareIndices: function() {
+    var board = GameStore.getCurrentGameState();
+    var openSquares = [];
+
+    for(var i = 0; i < board.length; i++) {
+      if(board[i] !== "black") {
+        openSquares.push(i);
+      }
+    }
+
+    return openSquares;
   },
 
   componentDidMount: function() {

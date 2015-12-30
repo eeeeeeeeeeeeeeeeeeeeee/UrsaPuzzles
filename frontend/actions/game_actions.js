@@ -83,6 +83,13 @@ var GameActions = {
       actionType: PuzzleConstants.BACKSPACE,
       idx: idx
     })
+  },
+
+  receiveUpBackspace: function(idx) {
+    AppDispatcher.dispatch({
+      actionType: PuzzleConstants.BACKSPACE_UP,
+      idx: idx
+    })
   }
 
 }
