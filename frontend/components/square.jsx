@@ -145,7 +145,6 @@ var Square = React.createClass({
 
   render: function() {
     var wordIndices = [];
-    debugger
     if(!_.isEmpty(this.state.acrossCluesAndIndices) && this.props.across) {
       var clueNum = (this.props.currentAcrossClue === -1 ? 1 : this.props.currentAcrossClue);
       wordIndices = this.state.acrossCluesAndIndices[clueNum];
@@ -157,6 +156,7 @@ var Square = React.createClass({
 
     if(this.state.clueNumber !== null) {
       var className = "grid-square";
+      var inputClass = "user-type";
 
 
       if(this.state.active) {
@@ -165,11 +165,15 @@ var Square = React.createClass({
         className = "grid-square neighbor";
       }
 
+      if(this.props.wrong) {
+        inputClass += " wrong"
+      }
+
       square = <div className={className}
                     onDoubleClick={this.handleDoubleClick}
                     onClick={this.handleClick}>
                  <div className="clue-number">{this.state.clueNumber}</div>
-                 <input className="user-type" id={"ut-" + this.props.counter}
+                 <input className={inputClass} id={"ut-" + this.props.counter}
                         type="text" styles="text-transform:uppercase"
                         onKeyDown={this.handleKeyDown}
                         onKeyPress={this.handleKeyPress}

@@ -22,19 +22,24 @@ function _getDirection() {
   return GameStore.getDirection();
 }
 
+function _getCheckStatus() {
+  return GameStore.getCheckStatus();
+}
+
 var Grid = React.createClass({
   getInitialState: function() {
     var game = _getGame()[0];
     var currentGameState = _getCurrentGameState();
     return ({ game: game, currentGameState: currentGameState,
-              currentSquare: null, across: true, currentDownClue: 1, currentAcrossClue: 1});
+              currentSquare: null, across: true, currentDownClue: 1, currentAcrossClue: 1, check: false});
   },
 
   _gameChanged: function(){
     var game = _getGame()[0];
     var currentGameState = _getCurrentGameState();
     var across = _getDirection();
-    this.setState({ game: game, currentGameState: currentGameState, across: across }, function() {
+    var check = _getCheckStatus();
+    this.setState({ game: game, currentGameState: currentGameState, across: across, check: check }, function() {
       // debugger
       // this._currentSquareChanged();
     }.bind(this));
@@ -137,12 +142,26 @@ var Grid = React.createClass({
     var board = this.state.currentGameState;
   },
 
+  findIncorrectSquares: function() {
+    var userGrid = this.state.currentGameState;
+    var answerGrid = GameStore.getSolution();
+    var incorrectIndices = [];
+
+    for(var i = 0; i < userGrid.length; i++) {
+      if(userGrid[i] != answerGrid[i]) {
+        incorrectIndices.push(i);
+      }
+    }
+
+    return incorrectIndices;
+  },
+
   render: function() {
     var rows = "";
     var that = this;
+    var incorrectIndices = (this.state.check ? this.findIncorrectSquares() : []);
 
     if(this.state.game) {
-      // var boardArray = $.parseJSON(this.state.game.current_board_state);  // not technically current board state, cause never gets updated ===> should rename
       var boardArray = GameStore.getStartingBoard();
       var currentBoard = GameStore.getCurrentGameState();
       var counter = 0;
@@ -153,6 +172,7 @@ var Grid = React.createClass({
         var col = counter % 15;
         var active = (nextSquare === counter) ? true : false;
         var value = "";
+        var wrong = false;
 
         if(!parseInt(currentBoard[counter]) && currentBoard[counter].length <= 1) {
           value = currentBoard[counter];
@@ -162,6 +182,10 @@ var Grid = React.createClass({
           active = true;
         } else if(that.props.currentAcrossClue === -1 && counter === 1) {
           active = false;
+        }
+
+        if(incorrectIndices.length > 0 && incorrectIndices.indexOf(counter) !== -1) {
+          wrong = true;
         }
 
         counter++;
@@ -180,7 +204,8 @@ var Grid = React.createClass({
                          currentDownClue={that.props.currentDownClue}
                          across={that.state.across}
                          currentSquareChanged={that._currentSquareChanged}
-                         value={value}/>;
+                         value={value}
+                         wrong={wrong}/>;
         } else {
           return <Square className="grid-square-outer"
                          switchDirection={that.props.switchDirection}
@@ -190,7 +215,8 @@ var Grid = React.createClass({
                          currentDownClue={that.props.currentDownClue}
                          across={that.state.across}
                          currentSquareChanged={that._currentSquareChanged}
-                         value={value}/>;
+                         value={value}
+                         wrong={wrong}/>;
         }
       });
     }

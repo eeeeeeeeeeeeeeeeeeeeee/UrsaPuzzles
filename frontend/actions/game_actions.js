@@ -18,7 +18,6 @@ var GameActions = {
   },
 
   receiveMove: function(across) {
-    debugger
     AppDispatcher.dispatch({
       actionType: PuzzleConstants.SWITCH_DIRECTION,
       across: across
@@ -90,6 +89,12 @@ var GameActions = {
     AppDispatcher.dispatch({
       actionType: PuzzleConstants.BACKSPACE_UP,
       idx: idx
+    })
+  },
+
+  receiveCheckRequest: function() {
+    AppDispatcher.dispatch({
+      actionType: PuzzleConstants.CHECK_PUZZLE
     })
   }
 

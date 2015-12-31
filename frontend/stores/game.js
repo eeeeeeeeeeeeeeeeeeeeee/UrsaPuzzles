@@ -1,27 +1,24 @@
 var Store = require('flux/utils').Store;
 var _ = require('underscore');
-// var CHANGE_EVENT = "change";
 var PuzzleConstants = require('../constants/puzzle_constants');
 var AppDispatcher = require('../dispatcher/dispatcher');
+
 var _game = [];
 var _currentGrid = [];
 var _emptyGrid = [];
-var _gameParams = { id: null, author: null, difficulty: null, emptyGrid: null, answerGrid: null };
+var _gameParams = { id: null, author: null, difficulty: null,
+                                            emptyGrid: null,
+                                            answerGrid: null };
 var _solution = [];
 var _clues = [];
 var _across = true;
 var _currentAcrossClue = 1;
 var _currentDownClue = 1;
 var _startTime = 0;
+var _check = false;
+
 
 var GameStore = new Store(AppDispatcher);
-
-// bad, not flux, replace with action call
-// GameStore.setExisitingGame = function(game) {
-//   _game = game;
-//
-// }
-
 
 GameStore.getGame = function () {
   return _game.slice(0);
@@ -108,6 +105,10 @@ GameStore.getDownCluesAndIndices = function() {
 
   return cluesAndIndices;
 };
+
+GameStore.getCheckStatus = function() {
+  return _check === true;
+}
 
 var findIndexOfClueNumber = function(clueNumber) {
   // var origBoard = $.parseJSON(_game[0].current_board_state);
@@ -202,6 +203,11 @@ GameStore.__onDispatch = function (payload) {
       var currIdx = this.getDownCoords().indexOf(payload.idx);
       var newIdx = this.getDownCoords()[currIdx+1];
       _currentGrid[newIdx] = "";
+      GameStore.__emitChange();
+      break;
+
+    case PuzzleConstants.CHECK_PUZZLE:
+      _check = true;
       GameStore.__emitChange();
       break;
   }

@@ -244,10 +244,6 @@ body { padding-top: 70px; }
   text-transform: uppercase;
 }
 
-.user-type {
-  text-transform: uppercase;
-}
-
 .grid-square.highlight {
   background-color: yellow;
 }
@@ -268,6 +264,12 @@ body { padding-top: 70px; }
 .grid-square.black {
   background: black;
 }
+
+.user-type.wrong {
+  color: transparent;
+  text-shadow: 0 0 0 #FF0000;
+}
+
 
 .grid {
   width: 529px;
@@ -434,11 +436,11 @@ ol.crossword-clue-list {
 
 .save-button {
   margin-top: 5px;
-  margin-right: 15px;
+  margin-right: 10px;
   float: right;
   border: 1px solid lightgray;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
   background: white;
   height: 30px;
   font-weight: bold;

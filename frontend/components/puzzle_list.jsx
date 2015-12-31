@@ -82,7 +82,6 @@ var PuzzleList = React.createClass({
 
       var easyPuzzleList = easyPuzzles.map (function(puzzle) {
         if(inProgressIDs.length > 0 && inProgressIDs.indexOf(puzzle.id) !== -1) {
-          debugger
           inProgress = "(in progress)";
         } else {
           inProgress = "";
