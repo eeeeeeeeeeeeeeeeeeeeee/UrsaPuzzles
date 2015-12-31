@@ -47,6 +47,9 @@ ul.puzzle-list-items {
 
 .home-group {
   width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
 }
 
 li.puzzle-list-item::before {
@@ -69,5 +72,12 @@ li.puzzle-list-item::before {
 .puzzle-link:hover {
   text-decoration: none;
   font-weight: bolder;
+  color: cornflowerblue;
+  // color: red;
+}
+
+.in-progress {
+  vertical-align: super;
+  font-size: 12px;
   color: cornflowerblue;
 }

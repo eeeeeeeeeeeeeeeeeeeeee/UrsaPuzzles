@@ -104,9 +104,13 @@ ul.dropdown-menu {
 }
 
 ul.nav.navbar-nav.navbar-right {
-  margin-right: 50px;
+  // margin-right: 50px;
+  width: 100px;
 }
 
+a.dropdown-toggle {
+  width: 100px;
+}
 
 .sign-up-form {
   background-color: rgba(0,0,0, .5);
@@ -492,5 +496,4 @@ body {
 
 .outer-container {
   background-color: rgba(173,216,230,.3);
-
 }

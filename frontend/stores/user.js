@@ -19,10 +19,23 @@ UserStore.getPreviousGameState = function(puzzleId) {
   return null;
 };
 
+UserStore.getInProgessPuzzleIds = function() {
+  if(typeof _userData === "undefined") {
+    return [];
+  }
+
+  var puzzleIDs = [];
+
+  for(var i = 0; i < _userData.length; i++) {
+    puzzleIDs.push(_userData[i].puzzle_id);
+  }
+
+  return puzzleIDs.sort();
+}
+
 UserStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
     case PuzzleConstants.USER_DATA_RECEIVED:
-      console.log("user data received");
       _userData = payload.data;
       UserStore.__emitChange();
       break;

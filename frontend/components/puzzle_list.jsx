@@ -11,22 +11,32 @@ function _getAllPuzzles() {
   return PuzzleStore.all();
 }
 
+function _getInProgressPuzzles() {
+  return UserStore.getInProgessPuzzleIds();
+}
+
 var PuzzleList = React.createClass({
   getInitialState: function() {
-    return({puzzles: _getAllPuzzles()});
+    return({puzzles: _getAllPuzzles(), inProgress: _getInProgressPuzzles()});
   },
 
   _puzzlesChanged: function(){
     this.setState({ puzzles: _getAllPuzzles() });
   },
 
+  _userChanged: function(){
+    this.setState({ inProgress: _getInProgressPuzzles() });
+  },
+
   componentDidMount: function(){
     this.puzzleListener = PuzzleStore.addListener(this._puzzlesChanged);
+    this.userListener = UserStore.addListener(this._userChanged);
     ApiUtil.fetchPuzzles();
   },
 
   componentWillUnmount: function(){
     this.puzzleListener.remove();
+    this.userListener.remove();
   },
 
   handleClick: function(id, event) {
@@ -63,15 +73,25 @@ var PuzzleList = React.createClass({
   render: function() {
     var puzzleListItems = "";
     var that = this;
+    var inProgressIDs = this.state.inProgress;
 
     if(this.state.puzzles.length !== 0) {
       var allPuzzles = this.sortPuzzlesByDifficulty();
       var easyPuzzles = allPuzzles["easy"], mediumPuzzles = allPuzzles["medium"], hardPuzzles = allPuzzles["hard"];
+      var inProgress = "";
 
       var easyPuzzleList = easyPuzzles.map (function(puzzle) {
+        if(inProgressIDs.length > 0 && inProgressIDs.indexOf(puzzle.id) !== -1) {
+          debugger
+          inProgress = "(in progress)";
+        } else {
+          inProgress = "";
+        }
+
         return ( <li key={puzzle.id}>
                     <Link to="/puzzle/:id" className="puzzle-link" onClick={that.handleClick.bind(null, puzzle.id)}>
                       {puzzle.title}
+                      <span className="in-progress">  {inProgress}</span>
                     </Link>
                   </li>
                );
