@@ -12,6 +12,10 @@ function _getDownCluesAndIndices() {
   return GameStore.getDownCluesAndIndices();
 };
 
+function _getGameState() {
+  return GameStore.getCurrentGameState();
+}
+
 var Square = React.createClass({
   getInitialState: function() {
     var acrossCluesAndIndices = _getAcrossCluesAndIndices();
@@ -73,11 +77,27 @@ var Square = React.createClass({
       if(this.props.across) {
         var coords = GameStore.getAcrossCoords();
         var idx = coords.indexOf(this.props.counter);
-        GameActions.receiveBackspace(coords[idx-2]);
+        var newIdx = coords[idx-2];
+
+        var game = _getGameState();
+        if(game[coords[idx]] !== "") {
+          newIdx = coords[idx-1];
+        }
+
+        GameActions.receiveBackspace(newIdx);
       } else {
         var coords = GameStore.getDownCoords();
         var idx = coords.indexOf(this.props.counter);
-        GameActions.receiveUpBackspace(coords[idx-2]);
+        var newIdx = coords[idx-2];
+        debugger
+        var game = _getGameState();
+        if(game[coords[idx]] !== "") {
+          newIdx = coords[idx-1];
+        }
+
+        GameActions.receiveUpBackspace(newIdx);
+
+        // GameActions.receiveUpBackspace(coords[idx-2]);
       }
     }
   },

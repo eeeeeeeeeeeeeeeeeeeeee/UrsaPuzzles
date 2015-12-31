@@ -93,7 +93,7 @@ Puzzle.create!(title: "Wednesday, 1 Oct 2014",
                           57,:white,:white,:white,:white,:white,:white,:white,:black,:black,58,59,:white,:white,:white,
                           60,:white,:white,:white,:black,61,:white,:white,62,63,:white,:white,:white,:white,:white,
                           64,:white,:white,:white,:black,65,:white,:white,:white,:white,:black,66,:white,:white,:white,
-                          67,:white,:white,:white,:black,:black,68,:white,:white,:white,:black,:69,:white,:white,:white
+                          67,:white,:white,:white,:black,:black,68,:white,:white,:white,:black,69,:white,:white,:white
                          ],
              answer_grid: ['A','B','O','W',:black,'P','R','O','M',:black,:black,'S','T','U','D',
                            'N','E','V','A',:black,'L','I','N','U','S',:black,'T','O','N','E',
@@ -366,7 +366,7 @@ Clue.create!(puzzle_id: 3, clue_number: 4, across: false, answer_length: 4, desc
 Clue.create!(puzzle_id: 3, clue_number: 5, across: false, answer_length: 3, description: "Gaza grp.");
 Clue.create!(puzzle_id: 3, clue_number: 6, across: false, answer_length: 3, description: "Engraved letters?");
 Clue.create!(puzzle_id: 3, clue_number: 7, across: false, answer_length: 5, description: "End of an ancient period");
-Clue.create!(puzzle_id: 3, clue_number: 8, across: false, answer_length: 6, description: "Lexicographer James who was the O.E.D.'s first editor'");
+Clue.create!(puzzle_id: 3, clue_number: 8, across: false, answer_length: 6, description: "Lexicographer James who was the O.E.D.'s first editor");
 Clue.create!(puzzle_id: 3, clue_number: 9, across: false, answer_length: 5, description: "___ throat");
 Clue.create!(puzzle_id: 3, clue_number: 10, across: false, answer_length: 7, description: "Facilities");
 Clue.create!(puzzle_id: 3, clue_number: 11, across: false, answer_length: 7, description: "Accidental");

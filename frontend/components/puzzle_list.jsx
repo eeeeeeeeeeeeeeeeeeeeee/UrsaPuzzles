@@ -135,15 +135,15 @@ var PuzzleList = React.createClass({
     return (
       <div className="all-puzzle-lists">
         <div className="puzzle-list-element">
-          <h3 className="puzzle-list-header">Easy</h3>
+          <h3 className="puzzle-list-header">EASY</h3>
           <ul className="puzzle-list-items">{easyPuzzleList}</ul>
         </div>
         <div className="puzzle-list-element">
-          <h3 className="puzzle-list-header">Medium</h3>
+          <h3 className="puzzle-list-header">MEDIUM</h3>
           <ul className="puzzle-list-items">{mediumPuzzleList}</ul>
         </div>
         <div className="puzzle-list-element">
-          <h3 className="puzzle-list-header">Hard</h3>
+          <h3 className="puzzle-list-header">HARD</h3>
           <ul className="puzzle-list-items">{hardPuzzleList}</ul>
         </div>
       </div>
