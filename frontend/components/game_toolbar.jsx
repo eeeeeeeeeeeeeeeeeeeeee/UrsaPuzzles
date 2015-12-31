@@ -8,6 +8,10 @@ function _getStartTime() {
   return GameStore.getStartTime();
 }
 
+function _getWonStatus() {
+  return GameStore.getWonStatus();
+}
+
 var GameToolbar = React.createClass({
   getInitialState: function() {
     //change time elapsed to start at value stored in game -- needs to be int first...
@@ -16,16 +20,28 @@ var GameToolbar = React.createClass({
   },
 
   componentDidMount: function () {
-    this.intervalId = setInterval(this.tick, 1000);
+    setInterval(this.tick, 1000);
+  },
+
+  componentWillUnmount: function(){
+    clearInterval(this.tick);
   },
 
   tick: function () {
     var newTime = this.state.timeElapsed + 1;
     this.setState({ timeElapsed: newTime});
+
+    if(this.state.timeElapsed % 5 === 0) {
+      this.saveGame();
+    }
   },
 
   _convertSecondsToTimer: function() {
     var totalSeconds = this.state.timeElapsed;
+    if(totalSeconds > 100000) {
+      this.setState({timeElapsed: 0});
+    }
+
     var seconds = totalSeconds % 60;
     var minutes = Math.floor(totalSeconds / 60);
     var hours = Math.floor(totalSeconds / 3600);
@@ -41,9 +57,11 @@ var GameToolbar = React.createClass({
     var gameId = GameStore.getGame()[0].id;
     var currentGameState = GameStore.getCurrentGameState();
     var timeElapsed = this.state.timeElapsed;
-    var game = {current_game_state: currentGameState, time_elapsed: timeElapsed};
+    var won = _getWonStatus();
+    var game = {current_game_state: currentGameState, time_elapsed: timeElapsed, won: won};
 
     ApiUtil.saveGame(gameId, game);
+    console.log("saved!");
   },
 
   checkGame: function() {
@@ -57,7 +75,12 @@ var GameToolbar = React.createClass({
 
   revealGame: function() {
     GameActions.receiveSolutionRequest();
+    GameActions.receiveWonStatus(true);
     // set hints used to true
+
+    // $('#my-modal').modal({
+    //     show: 'false'
+    // });
   },
 
   render: function() {
@@ -65,10 +88,10 @@ var GameToolbar = React.createClass({
     return (
       <div className="game-toolbar">
         <span className="timer-count">{this._convertSecondsToTimer()}</span>
-        <button type="button" className="save-button btn" onClick={this.saveGame}>Save Game</button>
         <button type="button" className="save-button btn" onClick={this.clearGame}>Clear</button>
         <button type="button" className="save-button btn" onClick={this.checkGame}>Check</button>
-        <button type="button" className="save-button btn" onClick={this.revealGame}>Reveal Solution</button>
+        <button type="button" className="save-button btn" onClick={this.revealGame} data-toggle="modal" data-target=".bs-example-modal-sm">Reveal Solution</button>
+
       </div>
     );
   }
@@ -76,3 +99,16 @@ var GameToolbar = React.createClass({
 });
 
 module.exports = GameToolbar;
+
+//
+// <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+//   <div class="modal-dialog modal-sm">
+//     <div class="modal-content">
+//       <p>You solved this (difficulty) puzzle in (time)</p>
+//       <p>Way to go, champ!</p>
+//       <br/>
+//     </div>
+//   </div>
+// </div>
+
+//<button type="button" className="save-button btn" onClick={this.saveGame}>Save Game</button>

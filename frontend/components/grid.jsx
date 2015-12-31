@@ -39,9 +39,12 @@ var Grid = React.createClass({
     var currentGameState = _getCurrentGameState();
     var across = _getDirection();
     var check = _getCheckStatus();
+
     this.setState({ game: game, currentGameState: currentGameState, across: across, check: check }, function() {
-      // debugger
-      // this._currentSquareChanged();
+      if(currentGameState.join("") === GameStore.getSolution().join("")) {
+        $('#myModal').modal('show');
+        // GameActions.receiveWonStatus(true);
+      }
     }.bind(this));
 
   },

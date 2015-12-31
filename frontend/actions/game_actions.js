@@ -96,7 +96,14 @@ var GameActions = {
     AppDispatcher.dispatch({
       actionType: PuzzleConstants.CHECK_PUZZLE
     })
-  }
+  },
+
+  receiveWonStatus: function(won) {
+    AppDispatcher.dispatch({
+      actionType: PuzzleConstants.UPDATE_WON,
+      won: won
+    })
+  },
 
 }
 

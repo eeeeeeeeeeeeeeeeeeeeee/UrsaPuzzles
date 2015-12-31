@@ -15,9 +15,13 @@ function _getInProgressPuzzles() {
   return UserStore.getInProgessPuzzleIds();
 }
 
+function _getWonPuzzles() {
+  return UserStore.getWonPuzzleIds();
+}
+
 var PuzzleList = React.createClass({
   getInitialState: function() {
-    return({puzzles: _getAllPuzzles(), inProgress: _getInProgressPuzzles()});
+    return({puzzles: _getAllPuzzles(), inProgress: _getInProgressPuzzles(), won: _getWonPuzzles()});
   },
 
   _puzzlesChanged: function(){
@@ -25,7 +29,7 @@ var PuzzleList = React.createClass({
   },
 
   _userChanged: function(){
-    this.setState({ inProgress: _getInProgressPuzzles() });
+    this.setState({ inProgress: _getInProgressPuzzles(), won: _getWonPuzzles() });
   },
 
   componentDidMount: function(){
@@ -74,6 +78,7 @@ var PuzzleList = React.createClass({
     var puzzleListItems = "";
     var that = this;
     var inProgressIDs = this.state.inProgress;
+    var wonIDs = this.state.won;
 
     if(this.state.puzzles.length !== 0) {
       var allPuzzles = this.sortPuzzlesByDifficulty();
@@ -81,7 +86,9 @@ var PuzzleList = React.createClass({
       var inProgress = "";
 
       var easyPuzzleList = easyPuzzles.map (function(puzzle) {
-        if(inProgressIDs.length > 0 && inProgressIDs.indexOf(puzzle.id) !== -1) {
+        if(wonIDs.length > 0 && wonIDs.indexOf(puzzle.id) !== -1) {
+          inProgress = "(solved)";
+        } else if(inProgressIDs.length > 0 && inProgressIDs.indexOf(puzzle.id) !== -1) {
           inProgress = "(in progress)";
         } else {
           inProgress = "";

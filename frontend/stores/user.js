@@ -33,6 +33,22 @@ UserStore.getInProgessPuzzleIds = function() {
   return puzzleIDs.sort();
 }
 
+UserStore.getWonPuzzleIds = function() {
+  if(typeof _userData === "undefined") {
+    return [];
+  }
+
+  var puzzleIDs = [];
+
+  for(var i = 0; i < _userData.length; i++) {
+    if(_userData[i].won){
+      puzzleIDs.push(_userData[i].puzzle_id);
+    }
+  }
+
+  return puzzleIDs.sort();
+}
+
 UserStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
     case PuzzleConstants.USER_DATA_RECEIVED:

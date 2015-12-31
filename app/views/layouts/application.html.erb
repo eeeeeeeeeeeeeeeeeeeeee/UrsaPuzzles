@@ -70,11 +70,50 @@
     </div><!-- /.container-fluid -->
   </nav>
 
-  <%= render 'layouts/errors' %>
+  <!-- <div id="openModal" class="modalDialog">
+      <div>	<a href="#close" title="Close" class="close">X</a>
+
+          <h2><i class="fa fa-trophy"></i>  Congratulations!  <i class="fa fa-trophy"></i></h2>
+
+          <br>
+          <br>
+
+          <p>You solved this (difficulty) puzzle in (time)</p>
+          <p>Way to go, champ!</p>
+
+          <br>
+      </div>
+  </div> -->
+
+  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button> -->
+
+  <% if current_user %>
+
+    <div id="myModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+          <h2><i class="fa fa-trophy"></i>  Congratulations!  <i class="fa fa-trophy"></i></h2>
+
+          <br>
+          <br>
+
+          <p>You solved this puzzle like a champ!</p>
+          <p>Way to go, <%= current_user.username %></p>
+
+          <br>
+        </div>
+      </div>
+    </div>
+
+  <% end %>
 
   <%= yield %>
 
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+  <!-- <a href="#openModal"></a> -->
+
 
 </body>
 </html>

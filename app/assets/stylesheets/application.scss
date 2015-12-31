@@ -85,12 +85,12 @@ div.user-login-page {
   color: yellow;
 }
 
-a.dropdown-toggle {
-  padding-right: 50px;
-}
+// a.dropdown-toggle {
+//   padding-right: 50px;
+// }
 
 .navbar-default .navbar-nav > .dropdown > a {
-  margin-right: 50px;
+  // margin-right: 50px;
 }
 
 // .navbar-default .navbar-nav > .dropdown > a:hover ,
@@ -105,12 +105,24 @@ ul.dropdown-menu {
 
 ul.nav.navbar-nav.navbar-right {
   // margin-right: 50px;
-  width: 100px;
+  width: 150px;
+}
+
+.navbar-nav.navbar-right:last-child {
+  margin-right: 0;
 }
 
 a.dropdown-toggle {
-  width: 100px;
+  width: 200px;
 }
+
+// a.dropdown-toggle:focus:active {
+//   background: black;
+// }
+//
+// a.dropdown-toggle:focus, a.dropdown-toggle:active, a.dropdown-toggle.active, a.dropdown-toggle:focus:active {
+//   background: transparent;
+// }
 
 .sign-up-form {
   background-color: rgba(0,0,0, .5);
@@ -411,7 +423,7 @@ ol.crossword-clue-list {
   font-family: "Times New Roman", Times, serif;
   // margin: 0 auto;
   // margin-right: auto;
-  margin-top: 30px;
+  margin-top: 50px;
   display: inline-block;
   text-align: left;
 }
@@ -498,4 +510,86 @@ body {
 
 .outer-container {
   background-color: rgba(173,216,230,.3);
+}
+
+div.modal-content {
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  width: 386px;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 150px;
+}
+
+button.close {
+  opacity: 0.6;
+  color: black;
+  background: white;
+
+}
+
+button.close:hover {
+  background: black;
+}
+
+
+
+// test out modal
+
+.modalDialog {
+    position: fixed;
+    // font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+.modalDialog:target {
+    opacity:1;
+    pointer-events: auto;
+}
+.modalDialog > div {
+    width: 400px;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+    background: #fff;
+    background: -moz-linear-gradient(#fff, #999);
+    background: -webkit-linear-gradient(#fff, #999);
+    background: -o-linear-gradient(#fff, #999);
+}
+.close {
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: -10px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+}
+.close:hover {
+    background: #00d9ff;
+}
+
+p {
+  font-size: 16px;
 }

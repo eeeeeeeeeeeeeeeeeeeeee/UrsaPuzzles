@@ -77,7 +77,8 @@ li.puzzle-list-item::before {
 }
 
 .in-progress {
-  vertical-align: super;
+  // vertical-align: super;
   font-size: 12px;
-  color: cornflowerblue;
+  color: red;
+  font-style: italic;
 }

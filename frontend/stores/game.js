@@ -16,6 +16,7 @@ var _currentAcrossClue = 1;
 var _currentDownClue = 1;
 var _startTime = 0;
 var _check = false;
+var _won = false;
 
 
 var GameStore = new Store(AppDispatcher);
@@ -46,6 +47,10 @@ GameStore.getDirection = function () {
 
 GameStore.getStartTime = function () {
   return _startTime;
+};
+
+GameStore.getWonStatus = function () {
+  return _won === true;
 };
 
 GameStore.getStartingBoard = function() {
@@ -139,6 +144,7 @@ GameStore.__onDispatch = function (payload) {
       _emptyGrid = $.parseJSON(payload.game.current_board_state);
       _solution = payload.puzzle.answer_grid;
       _clues = payload.clues;
+      // _won = payload.won;
       GameStore.__emitChange();
       break;
 
@@ -167,6 +173,7 @@ GameStore.__onDispatch = function (payload) {
       _game = [payload.game];
       _startTime = payload.game.time_elapsed;
       _currentGrid = $.parseJSON(payload.game.current_board_state);
+      _won = payload.game.won;
       GameStore.__emitChange();
       break;
 
@@ -188,7 +195,8 @@ GameStore.__onDispatch = function (payload) {
       break;
 
     case PuzzleConstants.SHOW_ALL:
-      _currentGrid = _solution;
+      _currentGrid = _solution.slice(0);
+      // _won = true;
       GameStore.__emitChange();
       break;
 
@@ -210,6 +218,13 @@ GameStore.__onDispatch = function (payload) {
       _check = true;
       GameStore.__emitChange();
       break;
+
+    case PuzzleConstants.UPDATE_WON:
+      _won = payload.won;
+      debugger
+      GameStore.__emitChange();
+      break;
+
   }
 };
 

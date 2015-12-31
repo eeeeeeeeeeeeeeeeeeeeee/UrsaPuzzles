@@ -15,7 +15,8 @@ var PuzzleConstants = {
   STEP: "STEP",
   BACKSPACE: "BACKSPACE",
   BACKSPACE_UP: "BACKSPACE_UP",
-  CHECK_PUZZLE: "CHECK_PUZZLE"
+  CHECK_PUZZLE: "CHECK_PUZZLE",
+  UPDATE_WON: "UPDATE_WON"
 }
 
 module.exports = PuzzleConstants;
