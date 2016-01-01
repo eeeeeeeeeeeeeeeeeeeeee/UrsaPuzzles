@@ -58,7 +58,6 @@ GameStore.getWonStatus = function () {
 
 GameStore.getStartingBoard = function() {
   return _emptyGrid;
-  // return $.parseJSON(_game[0].current_board_state);
 };
 
 GameStore.getDownCoords = function() {
@@ -80,12 +79,11 @@ GameStore.getAcrossCluesAndIndices = function() {
     if(!_clues[i].across) {
       continue;
     }
-    debugger
+
     var currentClueNum = _clues[i].clue_number;
 
     var occupiedIndices = [];
-    // var clueNumberIndex = findIndexOfClueNumber(currentClueNum);
-    var clueNumberIndex = _emptyGrid.indexOf(parseInt(currentClueNum));
+    var clueNumberIndex = findIndexOfClueNumber(currentClueNum);
     cluesAndIndices[currentClueNum] = _.range(clueNumberIndex, (clueNumberIndex + _clues[i].answer_length));
   }
 
@@ -198,14 +196,12 @@ GameStore.__onDispatch = function (payload) {
       break;
 
     case PuzzleConstants.CLEAR:
-      debugger
       _currentGrid = _emptyGrid.slice(0);
       GameStore.__emitChange();
       break;
 
     case PuzzleConstants.SHOW_ALL:
       _currentGrid = _solution.slice(0);
-      // _won = true;
       GameStore.__emitChange();
       break;
 

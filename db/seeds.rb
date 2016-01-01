@@ -38,7 +38,7 @@ Puzzle.create!(title: "Monday 001",
 
 # puzzle 2
 # Tuesday, April 27, 2010
-Puzzle.create!(title: "Tuesday, 27 April 2010",
+Puzzle.create!(title: "Tuesday 001",
              author: "Oliver Hill / Will Shortz",
              difficulty: "easy",
              empty_grid: [1,2,3,4,5,6,:black,7,8,9,10,:black,11,12,13,
@@ -76,7 +76,7 @@ Puzzle.create!(title: "Tuesday, 27 April 2010",
 
 # puzzle 3
 # Wednesday, October 1, 2014
-Puzzle.create!(title: "Wednesday, 1 Oct 2014",
+Puzzle.create!(title: "Wednesday 001",
              author: "Elizabeth C. Gorski / Will Shortz",
              difficulty: "medium",
              empty_grid: [1,2,3,4,:black,5,6,7,8,:black,:black,9,10,11,12,

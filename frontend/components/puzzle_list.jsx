@@ -94,8 +94,10 @@ var PuzzleList = React.createClass({
           inProgress = "";
         }
 
+        var route = "/puzzle/" + puzzle.id;
+
         return ( <li key={puzzle.id}>
-                    <Link to="/puzzle/:id" className="puzzle-link" onClick={that.handleClick.bind(null, puzzle.id)}>
+                    <Link to={route} className="puzzle-link" onClick={that.handleClick.bind(null, puzzle.id)}>
                       {puzzle.title}
                       <span className="in-progress">  {inProgress}</span>
                     </Link>
@@ -113,8 +115,10 @@ var PuzzleList = React.createClass({
           inProgress = "";
         }
 
+        var route = "/puzzle/" + puzzle.id;
+
         return ( <li key={puzzle.id}>
-                    <Link to="/puzzle/:id" className="puzzle-link" onClick={that.handleClick.bind(null, puzzle.id)}>
+                    <Link to={route} className="puzzle-link" onClick={that.handleClick.bind(null, puzzle.id)}>
                       {puzzle.title}
                       <br/>
                       <span className="in-progress">{inProgress}</span>
@@ -133,8 +137,10 @@ var PuzzleList = React.createClass({
           inProgress = "";
         }
 
+        var route = "/puzzle/" + puzzle.id;
+
         return ( <li key={puzzle.id}>
-                    <Link to="/puzzle/:id" className="puzzle-link" onClick={that.handleClick.bind(null, puzzle.id)}>
+                    <Link to={route} className="puzzle-link" onClick={that.handleClick.bind(null, puzzle.id)}>
                       {puzzle.title}
                       <span className="in-progress">  {inProgress}</span>
                     </Link>

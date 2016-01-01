@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
 
   get 'signup' => 'users#new'
-  get 'login' => 'session#new'
-  post 'login' => 'session#create'
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
 
 end
