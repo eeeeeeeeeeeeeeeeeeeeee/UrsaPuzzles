@@ -424,6 +424,7 @@ ol.crossword-clue-list {
   // margin: 0 auto;
   // margin-right: auto;
   margin-top: 50px;
+  // margin-top: 10px;
   display: inline-block;
   text-align: left;
 }
@@ -457,6 +458,19 @@ ol.crossword-clue-list {
   height: 30px;
   font-weight: bold;
   box-shadow: 1px 1px 1px lightgray;
+}
+
+.game-title {
+  margin-top: 12px;
+  margin-right: 17px;
+  float: right;
+  // border: 1px solid lightgray;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 30px;
+  // font-weight: bold;
+  // box-shadow: 1px 1px 1px lightgray;
+
 }
 
 // .save-button:active {
@@ -592,4 +606,35 @@ button.close:hover {
 
 p {
   font-size: 16px;
+}
+
+
+.game-header {
+  // display: inline-block;
+  width: 1028px;
+  margin-left: 15px;
+  border-bottom: 2px solid lightgrey;
+  font-size: 20px;
+  // font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+}
+
+.game-info {
+  // float: left;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: inline-block;
+  text-align: left;
+  color: grey;
+}
+
+.game-info:first-child {
+  padding-right: 100px;
+}
+
+.game-info:last-child {
+  padding-left: 100px;
 }

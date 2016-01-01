@@ -16,6 +16,7 @@ var PuzzleStore = require('./stores/puzzle');
 var GameStore = require('./stores/game');
 var CurrentSquareStore = require('./stores/current_square');
 var UserStore = require('./stores/user');
+var GameHeader = require('./components/game_header');
 
 
 window.apiUtil = ApiUtil;
@@ -25,6 +26,7 @@ window.GameStore = GameStore;
 window.UserStore = UserStore;
 window.currentSquareStore = CurrentSquareStore;
 window.gameContainer = GameContainer;
+window.GameHeader = GameHeader;
 
 
 

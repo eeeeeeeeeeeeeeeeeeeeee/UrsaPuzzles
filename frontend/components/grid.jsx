@@ -26,12 +26,17 @@ function _getCheckStatus() {
   return GameStore.getCheckStatus();
 }
 
+function _getWonStatus() {
+  return GameStore.getWonStatus();
+}
+
 var Grid = React.createClass({
   getInitialState: function() {
     var game = _getGame()[0];
     var currentGameState = _getCurrentGameState();
+    var solution = GameStore.getSolution();
     return ({ game: game, currentGameState: currentGameState,
-              currentSquare: null, across: true, currentDownClue: 1, currentAcrossClue: 1, check: false});
+              currentSquare: null, across: true, currentDownClue: 1, currentAcrossClue: 1, check: false, incorrectIndices: [], solution: solution});
   },
 
   _gameChanged: function(){
@@ -39,11 +44,20 @@ var Grid = React.createClass({
     var currentGameState = _getCurrentGameState();
     var across = _getDirection();
     var check = _getCheckStatus();
+    var won = _getWonStatus();
+    var solution = GameStore.getSolution();
 
-    this.setState({ game: game, currentGameState: currentGameState, across: across, check: check }, function() {
+    this.setState({ game: game, currentGameState: currentGameState, across: across, check: check, solution: solution }, function() {
       if(currentGameState.join("") === GameStore.getSolution().join("")) {
         $('#myModal').modal('show');
-        // GameActions.receiveWonStatus(true);
+        if(!won) {
+          GameActions.receiveWonStatus(true);
+        }
+        debugger
+
+        // $("button.close").on("click", function(){
+        //   console.log("modal was closed");
+        // });
       }
     }.bind(this));
 
@@ -73,6 +87,18 @@ var Grid = React.createClass({
   componentWillUnmount: function() {
     this.gameListener.remove();
     this.currentSquareListener.remove();
+  },
+
+  componentWillUpdate: function(nextProps, nextState) {
+    if(this.state.check === false && nextState.check) {
+      this.findIncorrectSquares();
+    }
+  },
+
+  componentDidUpdate: function(prevProps, prevState) {
+    if(this.state.check && prevState.check === false) {
+      GameActions.receiveCheckRequest(false);
+    }
   },
 
   getOpenSquareIndices: function() {
@@ -151,24 +177,27 @@ var Grid = React.createClass({
     var incorrectIndices = [];
 
     for(var i = 0; i < userGrid.length; i++) {
-      if(userGrid[i] != answerGrid[i]) {
+      if(userGrid[i] != answerGrid[i] && userGrid[i] !== "" && userGrid[i] !== "white" && isNaN(parseFloat(userGrid[i]))) {
         incorrectIndices.push(i);
       }
     }
 
-    return incorrectIndices;
+    this.setState({incorrectIndices: incorrectIndices});
+    // return incorrectIndices;
   },
 
   render: function() {
     var rows = "";
     var that = this;
-    var incorrectIndices = (this.state.check ? this.findIncorrectSquares() : []);
+    // var incorrectIndices = (this.state.check ? this.findIncorrectSquares() : []);
+    var incorrectIndices = this.state.incorrectIndices;
 
     if(this.state.game) {
       var boardArray = GameStore.getStartingBoard();
       var currentBoard = GameStore.getCurrentGameState();
       var counter = 0;
       var nextSquare = this.state.nextSquare;
+      var solution = this.state.solution;
 
       rows = boardArray.map( function(square) {
         var row = counter / 15;
@@ -187,7 +216,8 @@ var Grid = React.createClass({
           active = false;
         }
 
-        if(incorrectIndices.length > 0 && incorrectIndices.indexOf(counter) !== -1) {
+        if(incorrectIndices.length > 0 && incorrectIndices.indexOf(counter) !== -1 && currentBoard[counter] !== solution[counter]) {
+          debugger
           wrong = true;
         }
 

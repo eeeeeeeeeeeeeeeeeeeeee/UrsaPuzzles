@@ -17,6 +17,9 @@ var _currentDownClue = 1;
 var _startTime = 0;
 var _check = false;
 var _won = false;
+var _author = "";
+var _title = "";
+var _difficulty = "";
 
 
 var GameStore = new Store(AppDispatcher);
@@ -115,8 +118,13 @@ GameStore.getCheckStatus = function() {
   return _check === true;
 }
 
+// change to slice equivalent
+GameStore.getGameInfo = function() {
+  var difficulty = _difficulty.charAt(0).toUpperCase() + _difficulty.slice(1);
+  return {title: _title, author: _author, difficulty: difficulty}
+}
+
 var findIndexOfClueNumber = function(clueNumber) {
-  // var origBoard = $.parseJSON(_game[0].current_board_state);
   var origBoard = _emptyGrid;
 
   if(origBoard.indexOf(clueNumber) !== -1) {
@@ -127,14 +135,6 @@ var findIndexOfClueNumber = function(clueNumber) {
 
 };
 
-function _updateFromArrow(keyCode) {
-
-  // switch keyCode  {
-  //   case 37:
-  //
-  //
-  // }
-}
 
 GameStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
@@ -144,6 +144,9 @@ GameStore.__onDispatch = function (payload) {
       _emptyGrid = $.parseJSON(payload.game.current_board_state);
       _solution = payload.puzzle.answer_grid;
       _clues = payload.clues;
+      _author = payload.puzzle.author;
+      _title = payload.puzzle.title;
+      _difficulty = payload.puzzle.difficulty;
       // _won = payload.won;
       GameStore.__emitChange();
       break;
@@ -181,6 +184,9 @@ GameStore.__onDispatch = function (payload) {
       _solution = payload.puzzle.puzzle.answer_grid;
       _clues = payload.puzzle.clues;
       _emptyGrid = payload.puzzle.puzzle.empty_grid;
+      _author = payload.puzzle.puzzle.author;
+      _title = payload.puzzle.puzzle.title;
+      _difficulty = payload.puzzle.puzzle.difficulty;
       GameStore.__emitChange();
       break;
 
@@ -215,13 +221,12 @@ GameStore.__onDispatch = function (payload) {
       break;
 
     case PuzzleConstants.CHECK_PUZZLE:
-      _check = true;
+      _check = payload.check;
       GameStore.__emitChange();
       break;
 
     case PuzzleConstants.UPDATE_WON:
       _won = payload.won;
-      debugger
       GameStore.__emitChange();
       break;
 

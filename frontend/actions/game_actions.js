@@ -92,9 +92,10 @@ var GameActions = {
     })
   },
 
-  receiveCheckRequest: function() {
+  receiveCheckRequest: function(check) {
     AppDispatcher.dispatch({
-      actionType: PuzzleConstants.CHECK_PUZZLE
+      actionType: PuzzleConstants.CHECK_PUZZLE,
+      check: check
     })
   },
 

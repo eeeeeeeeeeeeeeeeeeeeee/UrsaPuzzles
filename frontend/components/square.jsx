@@ -38,6 +38,7 @@ var Square = React.createClass({
   handleKeyDown: function(event) {
     var key = event.which;
     var counter = this.props.counter;
+    var game = _getGameState();
 
     // var openIndices = this.getOpenSquareIndices();
     // var backOne = this.props.counter-2;
@@ -79,8 +80,7 @@ var Square = React.createClass({
         var idx = coords.indexOf(this.props.counter);
         var newIdx = coords[idx-2];
 
-        var game = _getGameState();
-        if(game[coords[idx]] !== "") {
+        if(game[coords[idx]] !== "" && game[coords[idx]] !== "white" && isNaN(parseFloat(game[coords[idx]]))) {
           newIdx = coords[idx-1];
         }
 
@@ -89,15 +89,12 @@ var Square = React.createClass({
         var coords = GameStore.getDownCoords();
         var idx = coords.indexOf(this.props.counter);
         var newIdx = coords[idx-2];
-        debugger
-        var game = _getGameState();
-        if(game[coords[idx]] !== "") {
+
+        if(game[coords[idx]] !== "" && game[coords[idx]] !== "white" && isNaN(parseFloat(game[coords[idx]]))) {
           newIdx = coords[idx-1];
         }
 
         GameActions.receiveUpBackspace(newIdx);
-
-        // GameActions.receiveUpBackspace(coords[idx-2]);
       }
     }
   },
@@ -210,3 +207,5 @@ var Square = React.createClass({
 });
 
 module.exports = Square;
+
+// || game[coords[idx]] !== "white" || isNaN(parseFloat(game[coords[idx]]))

@@ -7,6 +7,7 @@ var Grid = require('./grid');
 var ClueLists = require('./clue_lists');
 var ClueSpotlight = require('./clue_spotlight');
 var GameToolbar = require('./game_toolbar');
+var GameHeader = require('./game_header');
 
 function _getGame() {
   return GameStore.getGame();
@@ -63,10 +64,6 @@ var GameContainer = React.createClass({
     this.setState({ across: across });
   },
 
-  _userChanged: function() {
-    // do I need to keep???
-  },
-
   componentDidMount: function() {
     this.gameListener = GameStore.addListener(this._gameChanged);
   },
@@ -93,7 +90,7 @@ var GameContainer = React.createClass({
           </div>
         </div>
 
-        
+
       </div>
     );
   }

@@ -16,15 +16,25 @@ var GameToolbar = React.createClass({
   getInitialState: function() {
     //change time elapsed to start at value stored in game -- needs to be int first...
     var timeElapsed = _getStartTime();
-    return { timeElapsed: timeElapsed };
+    return { timeElapsed: timeElapsed, title: "" };
   },
 
   componentDidMount: function () {
     setInterval(this.tick, 1000);
+    this.gameListener = GameStore.addListener(this._gameChanged);
   },
 
   componentWillUnmount: function(){
     clearInterval(this.tick);
+    this.gameListener.remove();
+  },
+
+  _gameChanged: function() {
+    var gameInfo = GameStore.getGameInfo();
+    this.setState({title: gameInfo.title});
+    // if(typeof gameInfo !== "undefined") {
+    //   this.setState({title: gameInfo.title});
+    // }
   },
 
   tick: function () {
@@ -65,7 +75,7 @@ var GameToolbar = React.createClass({
   },
 
   checkGame: function() {
-    GameActions.receiveCheckRequest();
+    GameActions.receiveCheckRequest(true);
   },
 
   clearGame: function() {
@@ -76,6 +86,8 @@ var GameToolbar = React.createClass({
   revealGame: function() {
     GameActions.receiveSolutionRequest();
     GameActions.receiveWonStatus(true);
+
+
     // set hints used to true
 
     // $('#my-modal').modal({
@@ -91,7 +103,7 @@ var GameToolbar = React.createClass({
         <button type="button" className="save-button btn" onClick={this.clearGame}>Clear</button>
         <button type="button" className="save-button btn" onClick={this.checkGame}>Check</button>
         <button type="button" className="save-button btn" onClick={this.revealGame} data-toggle="modal" data-target=".bs-example-modal-sm">Reveal Solution</button>
-
+        <span className="game-title">{this.state.title}</span>
       </div>
     );
   }
@@ -112,3 +124,19 @@ module.exports = GameToolbar;
 // </div>
 
 //<button type="button" className="save-button btn" onClick={this.saveGame}>Save Game</button>
+
+
+//
+// <div class="dropdown">
+//   <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+//     Info
+//     <span class="caret"></span>
+//   </button>
+//   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+//     <li>Monday 001</li>
+//     <li>By: Claire Rogers</li>
+//     <li>Easy</li>
+//     <li role="separator" class="divider"></li>
+//     <li><a href="#">Separated link</a></li>
+//   </ul>
+// </div>

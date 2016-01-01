@@ -104,18 +104,39 @@ var PuzzleList = React.createClass({
       });
 
       var mediumPuzzleList = mediumPuzzles.map (function(puzzle) {
+
+        if(wonIDs.length > 0 && wonIDs.indexOf(puzzle.id) !== -1) {
+          inProgress = "(solved)";
+        } else if(inProgressIDs.length > 0 && inProgressIDs.indexOf(puzzle.id) !== -1) {
+          inProgress = "(in progress)";
+        } else {
+          inProgress = "";
+        }
+
         return ( <li key={puzzle.id}>
                     <Link to="/puzzle/:id" className="puzzle-link" onClick={that.handleClick.bind(null, puzzle.id)}>
                       {puzzle.title}
+                      <br/>
+                      <span className="in-progress">{inProgress}</span>
                     </Link>
                   </li>
                );
       });
 
       var hardPuzzleList = hardPuzzles.map (function(puzzle) {
+
+        if(wonIDs.length > 0 && wonIDs.indexOf(puzzle.id) !== -1) {
+          inProgress = "(solved)";
+        } else if(inProgressIDs.length > 0 && inProgressIDs.indexOf(puzzle.id) !== -1) {
+          inProgress = "(in progress)";
+        } else {
+          inProgress = "";
+        }
+
         return ( <li key={puzzle.id}>
                     <Link to="/puzzle/:id" className="puzzle-link" onClick={that.handleClick.bind(null, puzzle.id)}>
                       {puzzle.title}
+                      <span className="in-progress">  {inProgress}</span>
                     </Link>
                   </li>
                );
