@@ -217,7 +217,6 @@ var Grid = React.createClass({
         }
 
         if(incorrectIndices.length > 0 && incorrectIndices.indexOf(counter) !== -1 && currentBoard[counter] !== solution[counter]) {
-          debugger
           wrong = true;
         }
 

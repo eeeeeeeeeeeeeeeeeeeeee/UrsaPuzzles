@@ -73,16 +73,19 @@ GameStore.getAcrossCoords = function() {
 
 GameStore.getAcrossCluesAndIndices = function() {
   var cluesAndIndices = {};
+  var clueNumberIndex1 = findIndexOfClueNumber(1);
+  var clueNumberIndex24 = findIndexOfClueNumber(24);
 
   for(var i = 0; i < _clues.length; i++) {
     if(!_clues[i].across) {
       continue;
     }
-
+    debugger
     var currentClueNum = _clues[i].clue_number;
 
     var occupiedIndices = [];
-    var clueNumberIndex = findIndexOfClueNumber(currentClueNum)
+    // var clueNumberIndex = findIndexOfClueNumber(currentClueNum);
+    var clueNumberIndex = _emptyGrid.indexOf(parseInt(currentClueNum));
     cluesAndIndices[currentClueNum] = _.range(clueNumberIndex, (clueNumberIndex + _clues[i].answer_length));
   }
 
@@ -100,7 +103,7 @@ GameStore.getDownCluesAndIndices = function() {
     var currentClueNum = _clues[i].clue_number;
 
     var occupiedIndices = [];
-    var clueNumberIndex = findIndexOfClueNumber(currentClueNum)
+    var clueNumberIndex = findIndexOfClueNumber(currentClueNum);
     var indexArray = [];
 
     while(indexArray.length < _clues[i].answer_length) {
@@ -124,15 +127,14 @@ GameStore.getGameInfo = function() {
   return {title: _title, author: _author, difficulty: difficulty}
 }
 
-var findIndexOfClueNumber = function(clueNumber) {
+function findIndexOfClueNumber(clueNumber) {
   var origBoard = _emptyGrid;
 
   if(origBoard.indexOf(clueNumber) !== -1) {
-    return origBoard.indexOf(clueNumber);
+    return origBoard.indexOf(parseInt(clueNumber));
   } else {
     return null;
   }
-
 };
 
 
@@ -196,7 +198,8 @@ GameStore.__onDispatch = function (payload) {
       break;
 
     case PuzzleConstants.CLEAR:
-      _currentGrid = _emptyGrid;
+      debugger
+      _currentGrid = _emptyGrid.slice(0);
       GameStore.__emitChange();
       break;
 
