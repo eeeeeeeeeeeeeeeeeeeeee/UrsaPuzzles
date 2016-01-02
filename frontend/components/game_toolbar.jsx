@@ -71,7 +71,6 @@ var GameToolbar = React.createClass({
     var game = {current_game_state: currentGameState, time_elapsed: timeElapsed, won: won};
 
     ApiUtil.saveGame(gameId, game);
-    console.log("saved!");
   },
 
   checkGame: function() {

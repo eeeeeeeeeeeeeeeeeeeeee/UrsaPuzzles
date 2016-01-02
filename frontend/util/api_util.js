@@ -21,7 +21,6 @@ var ApiUtil = {
         ApiActions.receiveGame(game);
       }
     });
-    console.log("game created");
   },
 
   fetchUserData: function() {
@@ -48,7 +47,6 @@ var ApiUtil = {
       url: '/games/'+gameId,
       data: { game: game },
       success: function() {
-        console.log("game saved!");
       }
     });
   },

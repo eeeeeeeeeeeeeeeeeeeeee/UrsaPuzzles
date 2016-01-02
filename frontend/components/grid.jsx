@@ -53,11 +53,6 @@ var Grid = React.createClass({
         if(!won) {
           GameActions.receiveWonStatus(true);
         }
-        debugger
-
-        // $("button.close").on("click", function(){
-        //   console.log("modal was closed");
-        // });
       }
     }.bind(this));
 

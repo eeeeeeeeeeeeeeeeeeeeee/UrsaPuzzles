@@ -147,7 +147,6 @@ GameStore.__onDispatch = function (payload) {
       _author = payload.puzzle.author;
       _title = payload.puzzle.title;
       _difficulty = payload.puzzle.difficulty;
-      // _won = payload.won;
       GameStore.__emitChange();
       break;
 

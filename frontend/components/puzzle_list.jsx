@@ -120,8 +120,7 @@ var PuzzleList = React.createClass({
         return ( <li key={puzzle.id}>
                     <Link to={route} className="puzzle-link" onClick={that.handleClick.bind(null, puzzle.id)}>
                       {puzzle.title}
-                      <br/>
-                      <span className="in-progress">{inProgress}</span>
+                      <span className="in-progress"> {inProgress}</span>
                     </Link>
                   </li>
                );

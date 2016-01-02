@@ -154,7 +154,7 @@ Puzzle.create!(title: "Saturday 001",
 
 
 
-# 
+#
 #
 # Puzzle.create!(title: "test puzzle",
 #                author: "Claire Rogers",
