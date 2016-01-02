@@ -154,43 +154,43 @@ Puzzle.create!(title: "Saturday 001",
 
 
 
-
-
-Puzzle.create!(title: "test puzzle",
-               author: "Claire Rogers",
-               difficulty: "easy",
-               empty_grid: [[:black, :blank, 1], [:blank, 2, :black], [3, :black, :blank]],
-               answer_grid: [[nil, 'A', 'B'], ['C', 'D', nil], ['E', nil, 'F']])
-
-Puzzle.create!(title: "Wednesday Sample",
-              author: "Haloumi",
-              difficulty: "medium",
-              empty_grid: [[:blank, 1, 2], [:black, 3, :black], [:blank, 4, 5]],
-              answer_grid: [['A', 'B', 'C'], [nil, 'D', nil], ['E', 'X', 'F']])
-
-Puzzle.create!(title: "Saturday Puzzle",
-              author: "Summer Joy",
-              difficulty: "hard",
-              empty_grid: [[:blank, 1, 2], [:black, 3, :black], [:blank, 4, 5]],
-              answer_grid: [['A', 'B', 'C'], [nil, 'D', nil], ['E', 'X', 'F']])
-
-Puzzle.create!(title: "Friday Toughie",
-              author: "Topper",
-              difficulty: "hard",
-              empty_grid: [[:blank, 1, 2], [:black, 3, :black], [:blank, 4, 5]],
-              answer_grid: [['A', 'B', 'C'], [nil, 'D', nil], ['E', 'X', 'F']])
-
-Puzzle.create!(title: "Another Friday Toughie",
-              author: "Egbert Souse",
-              difficulty: "hard",
-              empty_grid: [[:blank, 1, 2], [:black, 3, :black], [:blank, 4, 5]],
-              answer_grid: [['A', 'B', 'C'], [nil, 'D', nil], ['E', 'X', 'F']])
-
-Puzzle.create!(title: "Not too tough",
-              author: "Rod Dibbles",
-              difficulty: "medium",
-              empty_grid: [[:blank, 1, 2], [:black, 3, :black], [:blank, 4, 5]],
-              answer_grid: [['A', 'B', 'C'], [nil, 'D', nil], ['E', 'X', 'F']])
+# 
+#
+# Puzzle.create!(title: "test puzzle",
+#                author: "Claire Rogers",
+#                difficulty: "easy",
+#                empty_grid: [[:black, :blank, 1], [:blank, 2, :black], [3, :black, :blank]],
+#                answer_grid: [[nil, 'A', 'B'], ['C', 'D', nil], ['E', nil, 'F']])
+#
+# Puzzle.create!(title: "Wednesday Sample",
+#               author: "Haloumi",
+#               difficulty: "medium",
+#               empty_grid: [[:blank, 1, 2], [:black, 3, :black], [:blank, 4, 5]],
+#               answer_grid: [['A', 'B', 'C'], [nil, 'D', nil], ['E', 'X', 'F']])
+#
+# Puzzle.create!(title: "Saturday Puzzle",
+#               author: "Summer Joy",
+#               difficulty: "hard",
+#               empty_grid: [[:blank, 1, 2], [:black, 3, :black], [:blank, 4, 5]],
+#               answer_grid: [['A', 'B', 'C'], [nil, 'D', nil], ['E', 'X', 'F']])
+#
+# Puzzle.create!(title: "Friday Toughie",
+#               author: "Topper",
+#               difficulty: "hard",
+#               empty_grid: [[:blank, 1, 2], [:black, 3, :black], [:blank, 4, 5]],
+#               answer_grid: [['A', 'B', 'C'], [nil, 'D', nil], ['E', 'X', 'F']])
+#
+# Puzzle.create!(title: "Another Friday Toughie",
+#               author: "Egbert Souse",
+#               difficulty: "hard",
+#               empty_grid: [[:blank, 1, 2], [:black, 3, :black], [:blank, 4, 5]],
+#               answer_grid: [['A', 'B', 'C'], [nil, 'D', nil], ['E', 'X', 'F']])
+#
+# Puzzle.create!(title: "Not too tough",
+#               author: "Rod Dibbles",
+#               difficulty: "medium",
+#               empty_grid: [[:blank, 1, 2], [:black, 3, :black], [:blank, 4, 5]],
+#               answer_grid: [['A', 'B', 'C'], [nil, 'D', nil], ['E', 'X', 'F']])
 
 
 
@@ -466,7 +466,7 @@ Clue.create!(puzzle_id: 4, clue_number: 36, across: true, answer_length: 8, desc
 Clue.create!(puzzle_id: 4, clue_number: 40, across: true, answer_length: 4, description: "Verb with vous");
 Clue.create!(puzzle_id: 4, clue_number: 41, across: true, answer_length: 10, description: "Having columns set into a wall");
 Clue.create!(puzzle_id: 4, clue_number: 43, across: true, answer_length: 3, description: "Hang loosely");
-Clue.create!(puzzle_id: 4, clue_number: 44, across: true, answer_length: 4, description: "Charles Anderson ___, owner/editor of the New York Sun");
+Clue.create!(puzzle_id: 4, clue_number: 44, across: true, answer_length: 4, description: "C. Anderson ___, owner/editor of the New York Sun");
 Clue.create!(puzzle_id: 4, clue_number: 45, across: true, answer_length: 6, description: "Sexually attractive");
 Clue.create!(puzzle_id: 4, clue_number: 46, across: true, answer_length: 8, description: "Like sage or allspice");
 Clue.create!(puzzle_id: 4, clue_number: 48, across: true, answer_length: 7, description: "Interstice");
