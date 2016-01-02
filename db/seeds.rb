@@ -113,6 +113,45 @@ Puzzle.create!(title: "Wednesday 001",
                           ])
 
 
+# puzzle 4
+# Saturday, 21 February 2004
+Puzzle.create!(title: "Saturday 001",
+             author: "Brendan Quigley & Patrick Berry / Will Shortz",
+             difficulty: "hard",
+             empty_grid: [1,2,3,4,5,:black,:black,:black,6,7,8,9,10,11,12,
+                          13,:white,:white,:white,:white,14,:black,15,:white,:white,:white,:white,:white,:white,:white,
+                          16,:white,:white,:white,:white,:white,:black,17,:white,:white,:white,:white,:white,:white,:white,
+                          18,:white,:white,:white,:white,:white,:black,19,:white,:white,:white,:black,20,:white,:white,
+                          21,:white,:white,:white,:white,:white,22,:white,:white,:white,:black,23,:white,:white,:white,
+                          :black,24,:white,:white,:white,:white,:white,:white,:white,:black,25,:white,:white,:white,:white,
+                          :black,:black,:black,:black,26,:white,:white,:white,:black,27,:white,:white,:white,:white,:white,
+                          28,29,30,31,:white,:white,:white,:black,32,:white,:white,:white,:white,:white,:white,
+                          33,:white,:white,:white,:white,:white,:black,34,:white,:white,:white,:black,:black,:black,:black,
+                          35,:white,:white,:white,:white,:black,36,:white,:white,:white,:white,37,38,39,:black,
+                          40,:white,:white,:white,:black,41,:white,:white,:white,:white,:white,:white,:white,:white,42,
+                          43,:white,:white,:black,44,:white,:white,:white,:black,45,:white,:white,:white,:white,:white,
+                          46,:white,:white,47,:white,:white,:white,:white,:black,48,:white,:white,:white,:white,:white,
+                          49,:white,:white,:white,:white,:white,:white,:white,:black,50,:white,:white,:white,:white,:white,
+                          51,:white,:white,:white,:white,:white,:white,:black,:black,:black,52,:white,:white,:white,:white
+                         ],
+             answer_grid: ['A','G','O','R','A',:black,:black,:black,'S','H','A','L','A','L','A',
+                           'B','O','N','E','U','P',:black,'P','H','O','T','O','L','A','B',
+                           'A','D','E','S','T','E',:black,'I','R','R','I','G','A','T','E',
+                           'S','I','M','E','O','N',:black,'T','I','N','T',:black,'M','E','R',
+                           'E','V','A','N','P','I','C','O','N','E',:black,'S','A','N','D',
+                           :black,'A','N','T','I','T','A','N','K',:black,'M','O','N','T','E',
+                           :black,:black,:black,:black,'L','E','G','S',:black,'C','I','R','C','L','E',
+                           'G','O','O','D','O','N','E',:black,'F','O','N','T','E','Y','N',
+                           'A','R','N','E','T','T',:black,'L','I','L','I',:black,:black,:black,:black,
+                           'M','A','R','E','S',:black,'F','I','N','D','A','W','A','Y',:black,
+                           'E','T','E','S',:black,'P','I','L','A','S','T','E','R','E','D',
+                           'L','O','P',:black,'D','A','N','A',:black,'N','U','B','I','L','E',
+                           'A','R','O','M','A','T','I','C',:black,'A','R','E','O','L','A',
+                           'W','I','R','E','L','E','S','S',:black,'P','E','R','S','O','N',
+                           'S','O','T','T','I','S','H',:black,:black,:black,'S','N','O','W','S'
+                          ])
+
+
 
 
 
@@ -397,6 +436,77 @@ Clue.create!(puzzle_id: 3, clue_number: 59, across: false, answer_length: 4, des
 Clue.create!(puzzle_id: 3, clue_number: 62, across: false, answer_length: 3, description: "Little handful");
 Clue.create!(puzzle_id: 3, clue_number: 63, across: false, answer_length: 3, description: "Syllable repeated after 'fiddle'");
 
+
+
+
+
+
+
+Clue.create!(puzzle_id: 4, clue_number: 1, across: true, answer_length: 5, description: "Assembly area");
+Clue.create!(puzzle_id: 4, clue_number: 6, across: true, answer_length: 7, description: "Clinton's secretary of health and human services");
+Clue.create!(puzzle_id: 4, clue_number: 13, across: true, answer_length: 6, description: "Study");
+Clue.create!(puzzle_id: 4, clue_number: 15, across: true, answer_length: 8, description: "Developmental site");
+Clue.create!(puzzle_id: 4, clue_number: 16, across: true, answer_length: 6, description: "Start of a carol");
+Clue.create!(puzzle_id: 4, clue_number: 17, across: true, answer_length: 8, description: "Water");
+Clue.create!(puzzle_id: 4, clue_number: 18, across: true, answer_length: 6, description: "Saint usually depicted carrying infant Jesus");
+Clue.create!(puzzle_id: 4, clue_number: 19, across: true, answer_length: 4, description: "TV control");
+Clue.create!(puzzle_id: 4, clue_number: 20, across: true, answer_length: 3, description: "French resort Villefranche-sur-___");
+Clue.create!(puzzle_id: 4, clue_number: 21, across: true, answer_length: 10, description: "Big name in women's wear");
+Clue.create!(puzzle_id: 4, clue_number: 23, across: true, answer_length: 4, description: "Smooth");
+Clue.create!(puzzle_id: 4, clue_number: 24, across: true, answer_length: 8, description: "Like some missiles");
+Clue.create!(puzzle_id: 4, clue_number: 25, across: true, answer_length: 5, description: "Betting game");
+Clue.create!(puzzle_id: 4, clue_number: 26, across: true, answer_length: 4, description: "Longevity");
+Clue.create!(puzzle_id: 4, clue_number: 27, across: true, answer_length: 6, description: "Gang");
+Clue.create!(puzzle_id: 4, clue_number: 28, across: true, answer_length: 7, description: "'Nice!'");
+Clue.create!(puzzle_id: 4, clue_number: 32, across: true, answer_length: 7, description: "Prima ballerina who married an ambassador");
+Clue.create!(puzzle_id: 4, clue_number: 33, across: true, answer_length: 6, description: "Noted TV war correspondent");
+Clue.create!(puzzle_id: 4, clue_number: 34, across: true, answer_length: 4, description: "'Hi-___,Hi-Lo' (1953 hit)");
+Clue.create!(puzzle_id: 4, clue_number: 35, across: true, answer_length: 5, description: "Some bays");
+Clue.create!(puzzle_id: 4, clue_number: 36, across: true, answer_length: 8, description: "Presevere and succeed");
+Clue.create!(puzzle_id: 4, clue_number: 40, across: true, answer_length: 4, description: "Verb with vous");
+Clue.create!(puzzle_id: 4, clue_number: 41, across: true, answer_length: 10, description: "Having columns set into a wall");
+Clue.create!(puzzle_id: 4, clue_number: 43, across: true, answer_length: 3, description: "Hang loosely");
+Clue.create!(puzzle_id: 4, clue_number: 44, across: true, answer_length: 4, description: "Charles Anderson ___, owner/editor of the New York Sun");
+Clue.create!(puzzle_id: 4, clue_number: 45, across: true, answer_length: 6, description: "Sexually attractive");
+Clue.create!(puzzle_id: 4, clue_number: 46, across: true, answer_length: 8, description: "Like sage or allspice");
+Clue.create!(puzzle_id: 4, clue_number: 48, across: true, answer_length: 7, description: "Interstice");
+Clue.create!(puzzle_id: 4, clue_number: 49, across: true, answer_length: 8, description: "1920s communication fad");
+Clue.create!(puzzle_id: 4, clue_number: 50, across: true, answer_length: 7, description: "Figure");
+Clue.create!(puzzle_id: 4, clue_number: 51, across: true, answer_length: 7, description: "Drunken");
+Clue.create!(puzzle_id: 4, clue_number: 52, across: true, answer_length: 5, description: "Bamboozles and how");
+
+Clue.create!(puzzle_id: 4, clue_number: 1, across: false, answer_length: 5, description: "Lower");
+Clue.create!(puzzle_id: 4, clue_number: 2, across: false, answer_length: 6, description: "Lady of Coventry");
+Clue.create!(puzzle_id: 4, clue_number: 3, across: false, answer_length: 6, description: "Kind of band");
+Clue.create!(puzzle_id: 4, clue_number: 4, across: false, answer_length: 6, description: "Forwarded");
+Clue.create!(puzzle_id: 4, clue_number: 5, across: false, answer_length: 10, description: "Ones who'd never think of flying?");
+Clue.create!(puzzle_id: 4, clue_number: 6, across: false, answer_length: 6, description: "Head doctor");
+Clue.create!(puzzle_id: 4, clue_number: 7, across: false, answer_length: 5, description: "Star of the 1957 Broadway musical 'Jamaica'");
+Clue.create!(puzzle_id: 4, clue_number: 8, across: false, answer_length: 4, description: "Going ___");
+Clue.create!(puzzle_id: 4, clue_number: 9, across: false, answer_length: 3, description: "Account");
+Clue.create!(puzzle_id: 4, clue_number: 10, across: false, answer_length: 8, description: "___ Creek, N.C., site of a 1771 colonial battle");
+Clue.create!(puzzle_id: 4, clue_number: 11, across: false, answer_length: 8, description: "In a dormant form");
+Clue.create!(puzzle_id: 4, clue_number: 12, across: false, answer_length: 8, description: "North Sea oil industry center");
+Clue.create!(puzzle_id: 4, clue_number: 14, across: false, answer_length: 8, description: "Hair shirt wearer");
+Clue.create!(puzzle_id: 4, clue_number: 15, across: false, answer_length: 6, description: "Climbers' spikes");
+Clue.create!(puzzle_id: 4, clue_number: 22, across: false, answer_length: 4, description: "Zoo keeper?");
+Clue.create!(puzzle_id: 4, clue_number: 23, across: false, answer_length: 4, description: "Work with mail");
+Clue.create!(puzzle_id: 4, clue_number: 25, across: false, answer_length: 10, description: "Dollhouse collector's collection");
+Clue.create!(puzzle_id: 4, clue_number: 27, across: false, answer_length: 8, description: "Fall phenomenon");
+Clue.create!(puzzle_id: 4, clue_number: 28, across: false, answer_length: 8, description: "They name the seasons");
+Clue.create!(puzzle_id: 4, clue_number: 29, across: false, answer_length: 8, description: "Handel work");
+Clue.create!(puzzle_id: 4, clue_number: 30, across: false, answer_length: 8, description: "Awaiting punishment, say");
+Clue.create!(puzzle_id: 4, clue_number: 31, across: false, answer_length: 4, description: "Scrabble 2-pointers");
+Clue.create!(puzzle_id: 4, clue_number: 32, across: false, answer_length: 4, description: "Purveyor of luxury tableware Michael C. ___");
+Clue.create!(puzzle_id: 4, clue_number: 34, across: false, answer_length: 6, description: "Flowers in a Whitman verse");
+Clue.create!(puzzle_id: 4, clue_number: 36, across: false, answer_length: 6, description: "Surface coating");
+Clue.create!(puzzle_id: 4, clue_number: 37, across: false, answer_length: 6, description: "Noted Viennese composer");
+Clue.create!(puzzle_id: 4, clue_number: 38, across: false, answer_length: 6, description: "Melodic");
+Clue.create!(puzzle_id: 4, clue_number: 39, across: false, answer_length: 6, description: "Gutless");
+Clue.create!(puzzle_id: 4, clue_number: 41, across: false, answer_length: 5, description: "Crowns");
+Clue.create!(puzzle_id: 4, clue_number: 42, across: false, answer_length: 5, description: "___ list");
+Clue.create!(puzzle_id: 4, clue_number: 44, across: false, answer_length: 4, description: "'Anthropomorphic Bread' painter, 1932");
+Clue.create!(puzzle_id: 4, clue_number: 47, across: false, answer_length: 3, description: "Satisfied");
 
 
 
