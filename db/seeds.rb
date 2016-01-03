@@ -154,6 +154,47 @@ Puzzle.create!(title: "Saturday 001",
 
 
 
+# puzzle 5
+# Thursday, 25 October 2012
+Puzzle.create!(title: "Thursday 001",
+             author: "Caleb Rasmussen / Will Shortz",
+             difficulty: "medium",
+             empty_grid: [1,2,3,4,5,6,:black,:black,,7,8,9,:black,10,11,12,
+                          13,:white,:white,:white,:white,:white,:black,:black,14,:white,:white,:black,15,:white,:white,
+                          16,:white,:white,:white,:white,:white,:black,:black,14,:white,:white,:black,19,:white,:white,
+                          20,:white,:white,:black,:black,21,:white,:white,:white,:white,:white,:black,22,:white,:white,
+                          23,:white,:white,24,:black,:black,25,:white,:white,:white,:white,26,:white,:white,:white,
+                          27,:white,:white,:white,28,29,:white,:black,:black,:black,30,:white,:white,:white,:white,
+                          :black,:black,:black,31,:white,:white,:white,32,:black,33,:white,:white,:white,:white,:white,
+                          :black,34,35,:white,:white,:white,:white,:white,36,:white,:white,:white,:white,:white,:black,
+                          37,:white,:white,:white,:white,:white,:black,38,:white,:white,:white,:white,:black,:black,:black,
+                          39,:white,:white,:white,:white,:black,:black,:black,40,:white,:white,:white,41,42,43,
+                          44,:white,:white,:white,:white,45,46,47,:white,:black,:black,48,:white,:white,:white,
+                          49,:white,:white,:black,50,:white,:white,:white,:white,51,:black,:black,52,:white,:white,
+                          53,:white,:white,:black,54,:white,:white,:white,:white,:white,55,56,:white,:white,:white,
+                          57,:white,:white,:black,58,:white,:white,:black,:black,59,:white,:white,:white,:white,:white,
+                          60,:white,:white,:black,61,:white,:white,:black,:black,62,:white,:white,:white,:white,:white
+                         ],
+             answer_grid: ['T','Y','P','E','A','B',:black,:black,'B','U','T',:black,'G','P','S',
+                           'O','E','U','V','R','E',:black,:black,'A','S','H',:black,'O','R','T',
+                           'D','O','N','O','T','L','E','T','T','H','E',:black,'N','O','M',
+                           'A','M','T',:black,:black,'S','I','S','T','E','R',:black,'E','T','A',
+                           'T','E','E','D',:black,:black,'L','A','Y','R','E','A','D','E','R',
+                           'E','N','D','N','O','T','E',:black,:black,:black,'S','T','A','C','K',
+                           :black,:black,:black,'A','I','R','E','S',:black,'S','M','A','R','T','S',
+                           :black,'F','A','L','L','I','N','G','B','L','O','C','K','S',:black,
+                           'F','I','G','A','R','O',:black,'T','R','U','R','O',:black,:black,:black,
+                           'I','L','L','B','E',:black,:black,:black,'O','R','E','S','T','E','S',
+                           'G','L','I','S','S','A','N','D','O',:black,:black,'T','E','N','T',
+                           'T','M','S',:black,'E','N','E','S','C','O',:black,:black,'E','V','A',
+                           'R','O','T',:black,'R','E','A','C','H','T','H','E','T','O','P',
+                           'E','R','E',:black,'V','E','T',:black,:black,'T','U','S','H','I','E',
+                           'E','E','N',:black,'E','L','O',:black,:black,'O','B','S','E','S','S'
+                          ])
+
+
+
+
 #
 #
 # Puzzle.create!(title: "test puzzle",
@@ -507,6 +548,82 @@ Clue.create!(puzzle_id: 4, clue_number: 41, across: false, answer_length: 5, des
 Clue.create!(puzzle_id: 4, clue_number: 42, across: false, answer_length: 5, description: "___ list");
 Clue.create!(puzzle_id: 4, clue_number: 44, across: false, answer_length: 4, description: "'Anthropomorphic Bread' painter, 1932");
 Clue.create!(puzzle_id: 4, clue_number: 47, across: false, answer_length: 3, description: "Satisfied");
+
+
+
+
+
+
+Clue.create!(puzzle_id: 5, clue_number: 1, across: true, answer_length: 6, description: "Category at some banks");
+Clue.create!(puzzle_id: 5, clue_number: 7, across: true, answer_length: 3, description: "Start of an excuse");
+Clue.create!(puzzle_id: 5, clue_number: 10, across: true, answer_length: 3, description: "Car rental add-on");
+Clue.create!(puzzle_id: 5, clue_number: 13, across: true, answer_length: 6, description: "Everything Bach composed, e.g.");
+Clue.create!(puzzle_id: 5, clue_number: 14, across: true, answer_length: 3, description: "Contents of a flick?");
+Clue.create!(puzzle_id: 5, clue_number: 15, across: true, answer_length: 3, description: "Leftover bit");
+Clue.create!(puzzle_id: 5, clue_number: 16, across: true, answer_length: 11, description: "With 34- & 54-Across, instruction for Tetris");
+Clue.create!(puzzle_id: 5, clue_number: 19, across: true, answer_length: 3, description: "Grammatical case: Abbr.");
+Clue.create!(puzzle_id: 5, clue_number: 20, across: true, answer_length: 3, description: "Lb. or oz.");
+Clue.create!(puzzle_id: 5, clue_number: 21, across: true, answer_length: 6, description: "One with a habit");
+Clue.create!(puzzle_id: 5, clue_number: 22, across: true, answer_length: 3, description: "It might be announced over a P.A.");
+Clue.create!(puzzle_id: 5, clue_number: 23, across: true, answer_length: 4, description: "Ready to be driven");
+Clue.create!(puzzle_id: 5, clue_number: 25, across: true, answer_length: 9, description: "Congregation member who conducts part of service");
+Clue.create!(puzzle_id: 5, clue_number: 27, across: true, answer_length: 7, description: "Place for additional info");
+Clue.create!(puzzle_id: 5, clue_number: 30, across: true, answer_length: 5, description: "IHOP order");
+Clue.create!(puzzle_id: 5, clue_number: 31, across: true, answer_length: 5, description: "Buenos ___");
+Clue.create!(puzzle_id: 5, clue_number: 33, across: true, answer_length: 6, description: "Savvy");
+Clue.create!(puzzle_id: 5, clue_number: 34, across: true, answer_length: 13, description: "See 16-Across");
+Clue.create!(puzzle_id: 5, clue_number: 37, across: true, answer_length: 6, description: "Opera character who sings 'Largo al factotum'");
+Clue.create!(puzzle_id: 5, clue_number: 38, across: true, answer_length: 5, description: "Town on Cape Code");
+Clue.create!(puzzle_id: 5, clue_number: 39, across: true, answer_length: 5, description: "Expression of amazement");
+Clue.create!(puzzle_id: 5, clue_number: 40, across: true, answer_length: 7, description: "Brother of Electra");
+Clue.create!(puzzle_id: 5, clue_number: 44, across: true, answer_length: 9, description: "Musical effect that's simple for a trombone");
+Clue.create!(puzzle_id: 5, clue_number: 48, across: true, answer_length: 4, description: "Fair sight");
+Clue.create!(puzzle_id: 5, clue_number: 49, across: true, answer_length: 3, description: "Logos, e.g.: Abbr");
+Clue.create!(puzzle_id: 5, clue_number: 50, across: true, answer_length: 6, description: "'Romanian Rhapsodies' composer");
+Clue.create!(puzzle_id: 5, clue_number: 52, across: true, answer_length: 3, description: "Señora Perón");
+Clue.create!(puzzle_id: 5, clue_number: 53, across: true, answer_length: 3, description: "Malarkey");
+Clue.create!(puzzle_id: 5, clue_number: 54, across: true, answer_length: 11, description: "See 16-Across");
+Clue.create!(puzzle_id: 5, clue_number: 57, across: true, answer_length: 3, description: "Poetic preposition");
+Clue.create!(puzzle_id: 5, clue_number: 58, across: true, answer_length: 3, description: "One who frequently sees Spots, for short");
+Clue.create!(puzzle_id: 5, clue_number: 59, across: true, answer_length: 6, description: "Bottom");
+Clue.create!(puzzle_id: 5, clue_number: 60, across: true, answer_length: 3, description: "Poetic time of day");
+Clue.create!(puzzle_id: 5, clue_number: 61, across: true, answer_length: 3, description: "'Evil Woman' grp.");
+Clue.create!(puzzle_id: 5, clue_number: 62, across: true, answer_length: 6, description: "Have a fixation");
+
+
+Clue.create!(puzzle_id: 5, clue_number: 1, across: false, answer_length: 6, description: "So far");
+Clue.create!(puzzle_id: 5, clue_number: 2, across: false, answer_length: 6, description: "___ Warders (Tower of London figures)");
+Clue.create!(puzzle_id: 5, clue_number: 3, across: false, answer_length: 6, description: "Like some footballs and boats");
+Clue.create!(puzzle_id: 5, clue_number: 4, across: false, answer_length: 3, description: "Bolivian president Morales");
+Clue.create!(puzzle_id: 5, clue_number: 5, across: false, answer_length: 3, description: "'The only way to run away without leaving home'");
+Clue.create!(puzzle_id: 5, clue_number: 6, across: false, answer_length: 4, description: "Units of sound");
+Clue.create!(puzzle_id: 5, clue_number: 7, across: false, answer_length: 5, description: "Crackers");
+Clue.create!(puzzle_id: 5, clue_number: 8, across: false, answer_length: 5, description: "One walking down an aisle, say");
+Clue.create!(puzzle_id: 5, clue_number: 9, across: false, answer_length: 10, description: "Informercial phrase");
+Clue.create!(puzzle_id: 5, clue_number: 10, across: false, answer_length: 8, description: "Closed, as a theatre");
+Clue.create!(puzzle_id: 5, clue_number: 11, across: false, answer_length: 8, description: "Shields");
+Clue.create!(puzzle_id: 5, clue_number: 12, across: false, answer_length: 7, description: "Venice tourist attraction");
+Clue.create!(puzzle_id: 5, clue_number: 17, across: false, answer_length: 6, description: "___ Collins, first female space shuttle comander");
+Clue.create!(puzzle_id: 5, clue_number: 18, across: false, answer_length: 3, description: "Kind of screening, for short");
+Clue.create!(puzzle_id: 5, clue_number: 24, across: false, answer_length: 7, description: "Where police look for matches");
+Clue.create!(puzzle_id: 5, clue_number: 26, across: false, answer_length: 7, description: "Not for nothing");
+Clue.create!(puzzle_id: 5, clue_number: 28, across: false, answer_length: 10, description: "The Gulf of Mexico has a big one");
+Clue.create!(puzzle_id: 5, clue_number: 29, across: false, answer_length: 4, description: "Snap, Crackle, and Pop, e.g.");
+Clue.create!(puzzle_id: 5, clue_number: 32, across: false, answer_length: 3, description: "Snorkel, e.g.: Abbr.");
+Clue.create!(puzzle_id: 5, clue_number: 33, across: false, answer_length: 4, description: "Musical line");
+Clue.create!(puzzle_id: 5, clue_number: 34, across: false, answer_length: 8, description: "Big Whig");
+Clue.create!(puzzle_id: 5, clue_number: 35, across: false, answer_length: 8, description: "Shining");
+Clue.create!(puzzle_id: 5, clue_number: 36, across: false, answer_length: 6, description: "Jewelery box item");
+Clue.create!(puzzle_id: 5, clue_number: 37, across: false, answer_length: 7, description: "Part of Mideast orchard");
+Clue.create!(puzzle_id: 5, clue_number: 41, across: false, answer_length: 6, description: "Raise canines?");
+Clue.create!(puzzle_id: 5, clue_number: 42, across: false, answer_length: 6, description: "Ends of ballades");
+Clue.create!(puzzle_id: 5, clue_number: 43, across: false, answer_length: 6, description: "Smallest human bone");
+Clue.create!(puzzle_id: 5, clue_number: 45, across: false, answer_length: 5, description: "Slippery as ___");
+Clue.create!(puzzle_id: 5, clue_number: 46, across: false, answer_length: 5, description: "Cool");
+Clue.create!(puzzle_id: 5, clue_number: 47, across: false, answer_length: 3, description: "Mil. hero's award");
+Clue.create!(puzzle_id: 5, clue_number: 51, across: false, answer_length: 4, description: "Spider-Man villain ___ Octavius");
+Clue.create!(puzzle_id: 5, clue_number: 55, across: false, answer_length: 3, description: "Turning point");
+Clue.create!(puzzle_id: 5, clue_number: 56, across: false, answer_length: 3, description: "Big section of the dictionary");
 
 
 
