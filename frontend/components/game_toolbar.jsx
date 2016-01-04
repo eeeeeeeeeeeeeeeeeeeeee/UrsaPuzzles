@@ -20,12 +20,12 @@ var GameToolbar = React.createClass({
   },
 
   componentDidMount: function () {
-    setInterval(this.tick, 1000);
+    this.interval = setInterval(this.tick, 1000);
     this.gameListener = GameStore.addListener(this._gameChanged);
   },
 
   componentWillUnmount: function(){
-    clearInterval(this.tick);
+    clearInterval(this.interval);
     this.gameListener.remove();
   },
 

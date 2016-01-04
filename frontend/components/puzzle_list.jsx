@@ -100,8 +100,8 @@ var PuzzleList = React.createClass({
         counter++;
 
         return (
-                <div className={listElementClass}>
-                  <h3 className="puzzle-list-header" key={puzzle.id}>
+                <div className={listElementClass} key={puzzle.id}>
+                  <h3 className="puzzle-list-header">
                     <Link to={route}
                           className="puzzle-link"
                           onClick={that.handleClick.bind(null, puzzle.id)}>
