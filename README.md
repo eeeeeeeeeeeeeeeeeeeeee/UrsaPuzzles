@@ -1,12 +1,12 @@
-# Crossword
+# Erato Puzzles
 
-[Heroku link] http://eratopuzzles.io
+[Heroku link]: http://eratopuzzles.io
 
 [heroku]: http://www.herokuapp.com
 
 ## Minimum Viable Product
 
-Erato is a web application that allows users to play interactive crossword puzzles.  Built with Ruby on Rails and React.js, Erato allows users to:
+Erato Puzzles is a web application that allows users to play interactive crossword puzzles.  Built with Ruby on Rails and React.js, Erato allows users to:
 
 * Create an account
 * Log in / Log Out
