@@ -51,7 +51,6 @@ var PuzzleList = React.createClass({
     } else {
       ApiUtil.createGame({puzzle_id: id});
     }
-    // ApiUtil.createGame({puzzle_id: id});
   },
 
   sortPuzzlesByDifficulty: function() {
@@ -113,68 +112,6 @@ var PuzzleList = React.createClass({
 
                 );
       });
-      //
-      // var easyPuzzleList = easyPuzzles.map (function(puzzle) {
-      //   if(wonIDs.length > 0 && wonIDs.indexOf(puzzle.id) !== -1) {
-      //     inProgress = "(solved)";
-      //   } else if(inProgressIDs.length > 0 && inProgressIDs.indexOf(puzzle.id) !== -1) {
-      //     inProgress = "(in progress)";
-      //   } else {
-      //     inProgress = "";
-      //   }
-      //
-      //   var route = "/puzzle/" + puzzle.id;
-      //
-      //   return ( <li key={puzzle.id}>
-      //               <Link to={route} className="puzzle-link" onClick={that.handleClick.bind(null, puzzle.id)}>
-      //                 {puzzle.title}
-      //                 <span className="in-progress">  {inProgress}</span>
-      //               </Link>
-      //             </li>
-      //          );
-      // });
-      //
-      // var mediumPuzzleList = mediumPuzzles.map (function(puzzle) {
-      //
-      //   if(wonIDs.length > 0 && wonIDs.indexOf(puzzle.id) !== -1) {
-      //     inProgress = "(solved)";
-      //   } else if(inProgressIDs.length > 0 && inProgressIDs.indexOf(puzzle.id) !== -1) {
-      //     inProgress = "(in progress)";
-      //   } else {
-      //     inProgress = "";
-      //   }
-      //
-      //   var route = "/puzzle/" + puzzle.id;
-      //
-      //   return ( <li key={puzzle.id}>
-      //               <Link to={route} className="puzzle-link" onClick={that.handleClick.bind(null, puzzle.id)}>
-      //                 {puzzle.title}
-      //                 <span className="in-progress"> {inProgress}</span>
-      //               </Link>
-      //             </li>
-      //          );
-      // });
-      //
-      // var hardPuzzleList = hardPuzzles.map (function(puzzle) {
-      //
-      //   if(wonIDs.length > 0 && wonIDs.indexOf(puzzle.id) !== -1) {
-      //     inProgress = "(solved)";
-      //   } else if(inProgressIDs.length > 0 && inProgressIDs.indexOf(puzzle.id) !== -1) {
-      //     inProgress = "(in progress)";
-      //   } else {
-      //     inProgress = "";
-      //   }
-      //
-      //   var route = "/puzzle/" + puzzle.id;
-      //
-      //   return ( <li key={puzzle.id}>
-      //               <Link to={route} className="puzzle-link" onClick={that.handleClick.bind(null, puzzle.id)}>
-      //                 {puzzle.title}
-      //                 <span className="in-progress">  {inProgress}</span>
-      //               </Link>
-      //             </li>
-      //          );
-      // });
     }
 
     return (
@@ -186,20 +123,3 @@ var PuzzleList = React.createClass({
 });
 
 module.exports = PuzzleList;
-
-
-//
-// <div className="all-puzzle-lists">
-//   <div className="puzzle-list-element">
-//     <h3 className="puzzle-list-header">EASY</h3>
-//     <ul className="puzzle-list-items">{easyPuzzleList}</ul>
-//   </div>
-//   <div className="puzzle-list-element">
-//     <h3 className="puzzle-list-header">MEDIUM</h3>
-//     <ul className="puzzle-list-items">{mediumPuzzleList}</ul>
-//   </div>
-//   <div className="puzzle-list-element">
-//     <h3 className="puzzle-list-header">HARD</h3>
-//     <ul className="puzzle-list-items">{hardPuzzleList}</ul>
-//   </div>
-// </div>

@@ -58,9 +58,6 @@ var GameContainer = React.createClass({
 
   _gameChanged: function(){
     var across = _getDirection();
-    // var clues = _getCurrentClues();
-    // var currentAcrossClue = clues["across"];
-    // var currentDownClue = clues["down"];
     this.setState({ across: across });
   },
 

@@ -18,7 +18,7 @@ var Home = React.createClass({
           <div className="welcome-note">
             Select a day of the week to begin playing!
             <div className="welcome-note-sub">
-              note: difficulty increases with each day
+              note: puzzle difficulty increases with each day
             </div>
           </div>
           <PuzzleList className="puzzle-list"/>
