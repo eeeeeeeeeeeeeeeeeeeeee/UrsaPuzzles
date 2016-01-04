@@ -9,6 +9,7 @@ var ClueSpotlight = require('./clue_spotlight');
 var GameToolbar = require('./game_toolbar');
 var GameHeader = require('./game_header');
 
+
 function _getGame() {
   return GameStore.getGame();
 }
@@ -31,7 +32,10 @@ function _getCurrentClues() {
 
 var GameContainer = React.createClass({
   getInitialState: function() {
-    return ({ game: _getGame(), currentAcrossClue: -1, currentDownClue: -1, across: true });
+    return ({ game: _getGame(),
+              currentAcrossClue: -1,
+              currentDownClue: -1,
+              across: true });
   },
 
   updateClue: function(square) {
@@ -80,10 +84,21 @@ var GameContainer = React.createClass({
           <div className="game-container">
             <div className="clues">
               <GameToolbar/>
-              <ClueLists className="clue-lists" currentAcrossClue={this.state.currentAcrossClue} currentDownClue={this.state.currentDownClue} across={this.state.across}/>
-              <ClueSpotlight className="clue-spotlight" currentAcrossClue={this.state.currentAcrossClue} currentDownClue={this.state.currentDownClue} across={this.state.across}/>
+              <ClueLists className="clue-lists"
+                         currentAcrossClue={this.state.currentAcrossClue}
+                         currentDownClue={this.state.currentDownClue}
+                         across={this.state.across}/>
+              <ClueSpotlight className="clue-spotlight"
+                             currentAcrossClue={this.state.currentAcrossClue}
+                             currentDownClue={this.state.currentDownClue}
+                             across={this.state.across}/>
             </div>
-            <Grid game={this.state.game} updateClue={this.updateClue} across={this.state.across} switchDirection={this.switchDirection} currentAcrossClue={this.state.currentAcrossClue} currentDownClue={this.state.currentDownClue}/>
+            <Grid game={this.state.game}
+                  updateClue={this.updateClue}
+                  across={this.state.across}
+                  switchDirection={this.switchDirection}
+                  currentAcrossClue={this.state.currentAcrossClue}
+                  currentDownClue={this.state.currentDownClue}/>
           </div>
         </div>
 

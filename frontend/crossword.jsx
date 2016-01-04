@@ -8,28 +8,7 @@ var Route = ReactRouter.Route;
 var IndexRoute = ReactRouter.IndexRoute;
 
 var Home = require('./components/home');
-
-var ApiUtil = require('./util/api_util');
-var ApiActions = require('./actions/api_actions');
 var GameContainer = require('./components/game_container');
-var PuzzleStore = require('./stores/puzzle');
-var GameStore = require('./stores/game');
-var CurrentSquareStore = require('./stores/current_square');
-var UserStore = require('./stores/user');
-var GameHeader = require('./components/game_header');
-
-
-window.apiUtil = ApiUtil;
-window.apiActions = ApiActions;
-window.PuzzleStore = PuzzleStore;
-window.GameStore = GameStore;
-window.UserStore = UserStore;
-window.currentSquareStore = CurrentSquareStore;
-window.gameContainer = GameContainer;
-window.GameHeader = GameHeader;
-
-
-
 var App = React.createClass({
 
   render: function(){

@@ -5,7 +5,7 @@ var UserStore = require('../stores/user');
 var ApiUtil = require('../util/api_util');
 var GameActions = require('../actions/game_actions');
 
-var Link = require('react-router').Link
+var Link = require('react-router').Link;
 
 function _getAllPuzzles() {
   return PuzzleStore.all();
@@ -21,7 +21,9 @@ function _getWonPuzzles() {
 
 var PuzzleList = React.createClass({
   getInitialState: function() {
-    return({puzzles: _getAllPuzzles(), inProgress: _getInProgressPuzzles(), won: _getWonPuzzles()});
+    return({puzzles: _getAllPuzzles(),
+            inProgress: _getInProgressPuzzles(),
+            won: _getWonPuzzles()});
   },
 
   _puzzlesChanged: function(){
@@ -81,8 +83,6 @@ var PuzzleList = React.createClass({
     var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
 
     if(this.state.puzzles.length !== 0) {
-      var allPuzzles = this.sortPuzzlesByDifficulty();
-      var easyPuzzles = allPuzzles["easy"], mediumPuzzles = allPuzzles["medium"], hardPuzzles = allPuzzles["hard"];
       var inProgress = "";
       counter = 0;
 
@@ -102,7 +102,9 @@ var PuzzleList = React.createClass({
         return (
                 <div className={listElementClass}>
                   <h3 className="puzzle-list-header" key={puzzle.id}>
-                    <Link to={route} className="puzzle-link" onClick={that.handleClick.bind(null, puzzle.id)}>
+                    <Link to={route}
+                          className="puzzle-link"
+                          onClick={that.handleClick.bind(null, puzzle.id)}>
                       {puzzle.title}
                       <br/>
                       <span className="in-progress">  {inProgress}</span>

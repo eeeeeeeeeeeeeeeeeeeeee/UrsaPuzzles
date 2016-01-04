@@ -68,6 +68,12 @@ div.user-login-page {
   text-decoration: none;
 }
 
+.plain-link:focus, .plain-link:active, .plain-link.active, .plain-link:focus:active {
+  background-image: none;
+  outline: none;
+  -webkit-box-shadow: none;
+}
+
 .sign-in-button:hover {
   background: antiquewhite;
   font-weight: bolder;

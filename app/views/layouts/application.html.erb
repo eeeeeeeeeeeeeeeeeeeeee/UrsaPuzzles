@@ -13,7 +13,6 @@
 
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
@@ -25,67 +24,23 @@
       </div>
 
       <% if current_user %>
-      <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li><a href="/">Home <span class="sr-only">(current)</span></a></li>
-          <!-- <li><a href="/">Stats</a></li> -->
-          <!-- <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-          </li> -->
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-          <!-- <li><a href="<%= session_url %>" class="btn-sign btn btn-default" role="button">Sign Out</a></li> -->
-            <!-- <li class="btn-sign name"><%= current_user.username %></li>
-            <li class="btn-sign"><%= link_to(content_tag(:i,nil,class: "fa fa-sign-out"), session_url, method: :delete)%></li> -->
-            <!-- <li class="btn-sign"><%= link_to(content_tag(:i,current_user.username,class: "fa fa-sign-out"), session_url, method: :delete)%></li> -->
-
-            <!-- <li class="btn-sign"><%= button_to 'Sign In', new_session_url %></li> -->
-
-          <!-- <li><button href="<%= session_url %>" type="button" class="btn btn-default navbar-btn btn-sign" formmethod="DELETE">Sign Out</button></li> -->
-          <!-- <li><a href="/session/new" class="btn btn-default navbar-btn button">Sign Out</a></li> -->
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.username %>  <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li class="signout-button"><%= link_to 'Sign Out', session_url, method: :delete %></li>
-              <!-- <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li> -->
             </ul>
           </li>
         </ul>
           <% end %>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
-
-  <!-- <div id="openModal" class="modalDialog">
-      <div>	<a href="#close" title="Close" class="close">X</a>
-
-          <h2><i class="fa fa-trophy"></i>  Congratulations!  <i class="fa fa-trophy"></i></h2>
-
-          <br>
-          <br>
-
-          <p>You solved this (difficulty) puzzle in (time)</p>
-          <p>Way to go, champ!</p>
-
-          <br>
       </div>
-  </div> -->
-
-  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button> -->
+    </div>
+  </nav>
 
   <% if current_user %>
 
@@ -111,9 +66,6 @@
   <%= yield %>
 
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
-  <!-- <a href="#openModal"></a> -->
-
 
 </body>
 </html>

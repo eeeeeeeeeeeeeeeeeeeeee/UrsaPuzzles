@@ -113,10 +113,6 @@ Puzzle.create!(title: "Wednesday",
                           ])
 
 
-
-
-
-
 # puzzle 4
 # Thursday, 25 October 2012
 Puzzle.create!(title: "Thursday",
@@ -154,9 +150,6 @@ Puzzle.create!(title: "Thursday",
                            'E','R','E',:black,'V','E','T',:black,:black,'T','U','S','H','I','E',
                            'E','E','N',:black,'E','L','O',:black,:black,'O','B','S','E','S','S'
                           ])
-
-
-
 
 
 # puzzle 5
@@ -719,4 +712,3 @@ Clue.create!(puzzle_id: 5, clue_number: 58, across: false, answer_length: 3, des
 
 
 User.create!(username: "Demo User", password: "password" )
- # Eugene T. Maleska

@@ -6,9 +6,11 @@ var AppDispatcher = require('../dispatcher/dispatcher');
 var _game = [];
 var _currentGrid = [];
 var _emptyGrid = [];
-var _gameParams = { id: null, author: null, difficulty: null,
-                                            emptyGrid: null,
-                                            answerGrid: null };
+var _gameParams = { id: null,
+                    author: null,
+                    difficulty: null,
+                    emptyGrid: null,
+                    answerGrid: null };
 var _solution = [];
 var _clues = [];
 var _across = true;
@@ -119,7 +121,6 @@ GameStore.getCheckStatus = function() {
   return _check === true;
 }
 
-// change to slice equivalent
 GameStore.getGameInfo = function() {
   var difficulty = _difficulty.charAt(0).toUpperCase() + _difficulty.slice(1);
   return {title: _title, author: _author, difficulty: difficulty}

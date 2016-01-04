@@ -4,6 +4,7 @@ var reactDOM = require('react-dom');
 var GameStore = require('../stores/game');
 var _ = require('underscore');
 
+
 function _getAcrossCluesAndIndices() {
   return GameStore.getAcrossCluesAndIndices();
 };
@@ -20,12 +21,12 @@ var Square = React.createClass({
   getInitialState: function() {
     var acrossCluesAndIndices = _getAcrossCluesAndIndices();
     var downCluesAndIndices = _getDownCluesAndIndices();
-    return ({clueNumber: this.props.clueNumber, active: false, guess: "", acrossCluesAndIndices: acrossCluesAndIndices, downCluesAndIndices: downCluesAndIndices});
+    return ({clueNumber: this.props.clueNumber,
+             active: false, guess: "",
+             acrossCluesAndIndices: acrossCluesAndIndices,
+             downCluesAndIndices: downCluesAndIndices});
   },
 
-  // componentDidMount: function() {
-  //   document.addEventListener("keyPress", this.handleType());
-  // },
   handleKeyPress: function(event) {
     this.setState({guess: String.fromCharCode(event.charCode).toUpperCase()});
     var letterInfo = {letter: String.fromCharCode(event.charCode),
@@ -40,11 +41,6 @@ var Square = React.createClass({
     var counter = this.props.counter;
     var game = _getGameState();
 
-    // var openIndices = this.getOpenSquareIndices();
-    // var backOne = this.props.counter-2;
-    // while(backOne )
-
-
     if(key === 39) {
       if(this.props.across) {
         GameActions.receiveStep(this.props.counter);
@@ -55,7 +51,6 @@ var Square = React.createClass({
       if(this.props.across) {
         var coords = GameStore.getAcrossCoords();
         var idx = coords.indexOf(this.props.counter);
-        // GameActions.receiveStep(this.props.counter - 2);
         GameActions.receiveStep(coords[idx-2]);
       } else {
         GameActions.receiveMove(true);
@@ -80,7 +75,9 @@ var Square = React.createClass({
         var idx = coords.indexOf(this.props.counter);
         var newIdx = coords[idx-2];
 
-        if(game[coords[idx]] !== "" && game[coords[idx]] !== "white" && isNaN(parseFloat(game[coords[idx]]))) {
+        if(game[coords[idx]] !== "" &&
+            game[coords[idx]] !== "white" &&
+             isNaN(parseFloat(game[coords[idx]]))) {
           newIdx = coords[idx-1];
         }
 
@@ -90,7 +87,9 @@ var Square = React.createClass({
         var idx = coords.indexOf(this.props.counter);
         var newIdx = coords[idx-2];
 
-        if(game[coords[idx]] !== "" && game[coords[idx]] !== "white" && isNaN(parseFloat(game[coords[idx]]))) {
+        if(game[coords[idx]] !== "" &&
+            game[coords[idx]] !== "white" &&
+              isNaN(parseFloat(game[coords[idx]]))) {
           newIdx = coords[idx-1];
         }
 
@@ -131,13 +130,9 @@ var Square = React.createClass({
   },
 
   componentWillReceiveProps: function(nextProps) {
-    // var tester = function() {
-    //   if(this.state.active) {
-    //     reactDOM.findDOMNode(this).focus();
-    //   }
-    // }.bind(this);
-
-    this.setState({active: nextProps.active, currentAcrossClue: nextProps.currentAcrossClue, currentDownClue: nextProps.currentDownClue});
+    this.setState({active: nextProps.active,
+                   currentAcrossClue: nextProps.currentAcrossClue,
+                   currentDownClue: nextProps.currentDownClue});
   },
 
   handleDoubleClick: function() {
@@ -147,10 +142,8 @@ var Square = React.createClass({
 
   handleClick: function() {
     var squareString = "#ut-" + this.props.counter;
-    // debugger
-    // document.querySelector(squareString).focus();
-
     next = this.props.counter;
+
     if(this.props.across) {
       next -= 1;
     } else {
@@ -207,5 +200,3 @@ var Square = React.createClass({
 });
 
 module.exports = Square;
-
-// || game[coords[idx]] !== "white" || isNaN(parseFloat(game[coords[idx]]))

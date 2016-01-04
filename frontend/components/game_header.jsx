@@ -1,6 +1,7 @@
 var React = require('react');
 var GameStore = require('../stores/game');
 
+
 var _getGameInfo = function() {
   return GameStore.getGameInfo();
 }
@@ -13,7 +14,9 @@ var GameHeader = React.createClass({
   _gameChanged: function() {
     var gameInfo = _getGameInfo();
     if(typeof gameInfo !== "undefined") {
-      this.setState({title: gameInfo.title, author: gameInfo.author, difficulty: gameInfo.difficulty});
+      this.setState({title: gameInfo.title,
+                     author: gameInfo.author,
+                     difficulty: gameInfo.difficulty});
     }
   },
 
@@ -28,7 +31,12 @@ var GameHeader = React.createClass({
   render: function() {
     return (
       <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <button class="btn btn-default dropdown-toggle"
+                type="button"
+                id="dropdownMenu1"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="true">
           Info
           <span class="caret"></span>
         </button>
@@ -47,10 +55,3 @@ var GameHeader = React.createClass({
 });
 
 module.exports = GameHeader;
-
-//
-// <div className="game-header">
-//   <div className="game-info title">{this.state.title}</div>
-//   <div className="game-info author">By: {this.state.author}</div>
-//   <div className="game-info difficult">Difficulty: {this.state.difficulty}</div>
-// </div>

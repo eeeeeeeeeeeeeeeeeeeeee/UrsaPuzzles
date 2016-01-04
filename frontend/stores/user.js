@@ -1,9 +1,7 @@
 var Store = require('flux/utils').Store;
 var PuzzleConstants = require('../constants/puzzle_constants');
 var AppDispatcher = require('../dispatcher/dispatcher');
-
 var UserStore = new Store(AppDispatcher);
-
 var _userData;
 
 UserStore.getUserId = function() {

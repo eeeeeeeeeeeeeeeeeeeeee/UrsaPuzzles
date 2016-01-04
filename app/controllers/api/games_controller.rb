@@ -5,7 +5,7 @@ class Api::GamesController < ApplicationController
     puzzle = Puzzle.find_by(id: puzzle_id)
 
     user_id = current_user.id
-    time_elapsed = 0; #should add migration, default this to 0
+    time_elapsed = 0;
     current_board_state = puzzle.empty_grid
 
     game = Game.create!(puzzle_id: puzzle_id,
@@ -15,10 +15,6 @@ class Api::GamesController < ApplicationController
 
     clues = Clue.where("puzzle_id = ?", game_params[:puzzle_id])
     render json: {game: game, puzzle: puzzle, clues: clues}
-
-    # render Puzzle.find_by(id: puzzle_id)
-    # redirect_to api_puzzle_url(puzzle_id)
-    # render json: game
   end
 
   private

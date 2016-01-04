@@ -50,16 +50,6 @@ var ApiUtil = {
       }
     });
   },
-
-
-  // fetchPuzzle: function(id) {
-  //   $.ajax({
-  //     url: 'api/users',
-  //     data: { id: id },
-  //     success: function(puzzle) {
-  //       ApiActions.receivePuzzle(puzzle);
-  //     }
-  //   });
 };
 
 module.exports = ApiUtil;

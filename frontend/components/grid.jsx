@@ -35,8 +35,15 @@ var Grid = React.createClass({
     var game = _getGame()[0];
     var currentGameState = _getCurrentGameState();
     var solution = GameStore.getSolution();
-    return ({ game: game, currentGameState: currentGameState,
-              currentSquare: null, across: true, currentDownClue: 1, currentAcrossClue: 1, check: false, incorrectIndices: [], solution: solution});
+    return ({ game: game,
+              currentGameState: currentGameState,
+              currentSquare: null,
+              across: true,
+              currentDownClue: 1,
+              currentAcrossClue: 1,
+              check: false,
+              incorrectIndices: [],
+              solution: solution });
   },
 
   _gameChanged: function(){
@@ -47,7 +54,12 @@ var Grid = React.createClass({
     var won = _getWonStatus();
     var solution = GameStore.getSolution();
 
-    this.setState({ game: game, currentGameState: currentGameState, across: across, check: check, solution: solution }, function() {
+    this.setState({ game: game,
+                    currentGameState: currentGameState,
+                    across: across,
+                    check: check,
+                    solution: solution },
+                    function() {
       if(currentGameState.join("") === GameStore.getSolution().join("")) {
         $('#myModal').modal('show');
         if(!won) {
@@ -68,7 +80,6 @@ var Grid = React.createClass({
   },
 
   _updateFocus: function() {
-
     var id = 'ut-' + this.state.nextSquare;
     var input = document.getElementById(id);
     input.focus();
@@ -101,7 +112,6 @@ var Grid = React.createClass({
     var openSquares = [];
 
     for(var i = 0; i < board.length; i++) {
-      // if(board[i] === "white" || typeof board[i] === "number" || parseInt(board[i])) {
       if(board[i] !== "black") {
         openSquares.push(i);
       }
@@ -140,7 +150,9 @@ var Grid = React.createClass({
         var clueNumber = downCluesInOrder[i];
         for(var j = 0; j < downClues[clueNumber].length; j++) {
           var clue = downClues[clueNumber][j];
-          if(clue > currentSquare || clueNumber != downClueNumber && game.indexOf(clue) !== -1) {
+          if(clue > currentSquare ||
+              clueNumber != downClueNumber &&
+                game.indexOf(clue) !== -1) {
             return clue;
           }
         }
@@ -172,19 +184,20 @@ var Grid = React.createClass({
     var incorrectIndices = [];
 
     for(var i = 0; i < userGrid.length; i++) {
-      if(userGrid[i] != answerGrid[i] && userGrid[i] !== "" && userGrid[i] !== "white" && isNaN(parseFloat(userGrid[i]))) {
+      if(userGrid[i] != answerGrid[i] &&
+          userGrid[i] !== "" &&
+            userGrid[i] !== "white" &&
+              isNaN(parseFloat(userGrid[i]))) {
         incorrectIndices.push(i);
       }
     }
 
     this.setState({incorrectIndices: incorrectIndices});
-    // return incorrectIndices;
   },
 
   render: function() {
     var rows = "";
     var that = this;
-    // var incorrectIndices = (this.state.check ? this.findIncorrectSquares() : []);
     var incorrectIndices = this.state.incorrectIndices;
 
     if(this.state.game) {
@@ -211,7 +224,9 @@ var Grid = React.createClass({
           active = false;
         }
 
-        if(incorrectIndices.length > 0 && incorrectIndices.indexOf(counter) !== -1 && currentBoard[counter] !== solution[counter]) {
+        if(incorrectIndices.length > 0 &&
+            incorrectIndices.indexOf(counter) !== -1 &&
+              currentBoard[counter] !== solution[counter]) {
           wrong = true;
         }
 

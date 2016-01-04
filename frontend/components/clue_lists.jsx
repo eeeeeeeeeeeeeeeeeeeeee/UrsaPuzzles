@@ -3,10 +3,11 @@ var GameStore = require('../stores/game');
 var ApiUtil = require('../util/api_util');
 var GameActions = require('../actions/game_actions');
 
+
+
 function _getClues() {
   return GameStore.getClues();
 }
-
 
 var ClueLists = React.createClass({
   getInitialState: function() {
@@ -58,10 +59,11 @@ var ClueLists = React.createClass({
     var clues = this.state.clues;
 
     for(var i = 0; i < clues.length; i++) {
-      if(clues[i].across === true)
+      if(clues[i].across === true) {
         across.push(clues[i]);
-      else
+      } else {
         down.push(clues[i]);
+      }
     }
 
     return {across: across, down: down};
@@ -113,7 +115,10 @@ var ClueLists = React.createClass({
 
         key = "A-" + clue.clue_number;
 
-        return <li className={className} key={key} value={clue.clue_number} onClick={that.handleAcrossClick}>{clue.description}</li>
+        return ( <li className={className}
+                    key={key}
+                    value={clue.clue_number}
+                    onClick={that.handleAcrossClick}>{clue.description}</li> )
       });
 
       downClueListItem = clues.down.map (function(clue) {
@@ -127,7 +132,10 @@ var ClueLists = React.createClass({
 
         key = "D-" + clue.clue_number;
 
-        return <li className={className} key={key} value={clue.clue_number} onClick={that.handleDownClick}>{clue.description}</li>
+        return ( <li className={className}
+                    key={key}
+                    value={clue.clue_number}
+                    onClick={that.handleDownClick}>{clue.description}</li> )
       });
     }
 

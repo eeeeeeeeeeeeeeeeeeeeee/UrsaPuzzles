@@ -13,7 +13,6 @@ h3.puzzle-list-header {
 }
 
 div.puzzle-list-element {
-  // width: 250px;
   width: 150px;
   border: 2px solid black;
   border-radius: 25px;
@@ -25,7 +24,6 @@ div.puzzle-list-element {
   margin-left: 20px;
   margin-right: 20px;
   vertical-align: top;
-  // height: 300px;
   height: 150px;
   margin-bottom: 20px;
   margin-top: 60px;
@@ -33,7 +31,6 @@ div.puzzle-list-element {
 
 div.all-puzzle-lists {
   text-align: center;
-  // width: 1000px; // before 100%
   width: 100%;
 }
 
@@ -61,7 +58,6 @@ ul.puzzle-list-items {
   width: 100%;
   overflow-x: scroll;
   overflow-y: hidden;
-  // white-space: nowrap;
 }
 
 li.puzzle-list-item::before {
