@@ -79,13 +79,15 @@ var PuzzleList = React.createClass({
     var that = this;
     var inProgressIDs = this.state.inProgress;
     var wonIDs = this.state.won;
+    var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
 
     if(this.state.puzzles.length !== 0) {
       var allPuzzles = this.sortPuzzlesByDifficulty();
       var easyPuzzles = allPuzzles["easy"], mediumPuzzles = allPuzzles["medium"], hardPuzzles = allPuzzles["hard"];
       var inProgress = "";
+      counter = 0;
 
-      var easyPuzzleList = easyPuzzles.map (function(puzzle) {
+      var allPuzzleList = this.state.puzzles.map(function(puzzle) {
         if(wonIDs.length > 0 && wonIDs.indexOf(puzzle.id) !== -1) {
           inProgress = "(solved)";
         } else if(inProgressIDs.length > 0 && inProgressIDs.indexOf(puzzle.id) !== -1) {
@@ -95,76 +97,109 @@ var PuzzleList = React.createClass({
         }
 
         var route = "/puzzle/" + puzzle.id;
+        var listElementClass = "puzzle-list-element " + colors[counter];
+        counter++;
 
-        return ( <li key={puzzle.id}>
+        return (
+                <div className={listElementClass}>
+                  <h3 className="puzzle-list-header" key={puzzle.id}>
                     <Link to={route} className="puzzle-link" onClick={that.handleClick.bind(null, puzzle.id)}>
                       {puzzle.title}
+                      <br/>
                       <span className="in-progress">  {inProgress}</span>
                     </Link>
-                  </li>
-               );
+                  </h3>
+                </div>
+
+                );
       });
-
-      var mediumPuzzleList = mediumPuzzles.map (function(puzzle) {
-
-        if(wonIDs.length > 0 && wonIDs.indexOf(puzzle.id) !== -1) {
-          inProgress = "(solved)";
-        } else if(inProgressIDs.length > 0 && inProgressIDs.indexOf(puzzle.id) !== -1) {
-          inProgress = "(in progress)";
-        } else {
-          inProgress = "";
-        }
-
-        var route = "/puzzle/" + puzzle.id;
-
-        return ( <li key={puzzle.id}>
-                    <Link to={route} className="puzzle-link" onClick={that.handleClick.bind(null, puzzle.id)}>
-                      {puzzle.title}
-                      <span className="in-progress"> {inProgress}</span>
-                    </Link>
-                  </li>
-               );
-      });
-
-      var hardPuzzleList = hardPuzzles.map (function(puzzle) {
-
-        if(wonIDs.length > 0 && wonIDs.indexOf(puzzle.id) !== -1) {
-          inProgress = "(solved)";
-        } else if(inProgressIDs.length > 0 && inProgressIDs.indexOf(puzzle.id) !== -1) {
-          inProgress = "(in progress)";
-        } else {
-          inProgress = "";
-        }
-
-        var route = "/puzzle/" + puzzle.id;
-
-        return ( <li key={puzzle.id}>
-                    <Link to={route} className="puzzle-link" onClick={that.handleClick.bind(null, puzzle.id)}>
-                      {puzzle.title}
-                      <span className="in-progress">  {inProgress}</span>
-                    </Link>
-                  </li>
-               );
-      });
+      //
+      // var easyPuzzleList = easyPuzzles.map (function(puzzle) {
+      //   if(wonIDs.length > 0 && wonIDs.indexOf(puzzle.id) !== -1) {
+      //     inProgress = "(solved)";
+      //   } else if(inProgressIDs.length > 0 && inProgressIDs.indexOf(puzzle.id) !== -1) {
+      //     inProgress = "(in progress)";
+      //   } else {
+      //     inProgress = "";
+      //   }
+      //
+      //   var route = "/puzzle/" + puzzle.id;
+      //
+      //   return ( <li key={puzzle.id}>
+      //               <Link to={route} className="puzzle-link" onClick={that.handleClick.bind(null, puzzle.id)}>
+      //                 {puzzle.title}
+      //                 <span className="in-progress">  {inProgress}</span>
+      //               </Link>
+      //             </li>
+      //          );
+      // });
+      //
+      // var mediumPuzzleList = mediumPuzzles.map (function(puzzle) {
+      //
+      //   if(wonIDs.length > 0 && wonIDs.indexOf(puzzle.id) !== -1) {
+      //     inProgress = "(solved)";
+      //   } else if(inProgressIDs.length > 0 && inProgressIDs.indexOf(puzzle.id) !== -1) {
+      //     inProgress = "(in progress)";
+      //   } else {
+      //     inProgress = "";
+      //   }
+      //
+      //   var route = "/puzzle/" + puzzle.id;
+      //
+      //   return ( <li key={puzzle.id}>
+      //               <Link to={route} className="puzzle-link" onClick={that.handleClick.bind(null, puzzle.id)}>
+      //                 {puzzle.title}
+      //                 <span className="in-progress"> {inProgress}</span>
+      //               </Link>
+      //             </li>
+      //          );
+      // });
+      //
+      // var hardPuzzleList = hardPuzzles.map (function(puzzle) {
+      //
+      //   if(wonIDs.length > 0 && wonIDs.indexOf(puzzle.id) !== -1) {
+      //     inProgress = "(solved)";
+      //   } else if(inProgressIDs.length > 0 && inProgressIDs.indexOf(puzzle.id) !== -1) {
+      //     inProgress = "(in progress)";
+      //   } else {
+      //     inProgress = "";
+      //   }
+      //
+      //   var route = "/puzzle/" + puzzle.id;
+      //
+      //   return ( <li key={puzzle.id}>
+      //               <Link to={route} className="puzzle-link" onClick={that.handleClick.bind(null, puzzle.id)}>
+      //                 {puzzle.title}
+      //                 <span className="in-progress">  {inProgress}</span>
+      //               </Link>
+      //             </li>
+      //          );
+      // });
     }
 
     return (
       <div className="all-puzzle-lists">
-        <div className="puzzle-list-element">
-          <h3 className="puzzle-list-header">EASY</h3>
-          <ul className="puzzle-list-items">{easyPuzzleList}</ul>
-        </div>
-        <div className="puzzle-list-element">
-          <h3 className="puzzle-list-header">MEDIUM</h3>
-          <ul className="puzzle-list-items">{mediumPuzzleList}</ul>
-        </div>
-        <div className="puzzle-list-element">
-          <h3 className="puzzle-list-header">HARD</h3>
-          <ul className="puzzle-list-items">{hardPuzzleList}</ul>
-        </div>
+        {allPuzzleList}
       </div>
     );
   }
 });
 
 module.exports = PuzzleList;
+
+
+//
+// <div className="all-puzzle-lists">
+//   <div className="puzzle-list-element">
+//     <h3 className="puzzle-list-header">EASY</h3>
+//     <ul className="puzzle-list-items">{easyPuzzleList}</ul>
+//   </div>
+//   <div className="puzzle-list-element">
+//     <h3 className="puzzle-list-header">MEDIUM</h3>
+//     <ul className="puzzle-list-items">{mediumPuzzleList}</ul>
+//   </div>
+//   <div className="puzzle-list-element">
+//     <h3 className="puzzle-list-header">HARD</h3>
+//     <ul className="puzzle-list-items">{hardPuzzleList}</ul>
+//   </div>
+// </div>

@@ -272,8 +272,14 @@ div.modal-content {
   padding-bottom: 30px;
   width: 386px;
   text-align: center;
-  font-weight: bold;
+  font-weight: bolder;
   margin-top: 150px;
+  background: lightblue;
+}
+
+div.modal-content p{
+  font-size: 16px;
+  font-weight: bolder;
 }
 
 button.close {
