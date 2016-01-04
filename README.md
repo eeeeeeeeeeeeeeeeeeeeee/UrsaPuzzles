@@ -1,8 +1,6 @@
 # Erato Puzzles
 
-[Heroku link]: http://eratopuzzles.io
-
-[heroku]: http://www.herokuapp.com
+[Erato Puzzles] (http://eratopuzzles.io)
 
 ## Minimum Viable Product
 
