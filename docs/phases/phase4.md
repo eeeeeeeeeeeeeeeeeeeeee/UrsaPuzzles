@@ -1,4 +1,4 @@
-# Phase 4: Check and Reveal (1 day)
+# Phase 4: Statistics and Homepage (1 day)
 
 ## Rails
 ### Models
@@ -9,20 +9,19 @@
 
 ## Flux
 ### Views (React Components)
-* Helper
+* Home
+* PuzzleList
 
 ### Stores
+* User
 
 ### Actions
-
-* ApiActions.revealSingleSquare
-* ApiActions.revealWord
-* ApiActions.revealAllSquares
-* ApiActions.checkSingleSquare
-* ApiActions.checkWord
-* ApiActions.checkFullPuzzle
+* ApiActions.receiveUserData
+* GameActions.receivePuzzle
 
 ### ApiUtil
-
+* ApiUtil.fetchUserData
 
 ## Gems/Libraries
+* React.js
+* Bootstrap

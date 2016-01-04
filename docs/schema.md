@@ -16,7 +16,7 @@ title       | string    | not null
 author      | string    | not null
 difficulty  | string    | not null, indexed, in ["easy", "medium", "hard"]
 empty_grid  | text      | not null (column type is text - model converts to JSON - seeder just enters array; each square is black, blank, or has number for clue)
-answer_grid | text      | not null (column type is text - model converts to JSON - seeder just enters array; each square is nil or a letter)
+answer_grid | text      | not null (column type is text - model converts to JSON - seeder just enters array; each square is black or a letter)
 
 ## clues
 column name | data type | details
@@ -26,6 +26,7 @@ puzzle_id   | integer   | not null, foreign key, indexed
 clue_number | integer   | not null, indexed
 across      | boolean   | not null (true = across, false = down)
 description | string    | not null
+answer_length | integer | not null
 
 ## game
 column name | data type | details
@@ -36,4 +37,4 @@ user_id     | integer   | not null, foreign key, indexed
 won         | boolean   | not null, default: false
 time_elapsed| time      | (will be instantiated when user opens puzzle)
 hints_used  | boolean   | not null, default: false
-current_board_state | text   | not null, default: empty_grid via puzzle_id foreign key
+current_board_state | text   | not null

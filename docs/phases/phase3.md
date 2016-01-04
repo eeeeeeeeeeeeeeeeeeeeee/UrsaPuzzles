@@ -1,4 +1,4 @@
-# Phase 3: Interactivity (2 Days)
+# Phase 3: Interactivity (3 Days)
 
 ## Rails
 ### Models
@@ -9,23 +9,28 @@
 
 ## Flux
 ### Views (React Components)
-* PuzzleGrid
-* DownClues
-* AcrossClues
-* Timer
+
 
 ### Stores
-* Puzzle
+* CurrentSquare
+* Game
 
 ### Actions
-* KeyActions.letterTyped
-* ApiActions.revealSingleSquare
-* ApiActions.revealWord
+* GameActions.receiveTypedLetter
+* GameActions.receiveArrowMove
+* GameActions.receiveMove
+* GameActions.receiveAcrossClue
+* GameActions.receiveDownClue
+* GameActions.receiveCurrentSquare
+* GameActions.receiveClearRequest
+* GameActions.receiveSolutionRequest
+* GameActions.receiveStep
+* GameActions.receiveBackspace
+* GameActions.receiveCheckRequest
+* GameActions.receiveWonStatus
 
 ### ApiUtil
-* ApiUtil.fetchSingleSquare
-* ApiUtil.fetchWord
-* ApiUtil.fetchAllSquares
+* ApiUtil.saveGame
 
 ## Gems/Libraries
 * React.js

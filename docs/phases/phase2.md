@@ -4,39 +4,37 @@
 ### Models
 
 ### Controllers
+* Api::GamesController (create)
+* GamesController (update)
+* StaticPagesController (root)
 
 ### Views
-* clue/index.json.jbuilder
-* clue/show.json.jbuilder
 
 ## Flux
 ### Views (React Components)
-* PuzzleGrid
-* DownClues
-* AcrossClues
+* Grid
+* ClueLists
+* ClueSpotlight
+* GameContainer
+* GameToolbar
+* Square
 
 ### Stores
 * Puzzle
-* User
-* Clue
 
 ### Actions
-* ApiActions.receiveSingleSquare
-* ApiActions.receiveWord
-* ApiActions.receiveAllSquares
-* ClueActions.receiveAcrossClues
-* ClueActions.receiveDownClues
+* ApiActions.receivePuzzles
+* ApiActions.receiveGame
+* GameActions.receivePuzzle
+
 
 ### ApiUtil
-* ApiUtil.fetchSingleSquare
-* ApiUtil.fetchWord
-* ApiUtil.fetchAllSquares
-* ApiUtil.fetchAcrossClues
-* ApiUtil.fetchDownClues
-
-fetch all full puzzle 
-fetch all clues
+* ApiUtil.fetchPuzzles
+* ApiUtil.fetchPuzzle
+* ApiUtil.createGame
 
 
 ## Gems/Libraries
 * Flux Dispatcher
+* React.js
+* Bootstrap

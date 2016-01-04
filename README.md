@@ -1,6 +1,6 @@
 # Crossword
 
-[Heroku link][heroku]
+[Heroku link] http://eratopuzzles.io
 
 [heroku]: http://www.herokuapp.com
 
@@ -10,15 +10,15 @@ Erato is a web application that allows users to play interactive crossword puzzl
 
 * Create an account
 * Log in / Log Out
-* Track game performance statistics
 * Select puzzles based on skill level
 * Play crossword puzzles with interactive features:
-  * Check if square, word, or puzzle is correct
-  * Reveal square, word, or puzzle
+  * Check entered letters are correct
+  * Reveal puzzle solution
   * Clear entire puzzle
-  * In-puzzle highlighting of selected clue
-  * 'Pencil' option for educated guesses
+  * In-puzzle highlighting of selected clue and intersecting clue
+  * Clickable clue lists to reposition active square
   * Auto-repositioning of current square for quick solving
+  * Ability to dynamically move through puzzle via variety of key commands
   * Timer showing time-elapsed
 
 ## Design Docs
@@ -43,32 +43,27 @@ In Phase 2 I will work on setting up the Flux architecture, React Router, and th
 
 [Details][phase-two]
 
-### Phase 3: Interactivity (2 Days)
+### Phase 3: Interactivity (3 Days)
 
-Phase 3 will focus on making the game interactive.  There are many conditions to be met here, with each of the 225 squares having unique associations and actions.  Selecting a clue will highlight the corresponding puzzle grid location and show the intersected clue.  As a user types, he or she will be incremented along the word, skipping letters already entered and updating the highlighting of any intersected clues.  I will also implement a 'pencil' mode, where the letters entered by the user and shown in a different color, indicating hesitation about their accuracy.  At the very top will be a timer, indicating the time elapsed.  
+Phase 3 will focus on making the game interactive.  There are many conditions to be met here, with each of the 225 squares having unique associations and actions.  Selecting a clue will highlight the corresponding puzzle grid location and show the intersected clue.  As a user types, he or she will be incremented along the word, skipping letters already entered and updating the highlighting of any intersected clues. Additionally, the user will be able to click on a clue and have all the interactive features auto-update.  At the very top will be a timer, indicating the time elapsed, as well as buttons for reveal, check, and clear.  
 
 [Details][phase-three]
 
-### Phase 4: Check and Reveal (1 day)
+### Phase 4: Homepage (1 day)
 
-Phase 4 is dedicated to adding features to assist the user in solving the puzzles.  A user can choose to reveal or check a single box, word, or the entire puzzle.  This will prevent the win from being counted towards the player's statistics.  I will also add notifications about winning and statistics.  
+Phase 4 will move away from the puzzle page, and focus on the user's homepage, from which he/she can select a puzzle by difficulty.  Puzzle will be marked as new, in-progress, or solved, allowing the user to resume a game or start anew.  
 
 [Details][phase-four]
 
-### Phase 5: Statistics and Homepage (1 day)
+### Phase 5: Styling Cleanup and Seeding (1 day)
 
-Phase 5 will move away from the puzzle page, and focus on the user's homepage, statistics report, and playing history.  There will be features for the user to browse available puzzles, sorting by difficulty.  A user can also select to resume a previously played game.  
-
-[Details][phase-five]
-
-### Phase 6: Styling Cleanup and Seeding (1 day)
-
-Add final touches to styling and improve overall UI as neccessary.  I also will thoroughly seed the database with more puzzles.  Lastly, I want to thoroughly and methodically test the app for both functionality and user acceptance.    
+Add final touches to styling and improve overall UI as neccessary.  I also will seed the database with more puzzles.  Lastly, I want to thoroughly and methodically test the app for both functionality and user acceptance.    
 
 
 ### Bonus Features (TBD)
+* Statistics and metrics reporting
+* Site tour
 * Profile setup and customization for users
-* Advanced statistics and metrics reporting
 * Live stats on other users activity
 * Email confirmation upon signup
 * Dictionary lookup
@@ -77,4 +72,3 @@ Add final touches to styling and improve overall UI as neccessary.  I also will 
 [phase-two]: ./docs/phases/phase2.md
 [phase-three]: ./docs/phases/phase3.md
 [phase-four]: ./docs/phases/phase4.md
-[phase-five]: ./docs/phases/phase5.md
