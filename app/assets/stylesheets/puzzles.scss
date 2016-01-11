@@ -29,6 +29,11 @@ div.puzzle-list-element {
   margin-top: 60px;
 }
 
+div.puzzle-list-element:hover {
+  transform: scale(1.1);
+  color: white;
+}
+
 div.all-puzzle-lists {
   text-align: center;
   width: 100%;
