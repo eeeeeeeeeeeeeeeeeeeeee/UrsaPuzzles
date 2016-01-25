@@ -100,18 +100,17 @@ var PuzzleList = React.createClass({
         counter++;
 
         return (
-                <div className={listElementClass} key={puzzle.id}>
-                  <h3 className="puzzle-list-header">
-                    <Link to={route}
-                          className="puzzle-link"
-                          onClick={that.handleClick.bind(null, puzzle.id)}>
-                      {puzzle.title}
-                      <br/>
-                      <span className="in-progress">  {inProgress}</span>
-                    </Link>
-                  </h3>
-                </div>
-
+                  <div className={listElementClass} key={puzzle.id}>
+                    <h3 className="puzzle-list-header">
+                      <Link to={route}
+                        className="puzzle-link"
+                        onClick={that.handleClick.bind(null, puzzle.id)}>
+                        {puzzle.title}
+                        <br/>
+                        <span className="in-progress">  {inProgress}</span>
+                      </Link>
+                    </h3>
+                  </div>
                 );
       });
     }
