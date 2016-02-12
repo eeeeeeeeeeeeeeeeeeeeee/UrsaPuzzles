@@ -66,6 +66,14 @@ var ClueLists = React.createClass({
       }
     }
 
+    if(across[0]["clue_number"] !== 1) {
+      across.reverse();
+    }
+
+    if(down[0]["clue_number"] !== 1) {
+      down.reverse();
+    }
+
     return {across: across, down: down};
   },
 
@@ -98,6 +106,7 @@ var ClueLists = React.createClass({
   render: function() {
     var acrossClueListItem = "";
     var downClueListItem = "";
+    // debugger
 
     if(this.state.clues.length > 0) {
       var that = this;
