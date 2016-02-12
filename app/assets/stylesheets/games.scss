@@ -193,7 +193,6 @@ ol.crossword-clue-list {
 
 .game-container {
   width: 1035px;
-  height: 1200px;
   font-family: "Times New Roman", Times, serif;
   margin-top: 50px;
   display: inline-block;
@@ -203,6 +202,7 @@ ol.crossword-clue-list {
 .container {
   text-align: center;
   width: 1100px;
+  height: 100vh;
   border-left: 2px solid black;
   border-right: 2px solid black;
   background: white;
