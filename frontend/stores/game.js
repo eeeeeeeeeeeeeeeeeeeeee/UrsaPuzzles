@@ -25,7 +25,7 @@ var _difficulty = "";
 
 
 var GameStore = new Store(AppDispatcher);
-
+window.GameStore = GameStore;
 GameStore.getGame = function () {
   return _game.slice(0);
 };

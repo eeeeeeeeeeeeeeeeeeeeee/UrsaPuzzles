@@ -1,4 +1,5 @@
 var React = require('react');
+var Modal = require('react-modal');
 var GameStore = require('../stores/game');
 var UserStore = require('../stores/user');
 var CurrentSquareStore = require('../stores/current_square');
@@ -30,12 +31,18 @@ function _getCurrentClues() {
   return GameStore.getCurrentClues();
 }
 
+function _getWonStatus() {
+  return GameStore.getWonStatus();
+}
+
 var GameContainer = React.createClass({
   getInitialState: function() {
     return ({ game: _getGame(),
               currentAcrossClue: -1,
               currentDownClue: -1,
-              across: true });
+              across: true,
+              modalIsOpen: false,
+              inPlay: false });
   },
 
   updateClue: function(square) {
@@ -60,9 +67,21 @@ var GameContainer = React.createClass({
     }
   },
 
-  _gameChanged: function(){
+  _gameChanged: function() {
     var across = _getDirection();
-    this.setState({ across: across });
+    var won = _getWonStatus();
+    debugger
+    if(won && this.state.inPlay) {
+       this.setState({ across: across, modalIsOpen: true, inPlay: false });
+    } else if(won) {
+      this.setState({ across: across, inPlay: false });
+    } else {
+      this.setState({ across: across, modalIsOpen: false, inPlay: true });
+    }
+  },
+
+  closeModal: function() {
+    this.setState({ modalIsOpen: false });
   },
 
   componentDidMount: function() {
@@ -80,7 +99,7 @@ var GameContainer = React.createClass({
   render: function() {
     return (
       <div className="outer-container">
-        <div className="container">
+        <div className="play-container">
           <div className="game-container">
             <div className="clues">
               <GameToolbar/>
@@ -100,12 +119,40 @@ var GameContainer = React.createClass({
                   currentAcrossClue={this.state.currentAcrossClue}
                   currentDownClue={this.state.currentDownClue}/>
           </div>
+          <Modal
+            isOpen={this.state.modalIsOpen}
+            onRequestClose={this.closeModal}
+            style={customModalStyle}
+            contentLabel="won-modal"
+          > 
+
+            <h2><i className="fa fa-trophy"></i>  Congratulations!  <i className="fa fa-trophy"></i></h2>
+            <p>You solved this puzzle like a champ!</p>
+            <p>Way to go! </p>
+          </Modal>
         </div>
-
-
       </div>
     );
   }
 });
 
+var customModalStyle = {
+  overlay: {
+    backgroundColor: 'rgba(255, 255, 255, .1)',
+    zIndex: 2,
+    display: 'flex',
+    justifyContent: 'center'
+  },
+  content: {
+    zIndex: 2,
+    width: '500px',
+    height: '400px',
+    position: 'relative',
+    marginTop: 'auto',
+    marginBottom: 'auto'
+  }
+};
+
+
 module.exports = GameContainer;
+
