@@ -93,9 +93,9 @@ var PuzzleList = React.createClass({
 
       var allPuzzleList = this.state.puzzles.map(function(puzzle) {
         if(wonIDs.length > 0 && wonIDs.indexOf(puzzle.id) !== -1) {
-          inProgress = "(solved)";
+          inProgress = "solved";
         } else if(inProgressIDs.length > 0 && inProgressIDs.indexOf(puzzle.id) !== -1) {
-          inProgress = "(in progress)";
+          inProgress = "in progress";
         } else {
           inProgress = "";
         }

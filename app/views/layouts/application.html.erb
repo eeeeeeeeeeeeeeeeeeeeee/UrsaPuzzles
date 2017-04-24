@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Erato Puzzle</title>
+  <title>Ursa Puzzles</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <%= favicon_link_tag 'favicon.png' %>
+  <%= favicon_link_tag 'bear.png' %>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
 </head>
@@ -18,7 +18,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/"><i class="fa fa-puzzle-piece"></i> ERATO Puzzles</a>
+        <a class="navbar-brand" href="/"><%= image_tag("bear-white.png") %></i> URSA Puzzles</a>
       </div>
 
       <% if current_user %>
