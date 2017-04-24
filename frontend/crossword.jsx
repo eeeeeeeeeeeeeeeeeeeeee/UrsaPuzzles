@@ -1,6 +1,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var ReactRouter = require('react-router');
+var History = require('react-router').History;
 
 var root = document.getElementById('content');
 var Router = ReactRouter.Router;
@@ -10,6 +11,7 @@ var IndexRoute = ReactRouter.IndexRoute;
 var Home = require('./components/home');
 var GameContainer = require('./components/game_container');
 var App = React.createClass({
+  mixins: [History],
 
   render: function(){
     return (
