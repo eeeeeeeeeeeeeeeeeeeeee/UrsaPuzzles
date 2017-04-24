@@ -1,10 +1,10 @@
-# Erato Puzzles
+# Ursa Puzzles
 
-[Erato Puzzles] (http://eratopuzzles.io)
+[Ursa Puzzles](http://www.ursapuzzles.com)
 
 ## Minimum Viable Product
 
-Erato Puzzles is a web application that allows users to play interactive crossword puzzles.  Built with Ruby on Rails and React.js, Erato allows users to:
+Ursa Puzzles is a web application that allows users to play interactive crossword puzzles.  Built with Ruby on Rails and React.js, Ersa allows users to:
 
 * Create an account
 * Log in / Log Out

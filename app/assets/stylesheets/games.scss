@@ -194,19 +194,24 @@ ol.crossword-clue-list {
 .game-container {
   width: 1035px;
   font-family: "Times New Roman", Times, serif;
-  margin-top: 50px;
-  display: inline-block;
-  text-align: left;
+  //display: inline-block;
+  //text-align: left;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.container {
-  text-align: center;
+.play-container {
   width: 1100px;
-  height: 100vh;
-  min-height: 1100px;
   border-left: 2px solid black;
   border-right: 2px solid black;
   background: white;
+  height: 100%;
+  min-height: 535px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .game-toolbar {
@@ -260,6 +265,7 @@ ol.crossword-clue-list {
 
 .outer-container {
   background-color: rgba(173,216,230,.3);
+  height: 100%;
 }
 
 div.modal-content {
@@ -307,6 +313,30 @@ button.close:hover {
     -webkit-box-shadow: 1px 1px 3px #000;
     box-shadow: 1px 1px 3px #000;
 }
+
 .close:hover {
     background: #00d9ff;
+}
+
+.ReactModalPortal h2 {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 70px;
+}
+
+.ReactModalPortal p {
+  margin-top: 40px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.close-modal {
+  width: 20px;
+  position: absolute;
+  top: -25px;
+  right: 20px;
+}
+
+.close-modal:hover {
+  cursor: pointer;
 }

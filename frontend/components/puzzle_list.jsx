@@ -4,6 +4,8 @@ var GameStore = require('../stores/game');
 var UserStore = require('../stores/user');
 var ApiUtil = require('../util/api_util');
 var GameActions = require('../actions/game_actions');
+var History = require('react-router').History;
+var LinkedStateMixin = require('react-addons-linked-state-mixin');
 
 var Link = require('react-router').Link;
 
@@ -20,6 +22,8 @@ function _getWonPuzzles() {
 }
 
 var PuzzleList = React.createClass({
+  mixins: [LinkedStateMixin, History],
+
   getInitialState: function() {
     return({puzzles: _getAllPuzzles(),
             inProgress: _getInProgressPuzzles(),
@@ -53,6 +57,7 @@ var PuzzleList = React.createClass({
     } else {
       ApiUtil.createGame({puzzle_id: id});
     }
+    this.history.push('/puzzle/' + id);
   },
 
   sortPuzzlesByDifficulty: function() {
@@ -88,9 +93,9 @@ var PuzzleList = React.createClass({
 
       var allPuzzleList = this.state.puzzles.map(function(puzzle) {
         if(wonIDs.length > 0 && wonIDs.indexOf(puzzle.id) !== -1) {
-          inProgress = "(solved)";
+          inProgress = "solved";
         } else if(inProgressIDs.length > 0 && inProgressIDs.indexOf(puzzle.id) !== -1) {
-          inProgress = "(in progress)";
+          inProgress = "in progress";
         } else {
           inProgress = "";
         }
@@ -100,15 +105,12 @@ var PuzzleList = React.createClass({
         counter++;
 
         return (
-                  <div className={listElementClass} key={puzzle.id}>
+                  <div className={listElementClass} key={puzzle.id} onClick={that.handleClick.bind(null, puzzle.id)}>
                     <h3 className="puzzle-list-header">
-                      <Link to={route}
-                        className="puzzle-link"
-                        onClick={that.handleClick.bind(null, puzzle.id)}>
                         {puzzle.title}
                         <br/>
                         <span className="in-progress">  {inProgress}</span>
-                      </Link>
+
                     </h3>
                   </div>
                 );
