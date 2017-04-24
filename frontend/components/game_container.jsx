@@ -124,8 +124,8 @@ var GameContainer = React.createClass({
             onRequestClose={this.closeModal}
             style={customModalStyle}
             contentLabel="won-modal"
-          > 
-
+          >
+            <p className="close-modal" onClick={this.closeModal}>X</p>
             <h2><i className="fa fa-trophy"></i>  Congratulations!  <i className="fa fa-trophy"></i></h2>
             <p>You solved this puzzle like a champ!</p>
             <p>Way to go! </p>
@@ -138,7 +138,7 @@ var GameContainer = React.createClass({
 
 var customModalStyle = {
   overlay: {
-    backgroundColor: 'rgba(255, 255, 255, .1)',
+    backgroundColor: 'rgba(0, 0, 0, .1)',
     zIndex: 2,
     display: 'flex',
     justifyContent: 'center'
