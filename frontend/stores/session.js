@@ -10,6 +10,10 @@ SessionStore.hasCurrentUser = function() {
   return !!_currentUser;
 };
 
+SessionStore.getCurrentUser = function() {
+  return _currentUser;
+};
+
 SessionStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
     case SessionConstants.LOGIN:

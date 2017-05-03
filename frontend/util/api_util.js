@@ -72,6 +72,16 @@ var ApiUtil = {
         SessionActions.login(data);
       }
     });
+  },
+
+  logout: function(userData) {
+    $.ajax({
+      type: 'DELETE',
+      url: '/session',
+      success: function(data) {
+        SessionActions.logout(data);
+      }
+    });
   }
 };
 

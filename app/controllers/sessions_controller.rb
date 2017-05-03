@@ -19,9 +19,14 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    sign_out
-    # render json: current_user
-    redirect_to root_url
+    user = current_user
+
+    if user
+      sign_out
+      render json: user, status: 200
+		else
+			render json: ["Nobody signed in"], status: 404
+		end
   end
 
 end

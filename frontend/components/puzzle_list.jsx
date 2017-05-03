@@ -7,8 +7,6 @@ var GameActions = require('../actions/game_actions');
 var History = require('react-router').History;
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
 
-var Link = require('react-router').Link;
-
 function _getAllPuzzles() {
   return PuzzleStore.all();
 }
