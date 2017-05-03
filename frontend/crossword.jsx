@@ -10,6 +10,7 @@ var IndexRoute = ReactRouter.IndexRoute;
 var Home = require('./components/home');
 var GameContainer = require('./components/game_container');
 var SessionStore = require('./stores/session');
+var Session = require('./components/session');
 
 var App = React.createClass({
   mixins: [History],
@@ -23,8 +24,6 @@ var App = React.createClass({
   }
 });
 
-var login = () => <div>hi!</div>;
-
 var _ensureLoggedIn = function(nextState, replaceState) {
   if (!SessionStore.isLoggedIn()) {
     replaceState({ nextPathname: nextState.location.pathname }, "/login");
@@ -32,15 +31,15 @@ var _ensureLoggedIn = function(nextState, replaceState) {
 };
 
 var _redirectIfLoggedIn = function(nextState, replaceState) {
-  debugger;
+  console.log("logged in");
 };
 
 
 var routes = (
   <Route path="/" component={App} >
     <IndexRoute component={Home} onEnter={ _ensureLoggedIn } />
-    <Route path="/login" component={login} onEnter={ _redirectIfLoggedIn } />
-    <Route path="/signup" component={login} onEnter={ _redirectIfLoggedIn } />
+    <Route path="/login" component={Session} onEnter={ _redirectIfLoggedIn } />
+    <Route path="/signup" component={Session} onEnter={ _redirectIfLoggedIn } />
     <Route path="puzzle/:id" component={GameContainer} onEnter={ _ensureLoggedIn }/>
   </Route>
 );

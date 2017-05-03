@@ -4,21 +4,84 @@ var ApiUtil = require('../util/api_util');
 
 
 var Session = React.createClass({
+  getInitialState: function() {
+    return ({ username: "", password: "" });
+  },
+
+  // componentDidMount: function() {
+  //   this.sessionListener = SessionStore.addListener(this._sessionChanged);
+  // },
+  //
+  // componentWillUnmount: function() {
+  //   this.sessionListener.remove();
+  // },
+  //
+  // _sessionChanged: function() {
+  //
+  // },
+
+  handleSubmit: function(e) {
+    console.log('submit');
+		// e.preventDefault();
+		// const user = this.state;
+		// this.props.processForm({user});
+	},
+
+  update: function(field) {
+		return function(e) { this.setState({ [field]: e.currentTarget.value }) };
+	},
 
   render: function() {
+    var formLabel = "Log In";
+
+    if(this.props.route.path === "/signup") {
+      formLabel = "Sign Up";
+    }
 
     return (
-      <div className="home-group">
-        <div className="color-band">
-          <div className="welcome-note">
-            Select a day of the week to begin playing!
-            <div className="welcome-note-sub">
-              note: puzzle difficulty increases with each day
-            </div>
+      <div className="user-login-page">
+        <div className="text-center user-login">
+          <div className="explanation">
+            Ursa Puzzles is an interactive crossword-playing web app built with Ruby on Rails and React.js
           </div>
-          <PuzzleList className="puzzle-list"/>
+
+          <div className="sign-up-form">
+            <h1>{ formLabel }</h1>
+            <div className="errors-div"></div>
+
+            <form className="form-group has-feedback" onSubmit={this.handleSubmit} >
+              <div className="input-group">
+                <span className="input-group-addon">
+                  <span className="glyphicon glyphicon-user"></span>
+                </span>
+                <input className="form-control" type="text" placeholder="username" onChange={this.update("username")} />
+              </div>
+
+              <br/>
+
+              <div className="input-group">
+                <span className="input-group-addon">
+                  <span className="glyphicon glyphicon-lock"></span>
+                </span>
+                <input className="form-control" type="password" placeholder="password" onChange={this.update("password")} />
+              </div>
+
+              <br/>
+              <br/>
+
+              <div>
+                <input className="form-control sign-in-button" type="submit" value={ formLabel } />
+              </div>
+
+            </form>
+
+            New user? <a className="user-link" href="/users/new">Create account here.  </a>
+            Or, sign-in as demo user
+          </div>
+
         </div>
       </div>
+
     );
   }
 });
