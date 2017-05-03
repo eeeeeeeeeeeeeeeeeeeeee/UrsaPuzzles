@@ -9,6 +9,12 @@
   <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
 </head>
 <body>
+  <script type="text/javascript">
+    <% if signed_in? %>
+    	window.currentUser = <%= current_user %>;
+    <% end %>
+  </script>
+
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
