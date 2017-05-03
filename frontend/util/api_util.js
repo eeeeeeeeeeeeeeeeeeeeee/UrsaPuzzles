@@ -1,5 +1,6 @@
-var ApiActions = require('../actions/api_actions.js');
-var GameActions = require('../actions/game_actions.js');
+var ApiActions = require('../actions/api_actions');
+var GameActions = require('../actions/game_actions');
+var SessionActions = require('../actions/session_actions');
 
 
 var ApiUtil = {
@@ -50,6 +51,28 @@ var ApiUtil = {
       }
     });
   },
+
+  signUp: function(userData) {
+    $.ajax({
+      type: 'POST',
+      url: '/users',
+      data: { user: userData },
+      success: function(data) {
+        SessionActions.login(data);
+      }
+    });
+  },
+
+  signIn: function(userData) {
+    $.ajax({
+      type: 'POST',
+      url: '/session',
+      data: { user: userData },
+      success: function(data) {
+        SessionActions.login(data);
+      }
+    });
+  }
 };
 
 module.exports = ApiUtil;

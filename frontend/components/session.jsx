@@ -2,33 +2,39 @@ var React = require('react');
 var SessionStore = require('../stores/session');
 var ApiUtil = require('../util/api_util');
 
+var History = require('react-router').History;
+var LinkedStateMixin = require('react-addons-linked-state-mixin');
+var Link = require('react-router').Link;
 
 var Session = React.createClass({
+  mixins: [LinkedStateMixin, History],
+
   getInitialState: function() {
     return ({ username: "", password: "" });
   },
 
-  // componentDidMount: function() {
-  //   this.sessionListener = SessionStore.addListener(this._sessionChanged);
-  // },
-  //
-  // componentWillUnmount: function() {
-  //   this.sessionListener.remove();
-  // },
-  //
-  // _sessionChanged: function() {
-  //
-  // },
+  componentDidMount: function() {
+    this.sessionListener = SessionStore.addListener(this._sessionChanged);
+  },
+
+  componentWillUnmount: function() {
+    this.sessionListener.remove();
+  },
+
+  _sessionChanged: function() {
+    if(SessionStore.hasCurrentUser()) {
+      this.history.push('/');
+    }
+  },
 
   handleSubmit: function(e) {
     console.log('submit');
-		// e.preventDefault();
-		// const user = this.state;
-		// this.props.processForm({user});
+		e.preventDefault();
+    ApiUtil.signUp(this.state);
 	},
 
   update: function(field) {
-		return function(e) { this.setState({ [field]: e.currentTarget.value }) };
+		return function(e) { this.setState({[field]: e.currentTarget.value}) }.bind(this);
 	},
 
   render: function() {

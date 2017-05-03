@@ -4,16 +4,16 @@ var AppDispatcher = require('../dispatcher/dispatcher');
 
 var SessionStore = new Store(AppDispatcher);
 var _currentUser;
-var _authErrors = {};
+var _authErrors = [];
 
-SessionStore.isLoggedIn = function() {
-  return _currentUser;
+SessionStore.hasCurrentUser = function() {
+  return !!_currentUser;
 };
 
 SessionStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
-    case SessionConstants.RECEIVE_CURRENT_USER:
-      _currentUser = payload.data;
+    case SessionConstants.LOGIN:
+      _currentUser = payload.user;
       SessionStore.__emitChange();
       break;
     case SessionConstants.LOGOUT:

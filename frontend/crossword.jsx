@@ -25,13 +25,21 @@ var App = React.createClass({
 });
 
 var _ensureLoggedIn = function(nextState, replaceState) {
-  if (!SessionStore.isLoggedIn()) {
+  debugger
+  if (!window.currentUser && !SessionStore.hasCurrentUser()) {
+    debugger
     replaceState({ nextPathname: nextState.location.pathname }, "/login");
   }
 };
 
 var _redirectIfLoggedIn = function(nextState, replaceState) {
-  console.log("logged in");
+  var user = SessionStore.hasCurrentUser();
+
+
+  debugger
+  if (window.currentUser) {
+    replaceState({ nextPathname: nextState.location.pathname }, "/");
+  }
 };
 
 

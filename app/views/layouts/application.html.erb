@@ -11,7 +11,7 @@
 <body>
   <script type="text/javascript">
     <% if signed_in? %>
-    	window.currentUser = <%= current_user %>;
+    	window.currentUser = "<%= current_user.username %>";
     <% end %>
   </script>
 
