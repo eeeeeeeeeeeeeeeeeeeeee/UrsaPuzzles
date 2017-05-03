@@ -27,6 +27,10 @@ var Session = React.createClass({
     }
   },
 
+  loginDemoUser: function() {
+    ApiUtil.signIn({ username: "Demo User", password: "password" });
+  },
+
   handleSubmit: function(e) {
     console.log('submit');
 		e.preventDefault();
@@ -39,9 +43,20 @@ var Session = React.createClass({
 
   render: function() {
     var formLabel = "Log In";
+    var toggleText = (
+      <div>
+        New user? <Link className="user-link" to="/signup">Create account here.  </Link>
+      Or, sign-in as <span className="user-link" onClick={this.loginDemoUser}>demo user</span>.
+      </div>
+    );
 
     if(this.props.route.path === "/signup") {
       formLabel = "Sign Up";
+      toggleText = (
+        <div>
+          Already have an account? <Link className="user-link" to="/login">Sign in here.  </Link>
+        </div>
+      );
     }
 
     return (
@@ -80,9 +95,7 @@ var Session = React.createClass({
               </div>
 
             </form>
-
-            New user? <a className="user-link" href="/users/new">Create account here.  </a>
-            Or, sign-in as demo user
+            { toggleText }
           </div>
 
         </div>

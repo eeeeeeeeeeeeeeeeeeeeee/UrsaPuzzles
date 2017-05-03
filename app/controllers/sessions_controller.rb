@@ -13,8 +13,8 @@ class SessionsController < ApplicationController
       sign_in(user)
       render json: user
     else
-      flash.now[:errors] = ["Invalid username or password"]
-      render :new
+      # flash.now[:errors] = ["Invalid username or password"]
+      render json: ["Invalid username or password"], status: 404
     end
   end
 
