@@ -6,7 +6,7 @@ var History = require('react-router').History;
 var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 var IndexRoute = ReactRouter.IndexRoute;
-var Link = require('react-router').Link;
+var Link = ReactRouter.Link;
 
 var Home = require('./components/home');
 var GameContainer = require('./components/game_container');
@@ -71,7 +71,6 @@ var _redirectIfLoggedIn = function(nextState, replaceState) {
     replaceState({ nextPathname: nextState.location.pathname }, "/");
   }
 };
-
 
 var routes = (
   <Route path="/" component={App} >

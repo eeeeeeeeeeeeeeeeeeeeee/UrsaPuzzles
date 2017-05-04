@@ -32,7 +32,6 @@ var Session = React.createClass({
   },
 
   handleSubmit: function(e) {
-    console.log('submit');
 		e.preventDefault();
     ApiUtil.signUp(this.state);
 	},

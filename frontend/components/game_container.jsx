@@ -70,7 +70,7 @@ var GameContainer = React.createClass({
   _gameChanged: function() {
     var across = _getDirection();
     var won = _getWonStatus();
-    debugger
+    
     if(won && this.state.inPlay) {
        this.setState({ across: across, modalIsOpen: true, inPlay: false });
     } else if(won) {

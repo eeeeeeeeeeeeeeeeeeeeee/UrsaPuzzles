@@ -158,7 +158,7 @@ var Square = React.createClass({
     if(!_.isEmpty(this.state.acrossCluesAndIndices) && this.props.across) {
       var clueNum = (this.props.currentAcrossClue === -1 ? 1 : this.props.currentAcrossClue);
       wordIndices = this.state.acrossCluesAndIndices[clueNum];
-    } else if (!_.isEmpty(this.state.downCluesAndIndices) && this.props.currentAcrossClue !== -1){
+    } else if (!_.isEmpty(this.state.downCluesAndIndices) && this.props.currentAcrossClue && this.props.currentAcrossClue !== -1){
       wordIndices = this.state.downCluesAndIndices[this.props.currentDownClue];
     }
 
@@ -167,8 +167,7 @@ var Square = React.createClass({
     if(this.state.clueNumber !== null) {
       var className = "grid-square";
       var inputClass = "user-type";
-
-
+      if(!wordIndices) debugger;
       if(this.state.active) {
         className = "grid-square highlight";
       } else if(wordIndices.indexOf(this.props.counter) !== -1) {

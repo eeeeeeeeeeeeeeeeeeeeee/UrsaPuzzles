@@ -55,7 +55,7 @@ var ApiUtil = {
   signUp: function(userData) {
     $.ajax({
       type: 'POST',
-      url: '/users',
+      url: 'api/users',
       data: { user: userData },
       success: function(data) {
         SessionActions.login(data);
@@ -66,7 +66,7 @@ var ApiUtil = {
   signIn: function(userData) {
     $.ajax({
       type: 'POST',
-      url: '/session',
+      url: 'api/session',
       data: { user: userData },
       success: function(data) {
         SessionActions.login(data);
@@ -77,7 +77,7 @@ var ApiUtil = {
   logout: function(userData) {
     $.ajax({
       type: 'DELETE',
-      url: '/session',
+      url: 'api/session',
       success: function(data) {
         SessionActions.logout(data);
       }
