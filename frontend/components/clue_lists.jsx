@@ -121,7 +121,7 @@ var ClueLists = React.createClass({
           className = "clue-list-item";
         }
 
-        key = "A-" + clue.clue_number;
+        var key = "A-" + clue.clue_number;
 
         return ( <li className={className}
                     key={key}
@@ -138,7 +138,7 @@ var ClueLists = React.createClass({
           className = "clue-list-item";
         }
 
-        key = "D-" + clue.clue_number;
+        var key = "D-" + clue.clue_number;
 
         return ( <li className={className}
                     key={key}
