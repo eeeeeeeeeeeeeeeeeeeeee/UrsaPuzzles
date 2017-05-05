@@ -48,7 +48,7 @@ var PuzzleList = React.createClass({
   },
 
   handleClick: function(id, event) {
-    currentGame = UserStore.getPreviousGameState(id);
+    var currentGame = UserStore.getPreviousGameState(id);
     if(currentGame) {
       ApiUtil.fetchPuzzle(id);
       GameActions.receivePreviousGame(currentGame);
