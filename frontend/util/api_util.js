@@ -59,6 +59,9 @@ var ApiUtil = {
       data: { user: userData },
       success: function(data) {
         SessionActions.login(data);
+      },
+      error: function(data) {
+        SessionActions.receiveErrors(JSON.parse(data.responseText));
       }
     });
   },
@@ -70,6 +73,9 @@ var ApiUtil = {
       data: { user: userData },
       success: function(data) {
         SessionActions.login(data);
+      },
+      error: function(data) {
+        SessionActions.receiveErrors(JSON.parse(data.responseText));
       }
     });
   },

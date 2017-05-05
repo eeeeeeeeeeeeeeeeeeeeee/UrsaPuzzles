@@ -17,7 +17,14 @@ var SessionActions = {
 
   receiveErrors: function(errors) {
     AppDispatcher.dispatch({
-      actionType: SessionConstants.RECEIVE_ERRORS
+      actionType: SessionConstants.RECEIVE_ERRORS,
+      data: errors
+    });
+  },
+
+  clearErrors: function() {
+    AppDispatcher.dispatch({
+      actionType: SessionConstants.CLEAR_ERRORS
     });
   }
 

@@ -14,6 +14,10 @@ SessionStore.getCurrentUser = function() {
   return _currentUser;
 };
 
+SessionStore.getErrors = function() {
+  return _authErrors;
+};
+
 SessionStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
     case SessionConstants.LOGIN:
@@ -26,6 +30,10 @@ SessionStore.__onDispatch = function (payload) {
       break;
     case SessionConstants.RECEIVE_ERRORS:
       _authErrors = payload.data;
+      SessionStore.__emitChange();
+      break;
+    case SessionConstants.CLEAR_ERRORS:
+      _authErrors = [];
       SessionStore.__emitChange();
       break;
   }

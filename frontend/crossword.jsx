@@ -26,7 +26,7 @@ var App = React.createClass({
   },
 
   _sessionChanged: function() {
-    if(!SessionStore.hasCurrentUser()) {
+    if(!SessionStore.hasCurrentUser() && this.props.location.pathname !== "/signup") {
       this.history.push('/login');
     }
   },

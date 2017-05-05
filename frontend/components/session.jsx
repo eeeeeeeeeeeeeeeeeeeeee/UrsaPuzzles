@@ -1,6 +1,7 @@
 var React = require('react');
 var SessionStore = require('../stores/session');
 var ApiUtil = require('../util/api_util');
+var SessionActions = require('../actions/session_actions');
 
 var History = require('react-router').History;
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
@@ -10,7 +11,7 @@ var Session = React.createClass({
   mixins: [LinkedStateMixin, History],
 
   getInitialState: function() {
-    return ({ username: "", password: "" });
+    return ({username: "", password: "", errors: []});
   },
 
   componentDidMount: function() {
@@ -22,29 +23,39 @@ var Session = React.createClass({
   },
 
   _sessionChanged: function() {
+    this.setState({errors: SessionStore.getErrors()});
     if(SessionStore.hasCurrentUser()) {
       this.history.push('/');
     }
   },
 
   loginDemoUser: function() {
-    ApiUtil.signIn({ username: "Demo User", password: "password" });
+    ApiUtil.signIn({username: "Demo User", password: "password"});
   },
 
   handleSubmit: function(e) {
 		e.preventDefault();
-    ApiUtil.signUp(this.state);
+
+    if(this.props.location.pathname === "/login") {
+      ApiUtil.signIn(this.state);
+    } else {
+      ApiUtil.signUp(this.state);
+    }
 	},
 
   update: function(field) {
 		return function(e) { this.setState({[field]: e.currentTarget.value}) }.bind(this);
 	},
 
+  handleFormChange: function() {
+    SessionActions.clearErrors();
+  },
+
   render: function() {
     var formLabel = "Log In";
     var toggleText = (
       <div>
-        New user? <Link className="user-link" to="/signup">Create account here.  </Link>
+        New user? <Link className="user-link" to="/signup" onClick={this.handleFormChange}>Create account here.  </Link>
       Or, sign-in as <span className="user-link" onClick={this.loginDemoUser}>demo user</span>.
       </div>
     );
@@ -53,7 +64,7 @@ var Session = React.createClass({
       formLabel = "Sign Up";
       toggleText = (
         <div>
-          Already have an account? <Link className="user-link" to="/login">Sign in here.  </Link>
+          Already have an account? <Link className="user-link" to="/login" onClick={this.handleFormChange}>Sign in here.  </Link>
         </div>
       );
     }
@@ -67,7 +78,10 @@ var Session = React.createClass({
 
           <div className="sign-up-form">
             <h1>{ formLabel }</h1>
-            <div className="errors-div"></div>
+            <div className="errors-div">{this.state.errors.map(function(error, idx) {
+                return <div key={idx} className="single-error">{error}</div>
+              })}
+            </div>
 
             <form className="form-group has-feedback" onSubmit={this.handleSubmit} >
               <div className="input-group">
