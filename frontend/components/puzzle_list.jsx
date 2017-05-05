@@ -87,7 +87,7 @@ var PuzzleList = React.createClass({
 
     if(this.state.puzzles.length !== 0) {
       var inProgress = "";
-      counter = 0;
+      var counter = 0;
 
       var allPuzzleList = this.state.puzzles.map(function(puzzle) {
         if(wonIDs.length > 0 && wonIDs.indexOf(puzzle.id) !== -1) {
