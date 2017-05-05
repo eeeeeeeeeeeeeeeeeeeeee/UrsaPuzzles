@@ -45,10 +45,6 @@ var GameToolbar = React.createClass({
 
   _convertSecondsToTimer: function() {
     var totalSeconds = this.state.timeElapsed;
-    if(totalSeconds > 100000) {
-      this.setState({timeElapsed: 0});
-    }
-
     var seconds = totalSeconds % 60;
     var minutes = Math.floor(totalSeconds / 60);
     var hours = Math.floor(totalSeconds / 3600);

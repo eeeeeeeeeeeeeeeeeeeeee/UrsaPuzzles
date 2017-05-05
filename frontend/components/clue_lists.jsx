@@ -106,7 +106,6 @@ var ClueLists = React.createClass({
   render: function() {
     var acrossClueListItem = "";
     var downClueListItem = "";
-    // debugger
 
     if(this.state.clues.length > 0) {
       var that = this;
