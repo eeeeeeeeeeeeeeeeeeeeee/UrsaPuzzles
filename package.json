@@ -12,18 +12,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/clairekrogers/CrosswordCapstone.git"
+    "url": "git+https://github.com/clairekrogers/UrsaPuzzles.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/clairekrogers/CrosswordCapstone/issues"
+    "url": "https://github.com/clairekrogers/UrsaPuzzles/issues"
   },
-  "homepage": "https://github.com/clairekrogers/CrosswordCapstone#readme",
+  "homepage": "https://github.com/clairekrogers/UrsaPuzzles#readme",
   "dependencies": {
     "babel-core": "^6.3.17",
     "babel-loader": "^6.2.0",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.3.13",
     "flux": "^2.1.1",
     "history": "1.13.x",
