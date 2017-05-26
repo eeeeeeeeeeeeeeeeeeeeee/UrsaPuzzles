@@ -6,7 +6,7 @@ var SessionActions = require('../actions/session_actions');
 var ApiUtil = {
   fetchPuzzles: function() {
     $.ajax({
-      url: 'api/puzzles',
+      url: '/api/puzzles',
       success: function(puzzles) {
         ApiActions.receivePuzzles(puzzles);
       }
@@ -14,9 +14,10 @@ var ApiUtil = {
   },
 
   createGame: function(info) {
+    debugger
     $.ajax({
       type: 'POST',
-      url: 'api/games',
+      url: '/api/games',
       data: { game: info },
       success: function(game) {
         ApiActions.receiveGame(game);
@@ -26,7 +27,7 @@ var ApiUtil = {
 
   fetchUserData: function() {
     $.ajax({
-      url: 'api/users',
+      url: '/api/users',
       success: function(data) {
         ApiActions.receiveUserData(data);
       }
@@ -34,8 +35,9 @@ var ApiUtil = {
   },
 
   fetchPuzzle: function(puzzleId) {
+    debugger
     $.ajax({
-      url: 'api/puzzles/'+puzzleId,
+      url: '/api/puzzles/'+puzzleId,
       success: function(puzzle) {
         GameActions.receivePuzzle(puzzle);
       }
@@ -55,7 +57,7 @@ var ApiUtil = {
   signUp: function(userData) {
     $.ajax({
       type: 'POST',
-      url: 'api/users',
+      url: '/api/users',
       data: { user: userData },
       success: function(data) {
         SessionActions.login(data);
@@ -69,7 +71,7 @@ var ApiUtil = {
   signIn: function(userData) {
     $.ajax({
       type: 'POST',
-      url: 'api/session',
+      url: '/api/session',
       data: { user: userData },
       success: function(data) {
         SessionActions.login(data);
@@ -83,7 +85,7 @@ var ApiUtil = {
   logout: function(userData) {
     $.ajax({
       type: 'DELETE',
-      url: 'api/session',
+      url: '/api/session',
       success: function(data) {
         SessionActions.logout(data);
       }

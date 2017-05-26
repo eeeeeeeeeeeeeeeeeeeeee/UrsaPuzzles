@@ -48,14 +48,14 @@ var PuzzleList = React.createClass({
   },
 
   handleClick: function(id, event) {
-    var currentGame = UserStore.getPreviousGameState(id);
-    if(currentGame) {
-      ApiUtil.fetchPuzzle(id);
-      GameActions.receivePreviousGame(currentGame);
-    } else {
-      ApiUtil.createGame({puzzle_id: id});
-    }
-    this.history.push('/puzzle/' + id);
+    // var currentGame = UserStore.getPreviousGameState(id);
+    // if(currentGame) {
+    //   ApiUtil.fetchPuzzle(id);
+    //   GameActions.receivePreviousGame(currentGame);
+    // } else {
+    //   ApiUtil.createGame({puzzle_id: id});
+    // }
+    this.history.pushState(null, '/puzzle/' + id);
   },
 
   sortPuzzlesByDifficulty: function() {

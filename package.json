@@ -1,7 +1,7 @@
 {
-  "name": "Capstone",
+  "name": "UrsaPuzzles",
   "version": "1.0.0",
-  "description": "[Heroku link][heroku]",
+  "description": "Interactive crossword puzzle player",
   "main": "index.js",
   "directories": {
     "doc": "docs",

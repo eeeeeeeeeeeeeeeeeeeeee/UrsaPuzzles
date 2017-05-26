@@ -2,6 +2,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var ReactRouter = require('react-router');
 var History = require('react-router').History;
+var createHistory = require("history").createHistory;
 
 var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
@@ -15,7 +16,7 @@ var Session = require('./components/session');
 var ApiUtil = require('./util/api_util');
 
 var App = React.createClass({
-  mixins: [History],
+  // mixins: [History],
 
   componentDidMount: function() {
     this.sessionListener = SessionStore.addListener(this._sessionChanged);
@@ -27,7 +28,7 @@ var App = React.createClass({
 
   _sessionChanged: function() {
     if(!SessionStore.hasCurrentUser() && this.props.location.pathname !== "/signup") {
-      this.history.push('/login');
+      this.history.pushState(null, '/login');
     }
   },
 
@@ -50,7 +51,7 @@ var App = React.createClass({
     return (
       <div className="app-container">
         <nav className="navbar navbar-default navbar-fixed-top">
-          <Link className="navbar-brand" to="/"><img src={'assets/bear-white.png'} /> URSA Puzzles</Link>
+          <Link className="navbar-brand" to="/"><img src="<%= asset_path('assets/bear-white.png') %>" /> URSA Puzzles</Link>
           { currentUser }
         </nav>
 
@@ -82,6 +83,9 @@ var routes = (
 );
 
 document.addEventListener("DOMContentLoaded", function() {
-  ReactDOM.render(<Router>{routes}</Router>, document.getElementById('content'));
+  ReactDOM.render(
+    <Router history={ createHistory() } routes={ routes } />,
+    document.getElementById('content')
+  );
 });
 

@@ -25,7 +25,7 @@ var Session = React.createClass({
   _sessionChanged: function() {
     this.setState({errors: SessionStore.getErrors()});
     if(SessionStore.hasCurrentUser()) {
-      this.history.push('/');
+      this.history.pushState(null, '/');
     }
   },
 

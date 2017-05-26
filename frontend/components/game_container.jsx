@@ -37,7 +37,7 @@ function _getWonStatus() {
 
 var GameContainer = React.createClass({
   getInitialState: function() {
-    return ({ game: _getGame(),
+    return ({ game: undefined,
               currentAcrossClue: -1,
               currentDownClue: -1,
               across: true,
@@ -70,14 +70,17 @@ var GameContainer = React.createClass({
   _gameChanged: function() {
     var across = _getDirection();
     var won = _getWonStatus();
-    
+    var game = _
+
     if(won && this.state.inPlay) {
-       this.setState({ across: across, modalIsOpen: true, inPlay: false });
+      this.setState({ across: across, modalIsOpen: true, inPlay: false });
     } else if(won) {
       this.setState({ across: across, inPlay: false });
     } else {
       this.setState({ across: across, modalIsOpen: false, inPlay: true });
     }
+
+    if
   },
 
   closeModal: function() {
@@ -86,6 +89,26 @@ var GameContainer = React.createClass({
 
   componentDidMount: function() {
     this.gameListener = GameStore.addListener(this._gameChanged);
+
+    var puzzleId = this.props.routeParams.id;
+    var currentGame = UserStore.getPreviousGameState(puzzleId);
+
+    if(currentGame) {
+      ApiUtil.fetchPuzzle(puzzleId);
+      GameActions.receivePreviousGame(currentGame);
+      debugger
+    } else {
+      debugger
+      ApiUtil.createGame({puzzle_id: puzzleId});
+    }
+
+    //
+    //
+    // debugger
+    // if(!GameStore.getGame().length > 0) {
+    //   ApiUtil.fetchPuzzle(this.props.routeParams.id)
+    //   GameActions.receivePreviousGame(currentGame);
+    // }
   },
 
   componentWillUnmount: function() {
@@ -97,28 +120,36 @@ var GameContainer = React.createClass({
   },
 
   render: function() {
+    let gameDetails = "";
+    if(this.state.game.length) {
+      debugger
+      gameDetails = (
+        <div className="game-container">
+          <div className="clues">
+            <GameToolbar/>
+            <ClueLists className="clue-lists"
+                       currentAcrossClue={this.state.currentAcrossClue}
+                       currentDownClue={this.state.currentDownClue}
+                       across={this.state.across}/>
+            <ClueSpotlight className="clue-spotlight"
+                           currentAcrossClue={this.state.currentAcrossClue}
+                           currentDownClue={this.state.currentDownClue}
+                           across={this.state.across}/>
+          </div>
+          <Grid game={this.state.game}
+                updateClue={this.updateClue}
+                across={this.state.across}
+                switchDirection={this.switchDirection}
+                currentAcrossClue={this.state.currentAcrossClue}
+                currentDownClue={this.state.currentDownClue}/>
+        </div>
+      );
+    }
+
     return (
       <div className="outer-container">
         <div className="play-container">
-          <div className="game-container">
-            <div className="clues">
-              <GameToolbar/>
-              <ClueLists className="clue-lists"
-                         currentAcrossClue={this.state.currentAcrossClue}
-                         currentDownClue={this.state.currentDownClue}
-                         across={this.state.across}/>
-              <ClueSpotlight className="clue-spotlight"
-                             currentAcrossClue={this.state.currentAcrossClue}
-                             currentDownClue={this.state.currentDownClue}
-                             across={this.state.across}/>
-            </div>
-            <Grid game={this.state.game}
-                  updateClue={this.updateClue}
-                  across={this.state.across}
-                  switchDirection={this.switchDirection}
-                  currentAcrossClue={this.state.currentAcrossClue}
-                  currentDownClue={this.state.currentDownClue}/>
-          </div>
+          { gameDetails }
           <Modal
             isOpen={this.state.modalIsOpen}
             onRequestClose={this.closeModal}

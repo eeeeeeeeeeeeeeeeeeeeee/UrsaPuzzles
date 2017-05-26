@@ -9,6 +9,10 @@ UserStore.getUserId = function() {
 };
 
 UserStore.getPreviousGameState = function(puzzleId) {
+  if(!_userData) {
+    return null;
+  }
+
   for(var i = 0; i < _userData.length; i++) {
     if(_userData[i].puzzle_id === puzzleId)
       return _userData[i];

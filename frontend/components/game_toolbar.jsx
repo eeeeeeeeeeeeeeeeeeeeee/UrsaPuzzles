@@ -4,7 +4,6 @@ var GameStore = require('../stores/game');
 var ApiUtil = require('../util/api_util');
 var GameActions = require('../actions/game_actions');
 
-
 function _getStartTime() {
   return GameStore.getStartTime();
 }
@@ -14,6 +13,7 @@ function _getWonStatus() {
 }
 
 var GameToolbar = React.createClass({
+
   getInitialState: function() {
     var timeElapsed = _getStartTime();
     return { timeElapsed: timeElapsed, title: "" };
@@ -84,7 +84,6 @@ var GameToolbar = React.createClass({
   },
 
   render: function() {
-
     return (
       <div className="game-toolbar">
         <span className="timer-count">{this._convertSecondsToTimer()}</span>

@@ -10,4 +10,5 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :update, :show, :index]
   end
 
+  get "*path", to: "static_pages#root"
 end

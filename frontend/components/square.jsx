@@ -142,7 +142,7 @@ var Square = React.createClass({
 
   handleClick: function() {
     var squareString = "#ut-" + this.props.counter;
-    next = this.props.counter;
+    var next = this.props.counter;
 
     if(this.props.across) {
       next -= 1;
